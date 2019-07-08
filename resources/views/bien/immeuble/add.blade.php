@@ -28,7 +28,7 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="box">
       <div class="box-header with-border">
-        <h4 class="box-title">Formulaire d'ajout nouveau Locataire</h4>
+        <h4 class="box-title">Select Elements</h4>
         <ul class="box-controls pull-right">
          
           <li><a class="box-btn-slide" href="#"></a></li> 
@@ -39,27 +39,98 @@
 
       <form class="form">
           <div class="box-body">
-            <h4 class="box-title text-info"><i class="ti-user mr-15"></i> TYPE DE LOCATAIRE</h4>
+            <h4 class="box-title text-info"><i class="ti-user mr-15"></i>Informations générales</h4>
             <hr class="my-15">
+
             <div class="row">
-              <div class="col-md-5">
-                    <div class="form-group">
-                <label>Type</label>
-                <select class="form-control" id="selectada">
-                <option>Particulier</option>
-                <option>Société / Autre</option>
-                </select>
-              </div>
-              </div>
+               <div class="col-md-6">
+                <div class="form-group">
+
+                <label>IDENTIFIANT  
+                </label>
+                <input type="text" class="form-control" placeholder="Identifiant , Nom unique" >
+                </div>
+                 </div>
+
+                   <div class="col-md-6">
+                <div class="form-group">
+
+                <label>ADRESSE  
+                </label>
+                <input type="text" class="form-control"  >
+                </div>
+                 </div>
             
             </div>
-
-          
-         
-     <div id="particulier"  >
-
-            <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Informations personnelles</h4>
+           
+              <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Description </h4>
             <hr class="my-15">
+
+
+                    <div class="row">
+              <div class="col-md-6">
+              <div class="form-group">
+
+                <label>SUPERFICIE M2
+ 
+                </label>
+                <input type="text" class="form-control" >
+                </div>
+              </div>
+              <div class="col-md-6">
+            <div class="form-group">
+
+                <label>ANNÉE DE CONSTRUCTION 
+                </label>
+                <input type="text" class="form-control"  >
+                </div>
+              </div>
+
+            </div>
+            
+
+
+            <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Biens </h4>
+            <hr class="my-15">
+
+            <div class="row">
+            <div class="col-md-6 col-12">
+          <div class="form-group">
+          <label class="control-label" for="ourField">Label for our field</label>
+<form role="form">
+    <div id="myRepeatingFields">
+        <div class="entry input-group col-xs-3">
+            <input class="form-control" name="fields[]" type="text" placeholder="Placeholder" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-success btn-lg btn-add">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    </button>
+                </span>
+        </div>
+    </div>
+</form>
+<br>
+<small>Press <span class="glyphicon glyphicon-plus gs"></span> for another field</small>
+
+
+    
+          </div>
+          <!-- /.form-group -->
+        </div>
+
+
+            
+
+
+
+             
+              </div>
+
+
+
+   <div id="particulier">
+
+        
 
               <div class="row">
               <div class="col-md-6">
@@ -72,31 +143,14 @@
               </div>
             </div>
 
-               <div class="col-md-3">
+               <div class="col-md-6">
                 <div class="form-group">
 
                 <label>Cin 
                 </label>
                 <input type="text" class="form-control" placeholder="CIN">
                 </div>
-
-
-                
-
-
                  </div>
-
-                 <div class="col-md-3">
-
-                 <div class="form-group">
-                  <label for="exampleInputFile">Image CIN </label>
-
-                  <input type="file" class="form-control"  id="exampleInputFile">
-
-                 
-                </div>
-                </div>
-
 
 
           </div>
@@ -124,9 +178,9 @@
              </div>
 
 
-              <div id="societe" >
-                <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Information société</h4>
-                <hr class="my-15">
+
+                        <div id="societe" >
+    
 
                 <div class="form-group">
 
@@ -160,92 +214,23 @@
 
 
 
-            <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Information de contact</h4>
-            <hr class="my-15">
-                <div class="row">
-              <div class="col-md-6">
 
-                <div class="form-group">
 
-                <label>Email
-                </label>
-                <input type="text" class="form-control" >
-                </div>
-                </div>
-
-                </div>
-
-            <div class="row">
-              <div class="col-md-6">
-              <div class="form-group">
-
-                <label>Telephone 
-                </label>
-                <input type="text" class="form-control" >
-                </div>
-              </div>
-              <div class="col-md-6">
-            <div class="form-group">
-
-                <label>Fax 
-                </label>
-                <input type="text" class="form-control" >
-                </div>
-              </div>
-
-            </div>
-
-              <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Adresse </h4>
-            <hr class="my-15">
-
-                    <div class="row">
-              <div class="col-md-12">
-              <div class="form-group">
-
-                <label>Adresse 
-                </label>
-                <input type="text" class="form-control" >
-                </div>
-              </div>
-           
-            </div>
-
-                    <div class="row">
-              <div class="col-md-6">
-              <div class="form-group">
-
-                <label>Ville 
-                </label>
-                <input type="text" class="form-control" value="Tanger" >
-                </div>
-              </div>
-              <div class="col-md-6">
-            <div class="form-group">
-
-                <label>Pays 
-                </label>
-                <input type="text" class="form-control" value="Maroc" >
-                </div>
-              </div>
-
-            </div>
 
 
 
            
           </div>
           <!-- /.box-body -->
-          
-         <div class="box-footer">
+           <div class="box-footer">
                 <button type="submit" class="btn btn-default">Cancel</button>
                 <button type="submit" class="btn btn-info pull-right">Sign in</button>
-              </div>  
+              </div>   
                 </form>
 
 
       <!-- /.box-header -->
-        
-      <!-- /.box-body -->
+
       </div>
       <!-- /.box -->
         </div> 
@@ -254,11 +239,36 @@
       </div>
       <!-- /.row -->
     </section>
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script type="text/javascript">
+    $(function() {
+    
+
+    $('#listpr').change(function(){
+
+
+        if($('#listpr').val() == 'Nouveau Propriétaire') {
+           $('#id').show();
+            $('#particulier').show(); 
+            $("#selectada").val(1);
+
+          
+        } else {
+           
+              $('#id').hide(); 
+              $('#societe').hide(); 
+               $('#particulier').hide(); 
+        } 
+    });
+});
+
+
+
 
   $(function() {
-    $('#societe').hide(); 
+    
+      $('#societe').hide();  
     $('#selectada').change(function(){
 
         if($('#selectada').val() == 'Particulier') {
@@ -277,8 +287,11 @@
         } 
     });
 });
-</script>
 
+
+
+  
+</script>
 
 
 	@endsection

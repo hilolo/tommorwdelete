@@ -6,12 +6,12 @@
 	<div class="content-header">
 		<div class="d-flex align-items-center">
 			<div class="mr-auto">
-				<h3 class="page-title">Locataires</h3>
+				<h3 class="page-title">Proprietaire</h3>
 				<div class="d-inline-block align-items-center">
 					<nav>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-							<li class="breadcrumb-item active" aria-current="page">Ajouté Locataires</li>
+							<li class="breadcrumb-item active" aria-current="page">Ajouté proprietaire</li>
 						</ol>
 					</nav>
 				</div>
@@ -28,7 +28,7 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="box">
       <div class="box-header with-border">
-        <h4 class="box-title">Formulaire d'ajout nouveau Locataire</h4>
+        <h4 class="box-title">Formulaire d'ajout nouveau proprietaire</h4>
         <ul class="box-controls pull-right">
          
           <li><a class="box-btn-slide" href="#"></a></li> 
@@ -39,7 +39,7 @@
 
       <form class="form">
           <div class="box-body">
-            <h4 class="box-title text-info"><i class="ti-user mr-15"></i> TYPE DE LOCATAIRE</h4>
+            <h4 class="box-title text-info"><i class="ti-user mr-15"></i> Type de proprietaire</h4>
             <hr class="my-15">
             <div class="row">
               <div class="col-md-5">

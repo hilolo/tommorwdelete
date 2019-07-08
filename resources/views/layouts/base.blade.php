@@ -12,6 +12,11 @@
     
 	<!-- Bootstrap 4.0-->
   <link rel="stylesheet" href="../../assets/vendor_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Data Table-->
+  <link rel="stylesheet" type="text/css" href="../../assets/vendor_components/datatable/datatables.min.css"/>
+  
+
   
   <!-- Bootstrap extend-->
   <link rel="stylesheet" href="../css/bootstrap-extend.css">
@@ -484,5 +489,18 @@
   
   <!-- Superieur Admin for advanced form element -->
   <script src="../js/pages/advanced-form-element.js"></script>
+
+
+  <!-- This is data table -->
+    <script src="../../assets/vendor_components/datatable/datatables.min.js"></script>
+  
+  <!-- Superieur Admin for Data Table -->
+  <script src="../js/pages/data-table.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.repeater/1.2.1/jquery.repeater.js"></script>
+
+
+
+
 </body>
 </html>

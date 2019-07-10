@@ -253,7 +253,7 @@
 
 
       <!-- /.box-header -->
-    .box-body -->
+    
       </div>
       <!-- /.box -->
         </div> 

@@ -2,6 +2,26 @@
 
 @section('content')
 
+<style type="text/css">
+  
+
+  .entry .select2{
+
+
+    margin-top: 20px;
+  }
+
+
+  .qa{
+
+
+    margin-top: 20px;
+  }
+
+
+
+
+</style>
 
 	<div class="content-header">
 		<div class="d-flex align-items-center">
@@ -19,6 +39,8 @@
 		
 		</div>
 	</div>
+
+
 
 <section class="content">
     
@@ -82,6 +104,7 @@
 
                 <label>ANNÉE DE CONSTRUCTION 
                 </label>
+
                 <input type="text" class="form-control"  >
                 </div>
               </div>
@@ -94,31 +117,86 @@
             <hr class="my-15">
 
             <div class="row">
-            <div class="col-md-6 col-12">
-          <div class="form-group">
-          <label class="control-label" for="ourField">Label for our field</label>
-<form role="form">
-    <div id="myRepeatingFields">
-        <div class="entry input-group col-xs-3">
-            <input class="form-control" name="fields[]" type="text" placeholder="Placeholder" />
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-success btn-lg btn-add">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                    </button>
-                </span>
-        </div>
-    </div>
-</form>
-<br>
-<small>Press <span class="glyphicon glyphicon-plus gs"></span> for another field</small>
 
+            <div class="col-md-6 col-12">
+       
+    
+        <div class="entry  form-group col-xs-3 input"   id="rept" >
+
+        
+          
+        
+
+                <select  class="form-control select2" style="width: 100%;">
+            <option selected="selected">Alaska</option>
+            <option>Delaware</option>
+            <option>Tennessee</option>
+            <option>Texas</option>
+            <option>Washington</option>
+          </select>
+
+
+              
+
+      
+         </div>
+
+
+      
+
+
+    <div id="additionalselects">
+</div>
 
     
+          <!-- /.form-group -->
+        </div>
+
+          <div class="col-md-6 col-12">
+               <a class="btn btn-success btn-md btn-add add pull-left qa" href="#">  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                  </div>
+
+
+         
+
+           
+
+
+
+             
+              </div>
+
+              <br><br>
+
+               <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Propriétaire </h4>
+            <hr class="my-15">
+
+            <div class="row">
+            <div class="col-md-6 col-12">
+          <div class="form-group">
+          <label>List Propriétaire</label>
+          <select id="listpr" class="form-control select2" style="width: 100%;">
+            <option selected="selected">Nouveau Propriétaire</option>
+            <option>Alaska</option>
+            <option>Delaware</option>
+            <option>Tennessee</option>
+            <option>Texas</option>
+            <option>Washington</option>
+          </select>
           </div>
           <!-- /.form-group -->
         </div>
 
 
+                      <div id="id" class="col-md-6 col-12">
+                    <div class="form-group">
+                <label>Type</label>
+                <select class="form-control" id="selectada">
+                <option value="1">Particulier</option>
+                <option value="2">Société / Autre</option>
+                </select>
+              </div>
+              </div>
             
 
 
@@ -126,9 +204,7 @@
              
               </div>
 
-
-
-   <div id="particulier">
+   <div id="particulier"  >
 
         
 
@@ -213,6 +289,8 @@
                 </div>
 
 
+                     
+
 
 
 
@@ -244,6 +322,7 @@
 <script type="text/javascript">
     $(function() {
     
+
 
     $('#listpr').change(function(){
 
@@ -290,8 +369,40 @@
 
 
 
+
+  $(function() {
+  $(".add").click(function() {
+        $("#rept").clone()
+            .removeAttr("id")
+            .append( $('   <a class="btn btn-danger btn-xs btn-add delete pull-left form-control" href="#">  <span class="glyphicon glyphicon-ban-circle " style="top:8px;" aria-hidden="true"></span></a>     ') )
+            .appendTo("#additionalselects");
+
+      
+         $('.select2-container').remove();
+        $('.select2').select2({
+           
+        });
+
+
+    });
+    $("body").on('click',".delete", function() {
+        $(this).closest(".input").remove();
+
+
+
+    });
+
+    });
+
+
   
 </script>
 
 
+
+
 	@endsection
+
+
+       
+       

@@ -2,36 +2,16 @@
 
 @section('content')
 
-<style type="text/css">
-  
-
-  .entry .select2{
-
-
-    margin-top: 20px;
-  }
-
-
-  .qa{
-
-
-    margin-top: 20px;
-  }
-
-
-
-
-</style>
 
 	<div class="content-header">
 		<div class="d-flex align-items-center">
 			<div class="mr-auto">
-				<h3 class="page-title">Locataires</h3>
+				<h3 class="page-title">Proprietaire</h3>
 				<div class="d-inline-block align-items-center">
 					<nav>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-							<li class="breadcrumb-item active" aria-current="page">Ajouté Locataires</li>
+							<li class="breadcrumb-item active" aria-current="page">Ajouté proprietaire</li>
 						</ol>
 					</nav>
 				</div>
@@ -39,8 +19,6 @@
 		
 		</div>
 	</div>
-
-
 
 <section class="content">
     
@@ -50,7 +28,7 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="box">
       <div class="box-header with-border">
-        <h4 class="box-title">Select Elements</h4>
+        <h4 class="box-title">Formulaire d'ajout nouveau Reservation</h4>
         <ul class="box-controls pull-right">
          
           <li><a class="box-btn-slide" href="#"></a></li> 
@@ -61,74 +39,16 @@
 
       <form class="form">
           <div class="box-body">
-            <h4 class="box-title text-info"><i class="ti-user mr-15"></i>Informations générales</h4>
+            <h4 class="box-title text-info"><i class="ti-user mr-15"></i> Bien loué</h4>
             <hr class="my-15">
-
             <div class="row">
-               <div class="col-md-6">
-                <div class="form-group">
-
-                <label>IDENTIFIANT  
-                </label>
-                <input type="text" class="form-control" placeholder="Identifiant , Nom unique" >
-                </div>
-                 </div>
-
-                   <div class="col-md-6">
-                <div class="form-group">
-
-                <label>ADRESSE  
-                </label>
-                <input type="text" class="form-control"  >
-                </div>
-                 </div>
-            
-            </div>
-           
-              <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Description </h4>
-            <hr class="my-15">
+              <div class="col-md-5">
+                    <div class="form-group">
+                <label>Bien</label>
 
 
-                    <div class="row">
-              <div class="col-md-6">
-              <div class="form-group">
-
-                <label>SUPERFICIE M2
- 
-                </label>
-                <input type="text" class="form-control" >
-                </div>
-              </div>
-              <div class="col-md-6">
-            <div class="form-group">
-
-                <label>ANNÉE DE CONSTRUCTION 
-                </label>
-
-                <input type="text" class="form-control"  >
-                </div>
-              </div>
-
-            </div>
-            
-
-
-            <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Biens </h4>
-            <hr class="my-15">
-
-            <div class="row">
-
-            <div class="col-md-6 col-12">
-       
-    
-        <div class="entry  form-group col-xs-3 input"   id="rept" >
-
-        
-          
-        
-
-                <select  class="form-control select2" style="width: 100%;">
-            <option selected="selected">Alaska</option>
+               <select  class="form-control select2" style="width: 100%;">
+            <option>Alaska</option>
             <option>Delaware</option>
             <option>Tennessee</option>
             <option>Texas</option>
@@ -136,39 +56,14 @@
           </select>
 
 
-              
-
-      
-         </div>
-
-
-      
-
-
-    <div id="additionalselects">
-</div>
-
-    
-          <!-- /.form-group -->
-        </div>
-
-          <div class="col-md-6 col-12">
-               <a class="btn btn-success btn-md btn-add add pull-left qa" href="#">  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-                  </div>
-
-
-         
-
-           
-
-
-
-             
               </div>
+              </div>
+            
+            </div>
 
-              <br><br>
-
-               <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Propriétaire </h4>
+          
+      
+            <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Propriétaire </h4>
             <hr class="my-15">
 
             <div class="row">
@@ -289,7 +184,141 @@
                 </div>
 
 
-                     
+                 <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Détails de la location </h4>
+            <hr class="my-15">
+
+
+                  <div class="row">
+              <div class="col-md-6">
+              <div class="form-group">
+
+                <label>Type 
+                </label>
+               
+
+
+
+
+                 <select class="form-control">
+                <option>Bail d'habitation vide</option>
+                <option>Bail d'habitation meublé </option>
+            
+                </select>
+                </div>
+
+
+
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                <label>Date and time range:</label>
+
+               
+                
+
+                 
+
+                 <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control pull-right" name="datetimes">
+
+                  
+
+                </div> 
+
+
+                <!-- /.input group -->
+             
+                <!-- /.input group -->
+              </div>
+              </div>
+
+            </div>
+
+
+
+                <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Paiment  </h4>
+            <hr class="my-15">
+
+             <div class="row">
+              <div class="col-md-6">
+              <div class="form-group">
+
+                <label>PAIEMENT
+ 
+                </label>
+               
+
+
+
+
+                 <select class="form-control">
+                <option>Mensuel </option>
+                <option>Trimestriel </option>
+                  <option>Annuel </option>
+                    <option>Forfaitaire </option>
+            
+                </select>
+                </div>
+
+
+
+              </div>
+
+            
+
+            </div>
+
+
+
+             <div class="row">
+              <div class="col-md-6">
+              <div class="form-group">
+
+                <label>MOYEN DE PAIEMENT
+ 
+                </label>
+               
+
+
+
+
+                 <select class="form-control">
+                <option>Espèce </option>
+                <option>Chèque </option>
+                  <option>Virement </option>
+                    <option>Prélèvement automatique </option>
+            
+                </select>
+                </div>
+
+
+
+              </div>
+
+            
+
+            </div>
+
+               <div class="row">
+              <div class="col-md-6">
+            <div class="form-group ">
+              <label>MOYEN DE PAIEMENT
+ 
+                </label>
+                   <div class="form-group">
+              <input class="form-control" type="number" min="1" max="31" step="1" value="5" id="example-number-input">
+                    </div>
+            </div>
+             </div>
+              </div>
+
+
+
+
 
 
 
@@ -300,15 +329,17 @@
            
           </div>
           <!-- /.box-body -->
-           <div class="box-footer">
+          
+         <div class="box-footer">
                 <button type="submit" class="btn btn-default">Cancel</button>
                 <button type="submit" class="btn btn-info pull-right">Sign in</button>
-              </div>   
+              </div>  
                 </form>
 
 
       <!-- /.box-header -->
-
+        
+      <!-- /.box-body -->
       </div>
       <!-- /.box -->
         </div> 
@@ -317,10 +348,9 @@
       </div>
       <!-- /.row -->
     </section>
-
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script type="text/javascript">
-        $(function() {
+    $(function() {
     
 
     $('#listpr').change(function(){
@@ -344,7 +374,7 @@
 
       $('#societe').hide();  
     $('#selectada').change(function(){
-      alert($('#selectada').val());
+  
 
         if($('#selectada').val() == '1') {
         
@@ -367,38 +397,20 @@
 
 
   $(function() {
-  $(".add").click(function() {
-        $("#rept").clone()
-            .removeAttr("id")
-            .append( $('   <a class="btn btn-danger btn-xs btn-add delete pull-left form-control" href="#">  <span class="glyphicon glyphicon-ban-circle " style="top:8px;" aria-hidden="true"></span></a>     ') )
-            .appendTo("#additionalselects");
 
-      
-         $('.select2-container').remove();
-        $('.select2').select2({
-           
-        });
+  $('input[name="datetimes"]').daterangepicker({
+
+    "autoApply": true,
+
+});
 
 
-    });
-    $("body").on('click',".delete", function() {
-        $(this).closest(".input").remove();
+});
 
 
 
-    });
-
-    });
-
-
-  
 </script>
 
 
 
-
 	@endsection
-
-
-       
-       

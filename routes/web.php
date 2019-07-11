@@ -16,8 +16,9 @@ Route::get('/', function () {
 });
 
 Route::get('/qa', function () {
-    return view('bien.immeuble.add');
+    return view('location.add');
 }) ;
+
 
 Auth::routes();
 

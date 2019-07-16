@@ -55,6 +55,12 @@
   <link rel="stylesheet" href="../css/skins/_all-skins.css">
 
 
+
+
+
+
+
+
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -437,7 +443,7 @@
   <script src="../../assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js"></script>
   
   <!-- popper -->
-  <script src="../../assets/vendor_components/popper/dist/popper.min.js"></script>
+
   
   <!-- Bootstrap 4.1-->
   <script src="../../assets/vendor_components/bootstrap/dist/js/bootstrap.min.js"></script>

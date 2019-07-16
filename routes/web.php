@@ -16,6 +16,10 @@ Route::get('/', function () {
 });
 
 Route::get('/qa', function () {
+    return view('location.dropzone');
+}) ;
+
+Route::get('/qaa', function () {
     return view('location.add');
 }) ;
 

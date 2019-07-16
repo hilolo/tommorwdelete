@@ -1,6 +1,17 @@
 	@extends('layouts.base')
 
 @section('content')
+<style type="text/css">
+  #dropzone {
+    min-height: 150px;
+    border: 2px dashed  rgb(38, 47, 160)
+  }
+
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
 
 
 	<div class="content-header">
@@ -28,7 +39,7 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="box">
       <div class="box-header with-border">
-        <h4 class="box-title">Formulaire d'ajout nouveau Reservation</h4>
+        <h4 class="box-title">Formulaire d'ajout nouveau Location</h4>
         <ul class="box-controls pull-right">
          
           <li><a class="box-btn-slide" href="#"></a></li> 
@@ -37,8 +48,7 @@
 
 
 
-      <form class="form">
-          <div class="box-body">
+              <div class="box-body">
             <h4 class="box-title text-info"><i class="ti-user mr-15"></i> Bien loué</h4>
             <hr class="my-15">
             <div class="row">
@@ -318,6 +328,25 @@
 
 
 
+                <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Contrat  </h4>
+            <hr class="my-15">
+
+
+                 <div class="row">
+              <div class="col-md-6">
+
+            
+        <form method="post" action="{{url('image/upload/store')}}" enctype="multipart/form-data" 
+                  class="dropzone" id="dropzone">
+    @csrf
+    
+      <div class="dz-message bold" data-dz-message><span style="font-weight:bold; ">Contrat PDF </span></div>
+</form> 
+
+
+            
+             </div>
+              </div>
 
 
 
@@ -334,7 +363,8 @@
                 <button type="submit" class="btn btn-default">Cancel</button>
                 <button type="submit" class="btn btn-info pull-right">Sign in</button>
               </div>  
-                </form>
+                
+
 
 
       <!-- /.box-header -->
@@ -348,6 +378,42 @@
       </div>
       <!-- /.row -->
     </section>
+
+
+
+    
+
+
+   
+
+
+
+<script type="text/javascript">
+        Dropzone.options.dropzone =
+         {
+            maxFilesize: 12,
+            renameFile: function(file) {
+                var dt = new Date();
+                var time = dt.getTime();
+               return time+file.name;
+            },
+            acceptedFiles: ".jpeg,.jpg,.png,.gif,.pdf",
+            addRemoveLinks: true,
+            timeout: 5000,
+            success: function(file, response) 
+            {
+                console.log(response);
+            },
+            error: function(file, response)
+            {
+               return false;
+            }
+};
+</script>
+
+
+
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script type="text/javascript">
     $(function() {
@@ -409,7 +475,13 @@
 
 
 
+
+
+
 </script>
+
+
+
 
 
 

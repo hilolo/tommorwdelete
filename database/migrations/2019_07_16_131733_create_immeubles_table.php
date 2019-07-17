@@ -14,7 +14,12 @@ class CreateImmeublesTable extends Migration
     public function up()
     {
         Schema::create('immeubles', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->Increments('id');
+            $table->string('nom_immeuble')->nullable();
+            $table->string('adresseimm')->nullable();
+            $table->integer('superficie')->nullable();
+            $table->integer('locataires_id')->unsigned();
+            $table->foreign('locataires_id')->references('id')->on('locataires');
             $table->timestamps();
         });
     }

@@ -14,7 +14,14 @@ class CreateBiensTable extends Migration
     public function up()
     {
         Schema::create('biens', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->Increments('id');
+            $table->integer('type');
+            $table->string('Ref')->nullable();
+            $table->string('adresse')->nullable();
+            $table->string('ville')->nullable();
+            $table->string('pays')->nullable();
+            $table->integer('locataires_id')->unsigned();
+            $table->foreign('locataires_id')->references('id')->on('locataires');
             $table->timestamps();
         });
     }

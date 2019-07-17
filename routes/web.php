@@ -16,11 +16,11 @@ Route::get('/', function () {
 });
 
 Route::get('/qa', function () {
-    return view('location.dropzone');
+    return view('location.add');
 }) ;
 
 Route::get('/qaa', function () {
-    return view('location.add');
+    return view('reservation.add');
 }) ;
 
 

@@ -14,7 +14,23 @@ class CreateReservationsTable extends Migration
     public function up()
     {
         Schema::create('reservations', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->Increments('id');
+
+            
+            $table->integer('biens_id')->unsigned();
+            $table->foreign('biens_id')->references('id')->on('biens');
+            $table->integer('locataires_id')->unsigned();
+            $table->foreign('locataires_id')->references('id')->on('locataires');
+
+            $table->integer('type_bail')->nullable();
+            $table->date('date_debutbail');
+            $table->date('date_finbail');
+
+            $table->string('paiment_methode')->nullable();
+            $table->string('moyen_paiment')->nullable();
+            $table->string('paiment_jour')->nullable();
+
+
             $table->timestamps();
         });
     }

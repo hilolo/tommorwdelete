@@ -8,6 +8,7 @@ class CreateLocatairesTable extends Migration
 {
     /**
      * Run the migrations.
+    
      *
      * @return void
      */
@@ -20,14 +21,14 @@ class CreateLocatairesTable extends Migration
             $table->string('prenom')->nullable();
             $table->string('nom')->nullable();
             $table->string('cin')->nullable();
+            $table->string('cinpath')->nullable();
 
 
 
              $table->string('societe')->nullable();
              $table->string('ice')->nullable();
              $table->string('profession')->nullable();
-             $table->string('cinpath')->nullable();
-
+       
 
              $table->string('email')->nullable();
              $table->string('tel')->nullable();

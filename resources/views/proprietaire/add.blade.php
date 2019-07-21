@@ -37,7 +37,8 @@
 
 
 
-      <form class="form">
+      <form class="form" method="POST" action="/insertproprietaire" enctype="multipart/form-data" >
+        {{ csrf_field() }}
           <div class="box-body">
             <h4 class="box-title text-info"><i class="ti-user mr-15"></i> Type de proprietaire</h4>
             <hr class="my-15">
@@ -45,9 +46,9 @@
               <div class="col-md-5">
                     <div class="form-group">
                 <label>Type</label>
-                <select class="form-control" id="selectada">
-                <option>Particulier</option>
-                <option>Société / Autre</option>
+                <select class="form-control" name="type" id="selectada">
+                <option value="1">Particulier</option>
+                <option  value="2">Société / Autre</option>
                 </select>
               </div>
               </div>
@@ -65,9 +66,9 @@
               <div class="col-md-6">
               <div class="form-group">
                 <label>Civilité</label>
-                <select class="form-control">
-                <option>Monsieur</option>
-                <option>Madame</option>
+                <select class="form-control" name="civilite">
+                <option value="Monsieur">Monsieur</option>
+                <option value="Madame">Madame</option>
                 </select>
               </div>
             </div>
@@ -77,7 +78,7 @@
 
                 <label>Cin 
                 </label>
-                <input type="text" class="form-control" placeholder="CIN">
+                <input type="text"  name="cin" class="form-control" placeholder="CIN">
                 </div>
 
 
@@ -91,7 +92,7 @@
                  <div class="form-group">
                   <label for="exampleInputFile">Image CIN </label>
 
-                  <input type="file" class="form-control"  id="exampleInputFile">
+                  <input type="file" name="file" class="form-control"  id="exampleInputFile">
 
                  
                 </div>
@@ -108,7 +109,7 @@
 
                 <label>Prenom 
                 </label>
-                <input type="text" class="form-control" >
+                <input type="text" name="prenom" class="form-control" >
                 </div>
               </div>
               <div class="col-md-6">
@@ -116,7 +117,7 @@
 
                 <label>Nom 
                 </label>
-                <input type="text" class="form-control" >
+                <input type="text" name="nom" class="form-control" >
                 </div>
               </div>
 
@@ -132,7 +133,7 @@
 
                 <label>SOCIÉTÉ *
                 </label>
-                <input type="text" class="form-control" placeholder="Company Nom">
+                <input type="text" name="societe" class="form-control" placeholder="Company Nom">
                 </div>
 
                 <div class="row">
@@ -140,9 +141,9 @@
 
                 <div class="form-group">
 
-                <label>NO. TVA
+                <label>ICE
                 </label>
-                <input type="text" class="form-control" placeholder="Numero TVA">
+                <input type="text" name="ice" class="form-control" placeholder="Numero ICE">
                 </div>
                 </div>
                 <div class="col-md-6">
@@ -151,7 +152,7 @@
 
                 <label>PROFESSION
                 </label>
-                <input type="text" class="form-control" placeholder="Ex : Dentiste">
+                <input type="text" name="profession" class="form-control" placeholder="Ex : Dentiste">
                 </div>
                 </div>
 
@@ -169,7 +170,7 @@
 
                 <label>Email
                 </label>
-                <input type="text" class="form-control" >
+                <input type="text" name="email" class="form-control" >
                 </div>
                 </div>
 
@@ -181,7 +182,7 @@
 
                 <label>Telephone 
                 </label>
-                <input type="text" class="form-control" >
+                <input type="text" name="tele" class="form-control" >
                 </div>
               </div>
               <div class="col-md-6">
@@ -189,7 +190,7 @@
 
                 <label>Fax 
                 </label>
-                <input type="text" class="form-control" >
+                <input type="text" name="fax" class="form-control" >
                 </div>
               </div>
 
@@ -204,7 +205,7 @@
 
                 <label>Adresse 
                 </label>
-                <input type="text" class="form-control" >
+                <input type="text" name="adrs" class="form-control" >
                 </div>
               </div>
            
@@ -216,7 +217,7 @@
 
                 <label>Ville 
                 </label>
-                <input type="text" class="form-control" value="Tanger" >
+                <input type="text" name="ville" class="form-control" value="Tanger" >
                 </div>
               </div>
               <div class="col-md-6">
@@ -224,7 +225,7 @@
 
                 <label>Pays 
                 </label>
-                <input type="text" class="form-control" value="Maroc" >
+                <input type="text" name="pays"  class="form-control" value="Maroc" >
                 </div>
               </div>
 
@@ -237,10 +238,12 @@
           <!-- /.box-body -->
           
          <div class="box-footer">
-                <button type="submit" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-info pull-right">Sign in</button>
+                <button  class="btn btn-default">Cancel</button>
+                <button type="submite" class="btn btn-info pull-right">Sign in</button>
               </div>  
                 </form>
+
+                 
 
 
       <!-- /.box-header -->
@@ -261,7 +264,7 @@
     $('#societe').hide(); 
     $('#selectada').change(function(){
 
-        if($('#selectada').val() == 'Particulier') {
+        if($('#selectada').val() == '1') {
         
              $('#societe').hide(); 
               $('#particulier').show(); 

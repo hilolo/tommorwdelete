@@ -11,48 +11,48 @@
     <title>Superieur Admin - Dashboard</title>
     
 	<!-- Bootstrap 4.0-->
-  <link rel="stylesheet" href="../../assets/vendor_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ asset('../../assets/vendor_components/bootstrap/dist/css/bootstrap.min.css') }}">
 
     <!-- Data Table-->
-  <link rel="stylesheet" type="text/css" href="../../assets/vendor_components/datatable/datatables.min.css"/>
+  <link rel="stylesheet" type="text/css" href="{{ asset('../../assets/vendor_components/datatable/datatables.min.css') }}"/>
   
 
   
   <!-- Bootstrap extend-->
-  <link rel="stylesheet" href="../css/bootstrap-extend.css">
+  <link rel="stylesheet" href="{{ asset('../css/bootstrap-extend.css') }}">
   
   <!-- daterange picker --> 
-  <link rel="stylesheet" href="../../assets/vendor_components/bootstrap-daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="{{ asset('../../assets/vendor_components/bootstrap-daterangepicker/daterangepicker.css') }}">
   
   <!-- bootstrap datepicker --> 
-  <link rel="stylesheet" href="../../assets/vendor_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="{{ asset('../../assets/vendor_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
   
   <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="../../assets/vendor_plugins/iCheck/all.css">
+  <link rel="stylesheet" href="{{ asset('../../assets/vendor_plugins/iCheck/all.css') }}">
   
   <!-- Bootstrap Color Picker -->
-  <link rel="stylesheet" href="../../assets/vendor_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+  <link rel="stylesheet" href="{{ asset('../../assets/vendor_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
   
   <!-- Bootstrap time Picker -->
-  <link rel="stylesheet" href="../../assets/vendor_plugins/timepicker/bootstrap-timepicker.min.css">
+  <link rel="stylesheet" href="{{ asset('../../assets/vendor_plugins/timepicker/bootstrap-timepicker.min.css') }}">
   
   <!-- Bootstrap select -->
-  <link rel="stylesheet" href="../../assets/vendor_components/bootstrap-select/dist/css/bootstrap-select.css">
+  <link rel="stylesheet" href="{{ asset('../../assets/vendor_components/bootstrap-select/dist/css/bootstrap-select.css') }}">
   
   <!-- Bootstrap tagsinput -->
-  <link rel="stylesheet" href="../../assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
+  <link rel="stylesheet" href="{{ asset('../../assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
   
   <!-- Bootstrap touchspin -->
-  <link rel="stylesheet" href="../../assets/vendor_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css">
+  <link rel="stylesheet" href="{{ asset('../../assets/vendor_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css') }}">
   
   <!-- Select2 -->
-  <link rel="stylesheet" href="../../assets/vendor_components/select2/dist/css/select2.min.css">
+  <link rel="stylesheet" href="{{ asset('../../assets/vendor_components/select2/dist/css/select2.min.css') }}">
 
   <!-- Theme style -->
-  <link rel="stylesheet" href="../css/master_style.css">
+  <link rel="stylesheet" href="{{ asset('../css/master_style.css') }}">
 
   <!-- Superieur Admin skins -->
-  <link rel="stylesheet" href="../css/skins/_all-skins.css">
+  <link rel="stylesheet" href="{{ asset('../css/skins/_all-skins.css') }}">
 
 
 
@@ -440,68 +440,68 @@
 	  
 	
   <!-- jQuery 3 -->
-  <script src="../../assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js"></script>
+  <script src="{{ asset('../../assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js') }}"></script>
   
   <!-- popper -->
 
   
   <!-- Bootstrap 4.1-->
-  <script src="../../assets/vendor_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="{{ asset('../../assets/vendor_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
   
   <!-- Bootstrap Select -->
-  <script src="../../assets/vendor_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+  <script src="{{ asset('../../assets/vendor_components/bootstrap-select/dist/js/bootstrap-select.js') }}"></script>
   
   <!-- Bootstrap tagsinput -->
-  <script src="../../assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
+  <script src="{{ asset('../../assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js') }}"></script>
   
   <!-- Bootstrap touchspin -->
-  <script src="../../assets/vendor_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+  <script src="{{ asset('../../assets/vendor_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js') }}"></script>
   
   <!-- Select2 -->
-  <script src="../../assets/vendor_components/select2/dist/js/select2.full.js"></script>
+  <script src="{{ asset('../../assets/vendor_components/select2/dist/js/select2.full.js') }}"></script>
   
   <!-- InputMask -->
-  <script src="../../assets/vendor_plugins/input-mask/jquery.inputmask.js"></script>
-  <script src="../../assets/vendor_plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-  <script src="../../assets/vendor_plugins/input-mask/jquery.inputmask.extensions.js"></script>
+  <script src="{{ asset('../../assets/vendor_plugins/input-mask/jquery.inputmask.js') }}"></script>
+  <script src="{{ asset('../../assets/vendor_plugins/input-mask/jquery.inputmask.date.extensions.js') }}"></script>
+  <script src="{{ asset('../../assets/vendor_plugins/input-mask/jquery.inputmask.extensions.js') }}"></script>
   
   <!-- date-range-picker -->
-  <script src="../../assets/vendor_components/moment/min/moment.min.js"></script>
-  <script src="../../assets/vendor_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+  <script src="{{ asset('../../assets/vendor_components/moment/min/moment.min.js') }}"></script>
+  <script src="{{ asset('../../assets/vendor_components/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
   
   <!-- bootstrap datepicker -->
-  <script src="../../assets/vendor_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+  <script src="{{ asset('../../assets/vendor_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js') }}"></script>
   
   <!-- bootstrap color picker -->
-  <script src="../../assets/vendor_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+  <script src="{{ asset('../../assets/vendor_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
   
   <!-- bootstrap time picker -->
-  <script src="../../assets/vendor_plugins/timepicker/bootstrap-timepicker.min.js"></script>
+  <script src="{{ asset('../../assets/vendor_plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
   
   <!-- SlimScroll -->
-  <script src="../../assets/vendor_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+  <script src="{{ asset('../../assets/vendor_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
   
   <!-- iCheck 1.0.1 -->
-  <script src="../../assets/vendor_plugins/iCheck/icheck.min.js"></script>
+  <script src="{{ asset('../../assets/vendor_plugins/iCheck/icheck.min.js') }}"></script>
   
   <!-- FastClick -->
-  <script src="../../assets/vendor_components/fastclick/lib/fastclick.js"></script>
+  <script src="{{ asset('../../assets/vendor_components/fastclick/lib/fastclick.js') }}"></script>
   
   <!-- Superieur Admin App -->
-  <script src="../js/template.js"></script>
+  <script src="{{ asset('../js/template.js') }}"></script>
   
   <!-- Superieur Admin for demo purposes -->
-  <script src="../js/demo.js"></script>
+  <script src="{{ asset('../js/demo.js') }}"></script>
   
   <!-- Superieur Admin for advanced form element -->
-  <script src="../js/pages/advanced-form-element.js"></script>
+  <script src="{{ asset('../js/pages/advanced-form-element.js') }}"></script>
 
 
   <!-- This is data table -->
-    <script src="../../assets/vendor_components/datatable/datatables.min.js"></script>
+    <!--  <script src="../../assets/vendor_components/datatable/datatables.min.js"></script>-->
   
   <!-- Superieur Admin for Data Table -->
-  <script src="../js/pages/data-table.js"></script>
+  <script src=".{{ asset('./js/pages/data-table.js') }}"></script>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.repeater/1.2.1/jquery.repeater.js"></script>
 

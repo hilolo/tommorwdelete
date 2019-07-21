@@ -27,3 +27,16 @@ Route::get('/qaa', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+/////////////////////////////// Propraitaire
+
+
+Route::get('/Proprietaire', 'PropraitaireController@index');
+Route::get('/Proprietaire/{id}/View', 'PropraitaireController@View');
+Route::get('/Proprietaire/Add', 'PropraitaireController@storeaf');
+Route::get('/Proprietaire/{id}/ModifierClient', 'PropraitaireController@updateaf');
+Route::post('/insertproprietaire', 'PropraitaireController@insert');
+Route::post('/updateproprietaire/{id}', 'PropraitaireController@update');
+Route::post('/deleteproprietaire/{id}', 'PropraitaireController@destroy')->name('suppprop');
+

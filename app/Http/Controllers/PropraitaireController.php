@@ -40,10 +40,7 @@ class PropraitaireController extends Controller
             $ar->nom=$request->input('nom');
             $ar->cin=$request->input('cin');
 
-          if ($request->hasFile('file')){
-          	$ar->cinpath=$file->storeAs('public/proprietaire',$file->getClientOriginalName()) ;
-          }
-
+        
       }else {
 
             $ar->societe=$request->input('societe');
@@ -67,6 +64,26 @@ class PropraitaireController extends Controller
             $ar->archive=0;
          
             $ar->save();
+
+
+
+
+            $art=Locataire::find($ar->id);
+
+            if($request->type == 1 ) {
+
+            if ($request->hasFile('file')){
+         
+            $art->cinpath=$file->storeAs('public/locataire/'.$ar->id,$file->getClientOriginalName()) ;
+          }
+          }
+
+
+              $art->save();
+
+
+
+
             return redirect('/proprietaire');
         
     }
@@ -109,12 +126,19 @@ class PropraitaireController extends Controller
     }
 
     
-     public function View()
+     public function View($id)
     {
-    	//$art=Locataire::find($id);
-        //return view('proprietaire.view',compact('art'));
 
-          return view('proprietaire.View');
+
+        $art=Locataire::find($id);
+
+      if($art->mode == 1){
+      
+        return view('proprietaire.view',compact('art'));}
+        else return redirect('/proprietaire');
+
+
+        
     }
 
      public function destroy($id)
@@ -124,4 +148,25 @@ class PropraitaireController extends Controller
       return redirect('/proprietaire');
      
     }
+
+    
+    public function data(){
+
+    
+
+      return DataTables::eloquent(Locataire::query())
+    ->addColumn('Nom full', function(Locataire $user) {
+      if($user->type == 1) {
+        return  $user->civilite . ' ' . $user->prenom . ' ' . $user->nom  ;
+      } else {
+          return  $user->societe ;
+      }
+    })
+    ->toJson();
+
+
+
+    }
+
+
 }

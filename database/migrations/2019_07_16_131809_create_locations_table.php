@@ -22,6 +22,14 @@ class CreateLocationsTable extends Migration
             $table->foreign('locataires_id')->references('id')->on('locataires');
 
             $table->integer('type_bail')->nullable();
+            $table->date('date_debutbail');
+            $table->date('date_finbail');
+
+            $table->string('paiment_methode')->nullable();
+            $table->string('moyen_paiment')->nullable();
+            $table->string('paiment_jour')->nullable();
+
+            $table->string('path_contrat')->nullable();
 
 
             $table->timestamps();

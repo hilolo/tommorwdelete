@@ -40,3 +40,29 @@ Route::post('/insertproprietaire', 'PropraitaireController@insert');
 Route::post('/updateproprietaire/{id}', 'PropraitaireController@update');
 Route::post('/deleteproprietaire/{id}', 'PropraitaireController@destroy')->name('suppprop');
 
+
+/////////////////////////////// Locataire
+
+
+Route::get('/Locataire', 'LocataireController@index');
+Route::get('/Locataire/{id}/View', 'LocataireController@View');
+Route::get('/Locataire/Add', 'LocataireController@storeaf');
+Route::get('/Locataire/{id}/ModifierClient', 'LocataireController@updateaf');
+Route::get('/Locataire/data', 'LocataireController@data');
+Route::post('/insertlocataire', 'LocataireController@insert');
+Route::post('/updatelocataire/{id}', 'LocataireController@update');
+Route::post('/deletelocataire/{id}', 'LocataireController@destroy')->name('suppprop');
+
+
+/////////////////////////////// Location
+
+
+Route::get('/Location', 'LocataireController@index');
+Route::get('/Location/{id}/View', 'LocataireController@View');
+Route::get('/Location/Add', 'LocataireController@storeaf');
+Route::get('/Location/{id}/ModifierClient', 'LocataireController@updateaf');
+Route::post('/insertlocation', 'LocataireController@insert');
+Route::post('/updatelocation/{id}', 'LocataireController@update');
+Route::post('/deletelocation/{id}', 'LocataireController@destroy')->name('suppprop');
+
+

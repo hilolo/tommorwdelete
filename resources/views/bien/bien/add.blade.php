@@ -45,14 +45,14 @@
               <div class="col-md-6">
                     <div class="form-group">
                 <label>Type</label>
-                <select class="form-control">
-                <option>Appartements</option>
-                <option>Villas </option>
-                <option>Riads </option>
-                <option>Bureaux </option>
-                <option>Commerces </option>
-                <option>Terrains </option>
-                <option>Autres biens </option>
+                <select class="form-control" name="type">
+                <option value="1" >Appartements</option>
+                <option value="2" >Villas </option>
+                <option value="3" >Riads </option>
+                <option value="4" >Bureaux </option>
+                <option value="5" >Commerces </option>
+                <option value="6" >Terrains </option>
+                <option value="7" >Autres biens </option>
                 </select>
               </div>
               </div>
@@ -62,7 +62,7 @@
 
                 <label>IDENTIFIANT  
                 </label>
-                <input type="text" class="form-control" placeholder="Identifiant, référence ou numéro unique" >
+                <input name="ref" type="text" class="form-control" placeholder="Identifiant, référence ou numéro unique" >
                 </div>
                  </div>
             
@@ -87,7 +87,7 @@
 
                 <label>Adresse 
                 </label>
-                <input type="text" class="form-control" >
+                <input name="adr" type="text" class="form-control" >
                 </div>
               </div>
            
@@ -99,7 +99,7 @@
 
                 <label>Ville 
                 </label>
-                <input type="text" class="form-control" value="Tanger" >
+                <input name="ville" type="text" class="form-control" value="Tanger" >
                 </div>
               </div>
               <div class="col-md-6">
@@ -107,7 +107,7 @@
 
                 <label>Pays 
                 </label>
-                <input type="text" class="form-control" value="Maroc" >
+                <input name="pays" type="text" class="form-control" value="Maroc" >
                 </div>
               </div>
 
@@ -122,13 +122,12 @@
             <div class="col-md-6 col-12">
           <div class="form-group">
           <label>List Propriétaire</label>
-          <select id="listpr" class="form-control select2" style="width: 100%;">
-            <option selected="selected">Nouveau Propriétaire</option>
-            <option>Alaska</option>
-            <option>Delaware</option>
-            <option>Tennessee</option>
-            <option>Texas</option>
-            <option>Washington</option>
+          <select id="listpr" class="form-control select2" name="prop" style="width: 100%;">
+            <option selected="selected" value="0">Nouveau Propriétaire</option>
+            @foreach ($loc as $loca)
+            <option>{{$loca->prenom  }} {{$loca->nom   }} {{$loca->societe  }}   </option>
+            @endforeach
+
           </select>
           </div>
           <!-- /.form-group -->
@@ -138,7 +137,7 @@
                       <div id="id" class="col-md-6 col-12">
                     <div class="form-group">
                 <label>Type</label>
-                <select class="form-control" id="selectada">
+                <select class="form-control" name="nvtype" id="selectada">
                 <option value="1">Particulier</option>
                 <option value="2">Société / Autre</option>
                 </select>
@@ -159,7 +158,7 @@
               <div class="col-md-6">
               <div class="form-group">
                 <label>Civilité</label>
-                <select class="form-control">
+                <select name="nvcivilite" class="form-control">
                 <option>Monsieur</option>
                 <option>Madame</option>
                 </select>
@@ -171,7 +170,7 @@
 
                 <label>Cin 
                 </label>
-                <input type="text" class="form-control" placeholder="CIN">
+                <input  name="nvcin" type="text" class="form-control" placeholder="CIN">
                 </div>
                  </div>
 
@@ -185,7 +184,7 @@
 
                 <label>Prenom 
                 </label>
-                <input type="text" class="form-control" >
+                <input name="nvprenom" type="text" class="form-control" >
                 </div>
               </div>
               <div class="col-md-6">
@@ -193,7 +192,7 @@
 
                 <label>Nom 
                 </label>
-                <input type="text" class="form-control" >
+                <input name="nvnom" type="text" class="form-control" >
                 </div>
               </div>
 
@@ -209,7 +208,7 @@
 
                 <label>SOCIÉTÉ *
                 </label>
-                <input type="text" class="form-control" placeholder="Company Nom">
+                <input type="text" name="nvsocite" class="form-control" placeholder="Company Nom">
                 </div>
 
                 <div class="row">
@@ -217,9 +216,9 @@
 
                 <div class="form-group">
 
-                <label>NO. TVA
+                <label>ICE
                 </label>
-                <input type="text" class="form-control" placeholder="Numero TVA">
+                <input type="text" name="nvice" class="form-control" placeholder="Numero TVA">
                 </div>
                 </div>
                 <div class="col-md-6">
@@ -228,7 +227,7 @@
 
                 <label>PROFESSION
                 </label>
-                <input type="text" class="form-control" placeholder="Ex : Dentiste">
+                <input type="text" name="nvprofession" class="form-control" placeholder="Ex : Dentiste">
                 </div>
                 </div>
 
@@ -247,7 +246,7 @@
           </div>
           <!-- /.box-body -->
            <div class="box-footer">
-                <button type="submit" class="btn btn-default">Cancel</button>
+                <button class="btn btn-default">Cancel</button>
                 <button type="submit" class="btn btn-info pull-right">Sign in</button>
               </div>   
                 </form>
@@ -272,7 +271,7 @@
     $('#listpr').change(function(){
 
 
-        if($('#listpr').val() == 'Nouveau Propriétaire') {
+        if($('#listpr').val() == '0') {
            $('#id').show();
             $('#particulier').show(); 
             $("#selectada").val(1);
@@ -295,7 +294,7 @@
       $('#societe').hide();  
     $('#selectada').change(function(){
 
-        if($('#selectada').val() == 'Particulier') {
+        if($('#selectada').val() == '1') {
         
              $('#societe').hide(); 
               $('#particulier').show(); 

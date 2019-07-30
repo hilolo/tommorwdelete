@@ -63,6 +63,6 @@ Route::get('/Biens/Add', 'BienController@storeaf');
 Route::get('/Biens/{id}/ModifierClient', 'BienController@updateaf');
 Route::post('/insertbien', 'BienController@insert');
 Route::post('/updatebien/{id}', 'BienController@update');
-Route::post('/deletebien/{id}', 'BienController@destroy')->name('suppprop');
+Route::post('/deletebien/{id}', 'BienController@destroy')->name('suppbien');
 
 

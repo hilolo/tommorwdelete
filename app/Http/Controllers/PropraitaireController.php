@@ -92,23 +92,7 @@ class PropraitaireController extends Controller
     {
        
        
-        	$file = $request->file('filee');
-            $ar= Locataire::find($id);
-        
-            $ar->type=$request->input('colorRadio');
- 			$ar->name=$request->input('name');
-            $ar->email=$request->input('email');
-            $ar->adresse=$request->input('Adresse');
-            $ar->Telephone=$request->input('tele');
-            $ar->NTVA=$request->input('ntva');
-            $ar->Site_web=$request->input('site');
-            $ar->FAX=$request->input('fax');
-            
-           if ($request->hasFile('filee')){
-          	$ar->path_img=$file->storeAs('public/clients',$file->getClientOriginalName()) ;
-          }
-            $ar->save();
-            return redirect('/Vente/'.$id.'/View');
+        	
         
     }
 

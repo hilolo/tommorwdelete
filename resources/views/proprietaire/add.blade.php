@@ -109,7 +109,7 @@
 
                 <label>Prenom 
                 </label>
-                <input type="text" name="prenom" class="form-control" >
+                <input type="text" name="prenom" id="prenom"   class="form-control" >
                 </div>
               </div>
               <div class="col-md-6">
@@ -117,7 +117,7 @@
 
                 <label>Nom 
                 </label>
-                <input type="text" name="nom" class="form-control" >
+                <input type="text" name="nom" id="nom"  class="form-control" >
                 </div>
               </div>
 
@@ -133,7 +133,7 @@
 
                 <label>SOCIÉTÉ *
                 </label>
-                <input type="text" name="societe" class="form-control" placeholder="Company Nom">
+                <input type="text" name="societe" id="societeqqa" class="form-control" placeholder="Company Nom">
                 </div>
 
                 <div class="row">
@@ -262,6 +262,9 @@
 
   $(function() {
     $('#societe').hide(); 
+            $('#prenom').prop('required',true);
+            $('#nom').prop('required',true);
+            $('#societeqqa').prop('required',true);
     $('#selectada').change(function(){
 
         if($('#selectada').val() == '1') {
@@ -271,12 +274,22 @@
 
               //$('.name').hide().find(':input').attr('required', false);
 
-              //$('.name').show().find(':input').attr('required', true);
+              $('#prenom').prop('required',true);
+              $('#nom').prop('required',true);
+              $('#societeqqa').prop('required',false);
+     
 
           
         } else {
            $('#societe').show(); 
-              $('#particulier').hide(); 
+              $('#particulier').hide();
+            
+
+               $('#societeqqa').prop('required',true);
+              $('#prenom').prop('required',false);
+              $('#nom').prop('required',false);
+             
+
         } 
     });
 });

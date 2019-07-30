@@ -37,7 +37,8 @@
 
 
 
-      <form class="form">
+      <form class="form" method="POST" action="/insertbien"> 
+           {{ csrf_field() }}
           <div class="box-body">
             <h4 class="box-title text-info"><i class="ti-user mr-15"></i>Informations générales</h4>
             <hr class="my-15">
@@ -62,7 +63,7 @@
 
                 <label>IDENTIFIANT  
                 </label>
-                <input name="ref" type="text" class="form-control" placeholder="Identifiant, référence ou numéro unique" >
+                <input name="ref"  type="text" class="form-control" placeholder="Identifiant, référence ou numéro unique" >
                 </div>
                  </div>
             
@@ -87,7 +88,7 @@
 
                 <label>Adresse 
                 </label>
-                <input name="adr" type="text" class="form-control" >
+                <input name="adr" required="" type="text" class="form-control" >
                 </div>
               </div>
            
@@ -184,7 +185,7 @@
 
                 <label>Prenom 
                 </label>
-                <input name="nvprenom" type="text" class="form-control" >
+                <input name="nvprenom" id="prenom" type="text" class="form-control" >
                 </div>
               </div>
               <div class="col-md-6">
@@ -192,7 +193,7 @@
 
                 <label>Nom 
                 </label>
-                <input name="nvnom" type="text" class="form-control" >
+                <input name="nvnom" id="nom" type="text" class="form-control" >
                 </div>
               </div>
 
@@ -208,7 +209,7 @@
 
                 <label>SOCIÉTÉ *
                 </label>
-                <input type="text" name="nvsocite" class="form-control" placeholder="Company Nom">
+                <input type="text" name="nvsocite" id="societeqqa" class="form-control" placeholder="Company Nom">
                 </div>
 
                 <div class="row">
@@ -234,13 +235,7 @@
                 </div>
                 </div>
 
-                
-
-
-
-
-
-
+     
 
            
           </div>
@@ -266,7 +261,10 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script type="text/javascript">
     $(function() {
-    
+
+              $('#prenom').prop('required',true);
+            $('#nom').prop('required',true);
+            $('#societeqqa').prop('required',false);    
 
     $('#listpr').change(function(){
 
@@ -276,12 +274,22 @@
             $('#particulier').show(); 
             $("#selectada").val(1);
 
+
+              $('#prenom').prop('required',true);
+            $('#nom').prop('required',true);
+            $('#societeqqa').prop('required',false);
+
+
           
         } else {
            
               $('#id').hide(); 
               $('#societe').hide(); 
                $('#particulier').hide(); 
+
+                $('#prenom').prop('required',false);
+                $('#nom').prop('required',false);
+                $('#societeqqa').prop('required',false)
         } 
     });
 });
@@ -299,14 +307,18 @@
              $('#societe').hide(); 
               $('#particulier').show(); 
 
-              //$('.name').hide().find(':input').attr('required', false);
-
-              //$('.name').show().find(':input').attr('required', true);
+             $('#prenom').prop('required',true);
+              $('#nom').prop('required',true);
+              $('#societeqqa').prop('required',false);
 
           
         } else {
            $('#societe').show(); 
               $('#particulier').hide(); 
+
+              $('#societeqqa').prop('required',true);
+              $('#prenom').prop('required',false);
+              $('#nom').prop('required',false);
         } 
     });
 });

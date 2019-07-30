@@ -21,104 +21,79 @@ class BienController extends Controller
 
       public function insert(Request $request)
     {
+            $ar= new Bien();
 
 
-
-    	
-       
-        //	dd($request->all());
-        	$file = $request->file('file');
-            $ar= new Locataire();
 
         
             $ar->type=$request->input('type');
-
-            if($request->input('type') == 1 ) {
-
- 			$ar->civilite=$request->input('civilite');
-            $ar->prenom=$request->input('prenom');
-            $ar->nom=$request->input('nom');
-            $ar->cin=$request->input('cin');
-
-        
-      }else {
-
-            $ar->societe=$request->input('societe');
-            $ar->ice=$request->input('ice');
-            $ar->profession=$request->input('profession');
-        }
-
-
-             $ar->email=$request->input('email');
-            $ar->tel=$request->input('tele');
-            $ar->fax=$request->input('fax');
-
-
-
-            $ar->adresse=$request->input('adrs');
+            $ar->Ref=$request->input('ref');
+            $ar->adresse=$request->input('adr');
             $ar->ville=$request->input('ville');
             $ar->pays=$request->input('pays');
 
 
-            $ar->mode=1;
-            $ar->archive=0;
-         
-            $ar->save();
 
 
+            if($request->input('prop') == 0 ) {
 
+            if($request->input('nvtype') == 1 ) {
+              $aqs= new Locataire();
 
-            $art=Locataire::find($ar->id);
+             $aqs->type=1;
+              $aqs->mode=1;
+ 			      $aqs->civilite=$request->input('nvcivilite');
+            $aqs->prenom=$request->input('nvprenom');
+            $aqs->nom=$request->input('nvnom');
+            $aqs->cin=$request->input('nvcin');
+            $aqs->archive=0;
+            $aqs->save();
+             
+            $ar->locataires_id=$aqs->id;
 
-            if($request->type == 1 ) {
-
-            if ($request->hasFile('file')){
-         
-            $art->cinpath=$file->storeAs('public/locataire/'.$ar->id,$file->getClientOriginalName()) ;
-          }
-          }
-
-
-              $art->save();
-
-
-
-
-            return redirect('/proprietaire');
         
-    }
+      }else {
 
-     public function update(Request $request,$id)
-    {
-       
-       
-        	$file = $request->file('filee');
-            $ar= Locataire::find($id);
-        
-            $ar->type=$request->input('colorRadio');
- 			$ar->name=$request->input('name');
-            $ar->email=$request->input('email');
-            $ar->adresse=$request->input('Adresse');
-            $ar->Telephone=$request->input('tele');
-            $ar->NTVA=$request->input('ntva');
-            $ar->Site_web=$request->input('site');
-            $ar->FAX=$request->input('fax');
+
+            $aqs23= new Locataire();
+            $aqs23->type=$request->input('nvtype');
+            $aqs23->mode=1;
+            $aqs23->societe=$request->input('nvsocite');
+            $aqs23->ice=$request->input('nvice');
+            $aqs23->profession=$request->input('nvprofession');
+            $aqs->archive=0;
+            $aqs23->save();
+
+            $ar->locataires_id=$aqs23->id;
+        }
+
+      }else     $ar->pays=$request->input('pays');
+
+
+          $ar->save();
+
+           
+
+
+
+
             
-           if ($request->hasFile('filee')){
-          	$ar->path_img=$file->storeAs('public/clients',$file->getClientOriginalName()) ;
-          }
-            $ar->save();
-            return redirect('/Vente/'.$id.'/View');
+
+
+
+
+            return redirect('/Biens');
         
     }
+
+   
 
 
      public function storeaf(Request $request)
     {
 
-    	$loc = Locataire::all()->where('mode', '1');
-    	
-        return view('bien.bien.add',compact('loc'));
+    	$loc = Locataire::all()->where('mode', '1')->where('archive', '0');
+      return view('bien.bien.add',compact('loc'));
     }
 
 

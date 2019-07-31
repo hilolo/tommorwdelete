@@ -67,7 +67,7 @@
 		
 
 				 <div class="table-responsive ">
-                                <table class="table table-hover alt-pagination customer-wrapper dataTable no-footer display compact" id="dataTables-example">
+                                <table class="table table-hover alt-pagination customer-wrapper dataTable no-footer display compact" id="dataTables-example" width="100%">
                                     <thead>
                                         <tr>
                                           <td>Bien</td>
@@ -90,7 +90,7 @@
 
 
 					 <div class="table-responsive ">
-                                <table class="table table-hover alt-pagination customer-wrapper dataTable no-footer display compact" id="dataTables-example2" width="911">
+                                <table class="table table-hover alt-pagination customer-wrapper dataTable no-footer display compact" id="dataTables-example2" width="100%">
                                     <thead>
                                       <tr>
                                           <td>Bien</td>
@@ -124,7 +124,7 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script type="text/javascript">
     
-
+/*
    $(document).ready(function () {
     $('#dataTables-example').DataTable({
          "language": 
@@ -183,11 +183,76 @@
 
 
   //your code here
-});
+});*/
     
            
-     
-  
+ $(document).ready( function () {
+    $('#dataTables-example').DataTable({
+         "language": 
+                        {
+                             "url": "//cdn.datatables.net/plug-ins/1.10.9/i18n/French.json"
+                            },
+                            processing: false,
+                            serverSide: true,
+                            "pageLength": 50,
+                            ajax: '/Biens/data',
+                             columns: [
+                              {data: 'adrs full'},
+                              {data: 'Atrr'},
+                              {data: 'Nom full'},
+                              {data: 'type'},
+                              {data: 'type'},
+
+                             
+
+                     
+                               
+                                ]
+
+           
+
+
+
+
+                          });
+} );
+        
+ 
+
+
+ $(document).ready( function () {
+    $('#dataTables-example2').DataTable({
+         "language": 
+                        {
+                             "url": "//cdn.datatables.net/plug-ins/1.10.9/i18n/French.json"
+                            },
+                            processing: true,
+                            serverSide: true,
+                            "pageLength": 50,
+                            ajax: '/Biens/data2',
+                             columns: [
+                              {data: 'adrs full'},
+                              {data: 'Atrr'},
+                              {data: 'Nom full'},
+                              {data: 'type'},
+                              {data: 'type'},
+
+                             
+
+                     
+                               
+                                ]
+
+           
+
+
+
+
+                          });
+} );
+
+
+
 </script>
 
 

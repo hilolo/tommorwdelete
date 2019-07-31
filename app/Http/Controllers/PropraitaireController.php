@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Locataire;
+use DB;
+use DataTables;
 
 class PropraitaireController extends Controller
 {
@@ -151,6 +153,13 @@ class PropraitaireController extends Controller
 
 
     }
+
+
+
+
+
+
+
 
 
 }

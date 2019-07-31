@@ -498,9 +498,8 @@
 
 
   <!-- This is data table -->
-    <!--  <script src="../../assets/vendor_components/datatable/datatables.min.js"></script>-->
+
        <script src="../../assets/vendor_components/datatable/datatables.min.js"></script>
-  
 
   <!-- Superieur Admin for Data Table -->
   <script src=".{{ asset('./js/pages/data-table.js') }}"></script>

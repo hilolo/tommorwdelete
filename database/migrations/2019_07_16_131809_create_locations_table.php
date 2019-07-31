@@ -30,6 +30,7 @@ class CreateLocationsTable extends Migration
             $table->string('paiment_jour')->nullable();
 
             $table->string('path_contrat')->nullable();
+             $table->integer('archiveloc')->nullable();
 
 
             $table->timestamps();

@@ -20,6 +20,7 @@ class CreateImmeublesTable extends Migration
             $table->integer('superficie')->nullable();
             $table->integer('locataires_id')->unsigned();
             $table->foreign('locataires_id')->references('id')->on('locataires');
+             $table->integer('archivei')->nullable();
             $table->timestamps();
         });
     }

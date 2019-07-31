@@ -29,6 +29,7 @@ class CreateReservationsTable extends Migration
             $table->string('paiment_methode')->nullable();
             $table->string('moyen_paiment')->nullable();
             $table->string('paiment_jour')->nullable();
+            
 
 
             $table->timestamps();

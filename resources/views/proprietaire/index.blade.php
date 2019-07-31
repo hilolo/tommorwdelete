@@ -68,14 +68,14 @@
 		
 
 				 <div class="table-responsive ">
-                                <table class="table table-hover alt-pagination customer-wrapper dataTable no-footer display compact" id="dataTables-example">
+                                <table class="table table-hover alt-pagination customer-wrapper dataTable no-footer display compact" id="dataTables-example" width="100%">
                                     <thead>
                                         <tr>
-                                        <td>Nom</td>
-                                        <td>Bien</td>
+                                        <td>Proprietaire</td>
+                                        <td>Biens</td>
                                         <td >Telephone</td>
-                                        <td>Modele</td>
-                                        <td  >Action</td>
+                                        <td>Solde</td>
+                                        <td  >Modéle</td>
                                         </tr>
                                     </thead>
                                   
@@ -91,14 +91,14 @@
 
 
 					 <div class="table-responsive ">
-                                <table class="table table-hover alt-pagination customer-wrapper dataTable no-footer display compact" id="dataTables-example2" width="911">
+                                <table class="table table-hover alt-pagination customer-wrapper dataTable no-footer display compact" id="dataTables-example2" width="100%">
                                     <thead>
                                         <tr>
-                                        <td>Nom</td>
-                                        <td>Bien</td>
+                                       <td>Proprietaire</td>
+                                        <td>Biens</td>
                                         <td >Telephone</td>
-                                        <td>Modele</td>
-                                        <td  >Action</td>
+                                        <td>Solde</td>
+                                        <td  >Modéle</td>
                                         </tr>
                                     </thead>
                                   
@@ -128,68 +128,69 @@
 <script type="text/javascript">
     
 
-   $(document).ready(function () {
+   $(document).ready( function () {
     $('#dataTables-example').DataTable({
          "language": 
                         {
                              "url": "//cdn.datatables.net/plug-ins/1.10.9/i18n/French.json"
-                            }
+                            },
+                            processing: false,
+                            serverSide: true,
+                            "pageLength": 50,
+                            ajax: '/Proprietaire/data',
+                             columns: [
+                              {data: 'Nom full'},
+                              {data: 'id'},
+                              {data: 'tel'},
+                              {data: 'id'},
+                              {data: 'id'},
 
-                            ,processing: false,
+                             
 
-            serverSide: true,
+                     
+                               
+                                ]
 
-            ajax: 'http://erp.test/Vente/Articles/Data',
-            "pageLength": 50,
-             columns: [
-              {data: 'pic', name: 'pic', orderable: false, searchable: false},
-            {data: 'name'},
-            {data: 'prix'},
-            {data: 'tva'},
-            {data: 'code_barre'},
-             {data: 'action', name: 'action', orderable: false, searchable: false},
-
-       ]
-        });
+           
 
 
 
-  //your code here
-});
+
+                          });
+} );
         
-
-
-   $(document).ready(function () {
+     
+   $(document).ready( function () {
     $('#dataTables-example2').DataTable({
          "language": 
                         {
                              "url": "//cdn.datatables.net/plug-ins/1.10.9/i18n/French.json"
-                            }
+                            },
+                            processing: false,
+                            serverSide: true,
+                            "pageLength": 50,
+                            ajax: '/Proprietaire/data',
+                             columns: [
+                              {data: 'Nom full'},
+                              {data: 'id'},
+                              {data: 'tel'},
+                              {data: 'id'},
+                              {data: 'id'},
 
-                            ,processing: false,
+                             
 
-            serverSide: true,
+                     
+                               
+                                ]
 
-            ajax: 'http://erp.test/Vente/Articles/Data',
-            "pageLength": 50,
-             columns: [
-              {data: 'pic', name: 'pic', orderable: false, searchable: false},
-            {data: 'name'},
-            {data: 'prix'},
-            {data: 'tva'},
-            {data: 'code_barre'},
-             {data: 'action', name: 'action', orderable: false, searchable: false},
-
-       ]
-        });
-
-
-
-  //your code here
-});
-    
            
-     
+
+
+
+
+                          });
+} );
+        
   
 </script>
 

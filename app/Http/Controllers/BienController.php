@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Bien;
 use App\Locataire;
 use DataTables;
-
+use DB;
 class BienController extends Controller
 {
  public function index()
@@ -31,6 +31,9 @@ class BienController extends Controller
             $ar->adresse=$request->input('adr');
             $ar->ville=$request->input('ville');
             $ar->pays=$request->input('pays');
+            $ar->archiveb=0;
+
+
 
 
 
@@ -130,21 +133,96 @@ class BienController extends Controller
     
     public function data(){
 
-    
+      
+             $articles =DB::table('biens')
+             ->where('archiveb','0')
+             ->join('locataires', 'locataires.id', '=', 'biens.locataires_id')
+             ->select('locataires.*', 'biens.*', 'biens.type as tttype', 'locataires.type as tqttype')
+             ->get();
 
-      return DataTables::eloquent(Locataire::query())
-    ->addColumn('Nom full', function(Locataire $user) {
-      if($user->type == 1) {
+      return datatables()->of( $articles)
+       ->addColumn('adrs full', function( $user) {
+        return  $user->Ref . ' ' . $user->adresse  ;
+    })
+    ->addColumn('Nom full', function( $user) {
+      if($user->tqttype == 1) {
         return  $user->civilite . ' ' . $user->prenom . ' ' . $user->nom  ;
       } else {
           return  $user->societe ;
       }
     })
+     ->addColumn('Atrr', function( $user) {
+      if($user->tttype == 1) {
+        return  'Appartements'  ;
+      } else  if($user->tttype == 2) {
+        return  'Villas'  ;
+      } else  if($user->tttype == 3) {
+        return  'Riads'  ;
+      } else  if($user->tttype == 4) {
+        return  'Bureaux'  ;
+      } else  if($user->tttype == 5) {
+        return  'Commerces'  ;
+      } else  if($user->tttype == 6) {
+        return  'Terrains'  ;
+      } else  {
+          return 'Autres biens' ;
+      }
+    })
     ->toJson();
+
+    //return datatables()->of(Locataire::query())->toJson();
 
 
 
     }
+
+
+     public function data2(){
+
+    
+             $articles =DB::table('biens')
+             ->where('archiveb','1')
+             ->join('locataires', 'locataires.id', '=', 'biens.locataires_id')
+             ->select('locataires.*', 'biens.*', 'biens.type as tttype', 'locataires.type as tqttype')
+             ->get();
+
+      return datatables()->of( $articles)
+       ->addColumn('adrs full', function( $user) {
+        return  $user->Ref . ' ' . $user->adresse  ;
+    })
+    ->addColumn('Nom full', function( $user) {
+      if($user->tqttype == 1) {
+        return  $user->civilite . ' ' . $user->prenom . ' ' . $user->nom  ;
+      } else {
+          return  $user->societe ;
+      }
+    })
+     ->addColumn('Atrr', function( $user) {
+      if($user->tttype == 1) {
+        return  'Appartements'  ;
+      } else  if($user->tttype == 2) {
+        return  'Villas'  ;
+      } else  if($user->tttype == 3) {
+        return  'Riads'  ;
+      } else  if($user->tttype == 4) {
+        return  'Bureaux'  ;
+      } else  if($user->tttype == 5) {
+        return  'Commerces'  ;
+      } else  if($user->tttype == 6) {
+        return  'Terrains'  ;
+      } else  {
+          return 'Autres biens' ;
+      }
+    })
+    ->toJson();
+
+    //return datatables()->of(Locataire::query())->toJson();
+
+
+
+    }
+
+
 
 
 }

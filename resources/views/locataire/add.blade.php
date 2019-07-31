@@ -2,7 +2,6 @@
 
 @section('content')
 
-
   <div class="content-header">
     <div class="d-flex align-items-center">
       <div class="mr-auto">

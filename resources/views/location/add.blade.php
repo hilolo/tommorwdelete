@@ -47,7 +47,7 @@
       </div>
 
 
-
+            <form method="POST" action="insertlocation">
               <div class="box-body">
             <h4 class="box-title text-info"><i class="ti-user mr-15"></i> Bien loué</h4>
             <hr class="my-15">
@@ -73,15 +73,15 @@
 
           
       
-            <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Propriétaire </h4>
+            <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Locataire </h4>
             <hr class="my-15">
 
             <div class="row">
             <div class="col-md-6 col-12">
           <div class="form-group">
-          <label>List Propriétaire</label>
+          <label>List Locataire</label>
           <select id="listpr" class="form-control select2" style="width: 100%;">
-            <option selected="selected">Nouveau Propriétaire</option>
+            <option selected="selected" value="0">Nouveau Locataire</option>
             <option>Alaska</option>
             <option>Delaware</option>
             <option>Tennessee</option>
@@ -143,7 +143,7 @@
 
                 <label>Prenom 
                 </label>
-                <input type="text" class="form-control" >
+                <input type="text" id="prenom" class="form-control" >
                 </div>
               </div>
               <div class="col-md-6">
@@ -151,7 +151,7 @@
 
                 <label>Nom 
                 </label>
-                <input type="text" class="form-control" >
+                <input type="text" id="nom" class="form-control" >
                 </div>
               </div>
 
@@ -328,25 +328,7 @@
 
 
 
-                <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Contrat  </h4>
-            <hr class="my-15">
-
-
-                 <div class="row">
-              <div class="col-md-6">
-
-            
-        <form method="post" action="{{url('image/upload/store')}}" enctype="multipart/form-data" 
-                  class="dropzone" id="dropzone">
-    @csrf
-    
-      <div class="dz-message bold" data-dz-message><span style="font-weight:bold; ">Contrat PDF </span></div>
-</form> 
-
-
-            
-             </div>
-              </div>
+              
 
 
 
@@ -360,11 +342,11 @@
           <!-- /.box-body -->
           
          <div class="box-footer">
-                <button type="submit" class="btn btn-default">Cancel</button>
+                <button type="" class="btn btn-default">Cancel</button>
                 <button type="submit" class="btn btn-info pull-right">Sign in</button>
               </div>  
                 
-
+</form>
 
 
       <!-- /.box-header -->
@@ -417,12 +399,18 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script type="text/javascript">
     $(function() {
+
+
+       $('#prenom').prop('required',true);
+              $('#nom').prop('required',true);
+              $('#societeqqa').prop('required',false);
+
     
 
     $('#listpr').change(function(){
 
 
-        if($('#listpr').val() == 'Nouveau Propriétaire') {
+        if($('#listpr').val() == '0') {
            $('#id').show();
             $('#particulier').show(); 
             $("#selectada").val(1);

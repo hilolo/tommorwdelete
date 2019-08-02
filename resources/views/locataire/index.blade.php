@@ -169,7 +169,7 @@
 
             serverSide: true,
 
-            ajax: '/Locataire/data',
+            ajax: '/Locataire/data2',
             "pageLength": 50,
              columns: [
            {data: 'Nom full'},

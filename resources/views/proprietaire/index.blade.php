@@ -169,7 +169,7 @@
                             processing: false,
                             serverSide: true,
                             "pageLength": 50,
-                            ajax: '/Proprietaire/data',
+                            ajax: '/Proprietaire/data2',
                              columns: [
                               {data: 'Nom full'},
                               {data: 'id'},

@@ -138,9 +138,27 @@ class PropraitaireController extends Controller
     
     public function data(){
 
-    
+        $articles =Locataire::all()->where('mode','1')->where('archive','0');
 
-      return DataTables::eloquent(Locataire::query())
+          return datatables()->of( $articles)
+    ->addColumn('Nom full', function(Locataire $user) {
+      if($user->type == 1) {
+        return  $user->civilite . ' ' . $user->prenom . ' ' . $user->nom  ;
+      } else {
+          return  $user->societe ;
+      }
+    })
+    ->toJson();
+
+
+
+    }
+
+     public function data2(){
+
+        $articles =Locataire::all()->where('mode','1')->where('archive','1');
+
+          return datatables()->of( $articles)
     ->addColumn('Nom full', function(Locataire $user) {
       if($user->type == 1) {
         return  $user->civilite . ' ' . $user->prenom . ' ' . $user->nom  ;

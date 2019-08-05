@@ -18,6 +18,7 @@ class CreateImmeublesTable extends Migration
             $table->string('nom_immeuble')->nullable();
             $table->string('adresseimm')->nullable();
             $table->integer('superficie')->nullable();
+            $table->string('annconst')->nullable();
             $table->integer('locataires_id')->unsigned();
             $table->foreign('locataires_id')->references('id')->on('locataires');
              $table->integer('archivei')->nullable();

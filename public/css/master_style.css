@@ -624,7 +624,7 @@ a:active, a:focus, a:hover {
 }
 .sidebar-menu>li.user-profile>a {
     opacity: 1;
-	padding: 25px;
+	padding: 20px;
 	display:flex; 
 }
 .sidebar-collapse .sidebar-menu>li.user-profile>a {
@@ -677,7 +677,7 @@ a:active, a:focus, a:hover {
     margin-right: 0px; 
 }
 .sidebar-menu>li>a {
-    padding: 12px 15px;
+    padding: 5px 5px;
     display: block;
 }
 .sidebar-menu>li>a>.fa, .sidebar-menu>li>a>.glyphicon, .sidebar-menu>li>a>.ion, .sidebar-menu>li>a>i {
@@ -705,7 +705,7 @@ a:active, a:focus, a:hover {
     margin-top: 3px;
 }
 .sidebar-menu li.header {
-    padding: 20px 25px 10px 15px;
+    padding: 10px 25px 10px 10px;
     font-size: 12px;
 	font-weight: 500;    
 	color: #212529;

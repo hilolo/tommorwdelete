@@ -59,7 +59,9 @@
 
 
 
-      <form class="form">
+
+      <form class="form"  method="POST" action="/insertimmeuble" >
+            {{ csrf_field() }}
           <div class="box-body">
             <h4 class="box-title text-info"><i class="ti-user mr-15"></i>Informations générales</h4>
             <hr class="my-15">
@@ -70,7 +72,7 @@
 
                 <label>IDENTIFIANT  
                 </label>
-                <input type="text" class="form-control" placeholder="Identifiant , Nom unique" >
+                <input type="text" required="" name="name" class="form-control" placeholder="Identifiant , Nom unique" >
                 </div>
                  </div>
 
@@ -79,7 +81,7 @@
 
                 <label>ADRESSE  
                 </label>
-                <input type="text" class="form-control"  >
+                <input type="text"  required="" name="adrs" class="form-control"  >
                 </div>
                  </div>
             
@@ -96,7 +98,7 @@
                 <label>SUPERFICIE M2
  
                 </label>
-                <input type="text" class="form-control" >
+                <input type="text" name="superf" class="form-control" >
                 </div>
               </div>
               <div class="col-md-6">
@@ -105,7 +107,7 @@
                 <label>ANNÉE DE CONSTRUCTION 
                 </label>
 
-                <input type="text" class="form-control"  >
+                <input type="text" name="anndis" class="form-control"  >
                 </div>
               </div>
 
@@ -127,12 +129,12 @@
           
         
 
-                <select  class="form-control select2" style="width: 100%;">
-            <option selected="selected">Alaska</option>
-            <option>Delaware</option>
-            <option>Tennessee</option>
-            <option>Texas</option>
-            <option>Washington</option>
+                <select  name="ids[]" class="form-control select2 aq" style="width: 100%;">
+                    
+                     @foreach ($loc as $loca)
+            <option value="{{$loca->id}}" >{{$loca->Ref  }} {{$loca->adresse   }}    </option>
+            @endforeach
+         
           </select>
 
 
@@ -175,13 +177,11 @@
             <div class="col-md-6 col-12">
           <div class="form-group">
           <label>List Propriétaire</label>
-          <select id="listpr" class="form-control select2" style="width: 100%;">
-            <option selected="selected">Nouveau Propriétaire</option>
-            <option>Alaska</option>
-            <option>Delaware</option>
-            <option>Tennessee</option>
-            <option>Texas</option>
-            <option>Washington</option>
+          <select id="listpr" name="prop" class="form-control select2"   style="width: 100%;">
+             <option selected="selected" value="0">Nouveau Propriétaire</option>
+            @foreach ($loc2 as $loca)
+            <option>{{$loca->prenom  }} {{$loca->nom   }} {{$loca->societe  }}   </option>
+            @endforeach
           </select>
           </div>
           <!-- /.form-group -->
@@ -191,7 +191,7 @@
                       <div id="id" class="col-md-6 col-12">
                     <div class="form-group">
                 <label>Type</label>
-                <select class="form-control" id="selectada">
+                <select class="form-control" name="type" id="selectada">
                 <option value="1">Particulier</option>
                 <option value="2">Société / Autre</option>
                 </select>
@@ -212,7 +212,7 @@
               <div class="col-md-6">
               <div class="form-group">
                 <label>Civilité</label>
-                <select class="form-control">
+                <select name="civilite" class="form-control">
                 <option>Monsieur</option>
                 <option>Madame</option>
                 </select>
@@ -224,7 +224,7 @@
 
                 <label>Cin 
                 </label>
-                <input type="text" class="form-control" placeholder="CIN">
+                <input type="text" name="cin" class="form-control" placeholder="CIN">
                 </div>
                  </div>
 
@@ -238,7 +238,7 @@
 
                 <label>Prenom 
                 </label>
-                <input type="text" class="form-control" >
+                <input type="text" id="prenom" name="prenom" class="form-control" >
                 </div>
               </div>
               <div class="col-md-6">
@@ -246,7 +246,7 @@
 
                 <label>Nom 
                 </label>
-                <input type="text" class="form-control" >
+                <input type="text" id="nom" name="nom" class="form-control" >
                 </div>
               </div>
 
@@ -262,7 +262,7 @@
 
                 <label>SOCIÉTÉ *
                 </label>
-                <input type="text" class="form-control" placeholder="Company Nom">
+                <input type="text" id="societeqqa" name="socite" class="form-control" placeholder="Company Nom">
                 </div>
 
                 <div class="row">
@@ -270,9 +270,9 @@
 
                 <div class="form-group">
 
-                <label>NO. TVA
+                <label>NO. ICE
                 </label>
-                <input type="text" class="form-control" placeholder="Numero TVA">
+                <input type="text" name="ice" class="form-control" placeholder="Numero TVA">
                 </div>
                 </div>
                 <div class="col-md-6">
@@ -281,7 +281,7 @@
 
                 <label>PROFESSION
                 </label>
-                <input type="text" class="form-control" placeholder="Ex : Dentiste">
+                <input type="text" name="profession" class="form-control" placeholder="Ex : Dentiste">
                 </div>
                 </div>
 
@@ -320,16 +320,25 @@
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script type="text/javascript">
-        $(function() {
-    
+    $(function() {
+
+              $('#prenom').prop('required',true);
+            $('#nom').prop('required',true);
+            $('#societeqqa').prop('required',false);    
 
     $('#listpr').change(function(){
 
 
-        if($('#listpr').val() == 'Nouveau Propriétaire') {
+        if($('#listpr').val() == '0') {
            $('#id').show();
             $('#particulier').show(); 
             $("#selectada").val(1);
+
+
+              $('#prenom').prop('required',true);
+            $('#nom').prop('required',true);
+            $('#societeqqa').prop('required',false);
+
 
           
         } else {
@@ -337,35 +346,50 @@
               $('#id').hide(); 
               $('#societe').hide(); 
                $('#particulier').hide(); 
-        } 
-    });
 
-
-
-      $('#societe').hide();  
-    $('#selectada').change(function(){
-      alert($('#selectada').val());
-
-        if($('#selectada').val() == '1') {
-        
-             $('#societe').hide(); 
-              $('#particulier').show(); 
-
-
-              //$('.name').hide().find(':input').attr('required', false);
-
-              //$('.name').show().find(':input').attr('required', true);
-
-          
-        } else {
-           $('#societe').show(); 
-              $('#particulier').hide(); 
+                $('#prenom').prop('required',false);
+                $('#nom').prop('required',false);
+                $('#societeqqa').prop('required',false)
         } 
     });
 });
 
 
 
+
+  $(function() {
+
+;
+
+
+    
+      $('#societe').hide();  
+    $('#selectada').change(function(){
+
+        if($('#selectada').val() == '1') {
+        
+             $('#societe').hide(); 
+              $('#particulier').show(); 
+
+             $('#prenom').prop('required',true);
+              $('#nom').prop('required',true);
+              $('#societeqqa').prop('required',false);
+
+          
+        } else {
+           $('#societe').show(); 
+              $('#particulier').hide(); 
+
+              $('#societeqqa').prop('required',true);
+              $('#prenom').prop('required',false);
+              $('#nom').prop('required',false);
+        } 
+    });
+});
+</script>
+
+
+<script type="text/javascript">
   $(function() {
   $(".add").click(function() {
         $("#rept").clone()
@@ -376,6 +400,7 @@
       
          $('.select2-container').remove();
         $('.select2').select2({
+     
            
         });
 

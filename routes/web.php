@@ -73,13 +73,29 @@ Route::post('/deletebien/{id}', 'BienController@destroy')->name('suppbien');
 
 
 
+/////////////////////////////// Immeuble
+
+
+Route::get('/Immeuble', 'ImmeubleController@index');
+Route::get('/Immeuble/{id}/View', 'ImmeubleController@View');
+Route::get('/Immeuble/Add', 'ImmeubleController@storeaf');
+Route::get('/Immeuble/{id}/ModifierClient', 'ImmeubleController@updateaf');
+Route::get('/Immeuble/data', 'ImmeubleController@data');
+Route::get('/Immeuble/data2', 'ImmeubleController@data2');
+Route::post('/insertimmeuble', 'ImmeubleController@insert');
+Route::post('/updateimmeuble/{id}', 'ImmeubleController@update');
+Route::post('/deleteimmeuble/{id}', 'ImmeubleController@destroy')->name('suppbien');
+
+
+
+
 /////////////////////////////// Location
 
 
 Route::get('/Location', 'LocationController@index');
 Route::get('/Location/Add', 'LocationController@storeaf');
 Route::get('/Location/{id}/ModifierClient', 'LocationController@updateaf');
-Route::get('/Location/data', 'BienController@data');
+Route::get('/Location/data', 'LocationController@data');
 Route::get('/Location/data2', 'LocationController@data2');
 Route::post('/insertlocation', 'LocationController@insert');
 Route::post('/updatelocation/{id}', 'LocationController@update');

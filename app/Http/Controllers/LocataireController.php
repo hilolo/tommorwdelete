@@ -12,7 +12,7 @@ class LocataireController extends Controller
    public function index()
     {
      
-        return view('locataire.index');
+        return view('location.index');
       
     }
 

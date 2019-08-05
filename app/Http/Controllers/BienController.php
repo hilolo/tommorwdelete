@@ -70,7 +70,7 @@ class BienController extends Controller
             $ar->locataires_id=$aqs23->id;
         }
 
-      }else     $ar->pays=$request->input('pays');
+      }else     $ar->locataires_id=$request->input('prop');
 
 
           $ar->save();

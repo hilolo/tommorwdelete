@@ -8,4 +8,11 @@ class Immeuble extends Model
 {
     //
      protected $table = 'immeubles';
+
+
+
+         public function immeublebiens()
+    {
+       return $this->hasMany('App\Immeublebien');
+    }
 }

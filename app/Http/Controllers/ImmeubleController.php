@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Immeuble;
 use App\Bien;
 use App\Locataire;
-
+use App\Immeublebien;
+use DB;
 class ImmeubleController extends Controller
 {
  
@@ -25,7 +26,7 @@ class ImmeubleController extends Controller
     {
 
 
-       
+  
 
                $ar= new Immeuble();
 
@@ -87,6 +88,21 @@ class ImmeubleController extends Controller
 
           $ar->save();
 
+
+             foreach ($request->get('ids') as $v) {
+              $arq= new Immeublebien();
+               $arq->biens_id = $v;
+                $arq->immeubles_id = $ar->id;
+              $arq->save();
+
+          
+               }
+
+
+/*
+ $ar= new Immeuble();
+ $ar->save();*/
+
           
           
 
@@ -134,13 +150,75 @@ class ImmeubleController extends Controller
 
     public function data(){
 
-  
+   
 
+
+
+                
+      
+
+
+       $articles =Immeuble::all()->where('archivei', '0');
+       
+
+         return datatables()->of($articles)
+       ->addColumn('intro', function(Immeuble $user) {
+
+            $imm =DB::table('immeubles')
+             ->join('immeublebiens', 'immeublebiens.immeubles_id', '=','immeubles.id' )
+              ->join('biens', 'biens.id', '=', 'immeublebiens.biens_id')
+            ->where('archivei', '0')
+            ->where('immeubles.id',$user->id)
+            ->select('immeubles.*', 'immeublebiens.*', 'biens.*')
+             ->get();
+              
+            
+            $RA = '';
+
+             foreach($imm as $bb) {
+               $RA .=  $bb->Ref . '  ' ;
+                      }
+                       
+
+                      
+                    return $RA;
+                })
+
+    ->toJson();
 
 
     }
 
      public function data2(){
+
+       $articles =Immeuble::all()->where('archivei', '1');
+       
+
+         return datatables()->of($articles)
+       ->addColumn('intro', function(Immeuble $user) {
+
+            $imm =DB::table('immeubles')
+             ->join('immeublebiens', 'immeublebiens.immeubles_id', '=','immeubles.id' )
+              ->join('biens', 'biens.id', '=', 'immeublebiens.biens_id')
+            ->where('archivei', '0')
+            ->where('immeubles.id',$user->id)
+            ->select('immeubles.*', 'immeublebiens.*', 'biens.*')
+             ->get();
+              
+            
+            $RA = '';
+
+             foreach($imm as $bb) {
+               $RA .=  $bb->Ref . '  ' ;
+                      }
+                       
+
+                      
+                    return $RA;
+                })
+
+    ->toJson();
+
 
 
 

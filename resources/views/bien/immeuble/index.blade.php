@@ -137,12 +137,12 @@
 
             serverSide: true,
 
-            ajax: '/Locataire/data',
+            ajax: '/Immeuble/data',
             "pageLength": 50,
              columns: [
-            {data: 'Nom full'},
-            {data: 'id'},
-            {data: 'tel'},
+            {data: 'nom_immeuble'},
+            {data: 'biens'},
+            {data: 'adresseimm'},
            
              {data: 'id', name: 'action', orderable: false, searchable: false},
 
@@ -167,12 +167,12 @@
 
             serverSide: true,
 
-            ajax: '/Locataire/data2',
+            ajax: '/Immeuble/data2',
             "pageLength": 50,
              columns: [
-           {data: 'Nom full'},
-            {data: 'id'},
-            {data: 'id'},
+           {data: 'nom_immeuble'},
+            {data: 'biens'},
+            {data: 'adresseimm'},
             
              {data: 'id', name: 'action', orderable: false, searchable: false},
 

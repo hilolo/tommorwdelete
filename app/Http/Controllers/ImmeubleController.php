@@ -162,7 +162,7 @@ class ImmeubleController extends Controller
        
 
          return datatables()->of($articles)
-       ->addColumn('intro', function(Immeuble $user) {
+       ->addColumn('biens', function(Immeuble $user) {
 
             $imm =DB::table('immeubles')
              ->join('immeublebiens', 'immeublebiens.immeubles_id', '=','immeubles.id' )
@@ -195,7 +195,7 @@ class ImmeubleController extends Controller
        
 
          return datatables()->of($articles)
-       ->addColumn('intro', function(Immeuble $user) {
+       ->addColumn('biens', function(Immeuble $user) {
 
             $imm =DB::table('immeubles')
              ->join('immeublebiens', 'immeublebiens.immeubles_id', '=','immeubles.id' )

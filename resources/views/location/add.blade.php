@@ -47,7 +47,8 @@
       </div>
 
 
-            <form method="POST" action="insertlocation">
+            <form class="form" method="POST" action="/insertlocation" enctype="multipart/form-data">
+               {{ csrf_field() }}
               <div class="box-body">
             <h4 class="box-title text-info"><i class="ti-user mr-15"></i> Bien loué</h4>
             <hr class="my-15">
@@ -57,12 +58,11 @@
                 <label>Bien</label>
 
 
-               <select  class="form-control select2" style="width: 100%;">
-            <option>Alaska</option>
-            <option>Delaware</option>
-            <option>Tennessee</option>
-            <option>Texas</option>
-            <option>Washington</option>
+               <select name="bbl" class="form-control select2" style="width: 100%;">
+               @foreach ($loc as $loca)
+            <option value="{{$loca->id}}" >{{$loca->Ref  }} {{$loca->adresse   }}    </option>
+            @endforeach
+         
           </select>
 
 
@@ -80,13 +80,11 @@
             <div class="col-md-6 col-12">
           <div class="form-group">
           <label>List Locataire</label>
-          <select id="listpr" class="form-control select2" style="width: 100%;">
+          <select id="listpr" name="prop" class="form-control select2" style="width: 100%;">
             <option selected="selected" value="0">Nouveau Locataire</option>
-            <option>Alaska</option>
-            <option>Delaware</option>
-            <option>Tennessee</option>
-            <option>Texas</option>
-            <option>Washington</option>
+            @foreach ($loc2 as $loca)
+            <option>{{$loca->prenom  }} {{$loca->nom   }} {{$loca->societe  }}   </option>
+            @endforeach
           </select>
           </div>
           <!-- /.form-group -->
@@ -96,7 +94,7 @@
                       <div id="id" class="col-md-6 col-12">
                     <div class="form-group">
                 <label>Type</label>
-                <select class="form-control" id="selectada">
+                <select class="form-control" name="type"  id="selectada">
                 <option value="1">Particulier</option>
                 <option value="2">Société / Autre</option>
                 </select>
@@ -117,7 +115,7 @@
               <div class="col-md-6">
               <div class="form-group">
                 <label>Civilité</label>
-                <select class="form-control">
+                <select class="form-control" name="civilite">
                 <option>Monsieur</option>
                 <option>Madame</option>
                 </select>
@@ -129,7 +127,7 @@
 
                 <label>Cin 
                 </label>
-                <input type="text" class="form-control" placeholder="CIN">
+                <input type="text" class="form-control"  name="cin" placeholder="CIN">
                 </div>
                  </div>
 
@@ -143,7 +141,7 @@
 
                 <label>Prenom 
                 </label>
-                <input type="text" id="prenom" class="form-control" >
+                <input type="text" id="prenom" name="prenom"  class="form-control" >
                 </div>
               </div>
               <div class="col-md-6">
@@ -151,7 +149,7 @@
 
                 <label>Nom 
                 </label>
-                <input type="text" id="nom" class="form-control" >
+                <input type="text" id="nom"  name="nom" class="form-control" >
                 </div>
               </div>
 
@@ -167,7 +165,7 @@
 
                 <label>SOCIÉTÉ *
                 </label>
-                <input type="text" class="form-control" id="societeqqa" placeholder="Company Nom">
+                <input type="text"  name="socite"  class="form-control" id="societeqqa" placeholder="Company Nom">
                 </div>
 
                 <div class="row">
@@ -175,9 +173,9 @@
 
                 <div class="form-group">
 
-                <label>NO. TVA
+                <label>NO. ICE
                 </label>
-                <input type="text" class="form-control" placeholder="Numero TVA">
+                <input type="text" name="ice"  class="form-control" placeholder="Numero TVA">
                 </div>
                 </div>
                 <div class="col-md-6">
@@ -186,7 +184,7 @@
 
                 <label>PROFESSION
                 </label>
-                <input type="text" class="form-control" placeholder="Ex : Dentiste">
+                <input type="text" name="profession" class="form-control" placeholder="Ex : Dentiste">
                 </div>
                 </div>
 
@@ -209,9 +207,9 @@
 
 
 
-                 <select class="form-control">
-                <option>Bail d'habitation vide</option>
-                <option>Bail d'habitation meublé </option>
+                 <select name="typebb" class="form-control">
+                <option value="1">Bail d'habitation vide</option>
+                <option value="2">Bail d'habitation meublé </option>
             
                 </select>
                 </div>
@@ -233,7 +231,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" class="form-control pull-right" name="datetimes">
+                  <input  type="text" class="form-control pull-right" name="datetimes">
 
                   
 
@@ -253,6 +251,25 @@
                 <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Paiment  </h4>
             <hr class="my-15">
 
+
+ <div class="row">
+                  <div class="col-md-6">
+
+                <div class="form-group">
+
+                <label>LOYER
+                </label>
+                <input type="text" name="loyer"  class="form-control" name="LOYER" placeholder="Montant de loyer">
+                </div>
+                </div>
+
+            
+
+            </div>
+
+
+
+
              <div class="row">
               <div class="col-md-6">
               <div class="form-group">
@@ -265,11 +282,11 @@
 
 
 
-                 <select class="form-control">
-                <option>Mensuel </option>
-                <option>Trimestriel </option>
-                  <option>Annuel </option>
-                    <option>Forfaitaire </option>
+                 <select name="paimmeth" class="form-control">
+                <option value="Mensuel">Mensuel </option>
+                <option value="Trimestriel" >Trimestriel </option>
+                  <option value="Annuel" >Annuel </option>
+                    <option value="Forfaitaire" >Forfaitaire </option>
             
                 </select>
                 </div>
@@ -296,11 +313,11 @@
 
 
 
-                 <select class="form-control">
-                <option>Espèce </option>
-                <option>Chèque </option>
-                  <option>Virement </option>
-                    <option>Prélèvement automatique </option>
+                 <select name="moyenp" class="form-control">
+                <option value="Especes"   >Espèces </option>
+                <option value="Chèque"  >Chèque </option>
+                  <option value="Virement" >Virement </option>
+                    <option value=">Prélèvement automatique"  >Prélèvement automatique </option>
             
                 </select>
                 </div>
@@ -316,19 +333,37 @@
                <div class="row">
               <div class="col-md-6">
             <div class="form-group ">
-              <label>MOYEN DE PAIEMENT
+              <label>JOUR DE PAIEMENT
  
                 </label>
                    <div class="form-group">
-              <input class="form-control" type="number" min="1" max="31" step="1" value="5" id="example-number-input">
+              <input class="form-control" name="jpaiment" type="number" min="1" max="31" step="1" value="5" id="example-number-input">
                     </div>
             </div>
              </div>
+
+
               </div>
 
 
-
+<h4 class="box-title text-info"><i class="ti-save mr-15"></i> Contrat  </h4>
               
+             <div class="row">
+              <div class="col-md-6">
+            <div class="form-group ">
+                    <div class="file-field">
+    <div class="btn btn-info btn-sm float-left">
+      <span>Choose file</span>
+      <input type="file" name="file">
+    </div>
+
+  </div>
+            </div>
+             </div>
+
+
+              </div>
+
 
 
 
@@ -470,7 +505,9 @@
 
   $('input[name="datetimes"]').daterangepicker({
 
-    "autoApply": true,
+    "autoApply": true, locale: {
+        format: 'YYYY/MM/DD' // --------Here
+    }
 
 });
 

@@ -66,18 +66,7 @@ class LocataireController extends Controller
 
                  
 
-            $art=Locataire::find($ar->id);
-
-            if($request->type == 1 ) {
-
-            if ($request->hasFile('file')){
-         
-            $art->cinpath=$file->storeAs('public/locataire/'.$ar->id,$file->getClientOriginalName()) ;
-          }
-          }
-
-
-              $art->save();
+            
 
             return redirect('/Locataire');
         
@@ -103,6 +92,8 @@ class LocataireController extends Controller
           	$ar->path_img=$file->storeAs('public/clients',$file->getClientOriginalName()) ;
           }
             $ar->save();
+
+            
             return redirect('/Vente/'.$id.'/View');
         
     }

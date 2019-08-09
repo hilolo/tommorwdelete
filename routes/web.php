@@ -35,6 +35,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/Proprietaire', 'PropraitaireController@index');
 Route::get('/Proprietaire/{id}/View', 'PropraitaireController@View');
 Route::get('/Proprietaire/Add', 'PropraitaireController@storeaf');
+Route::get('/Proprietaire/Adddocs', 'PropraitaireController@storedocs');
 Route::get('/Proprietaire/{id}/ModifierClient', 'PropraitaireController@updateaf');
 Route::get('/Proprietaire/data', 'PropraitaireController@data');
 Route::get('/Proprietaire/data2', 'PropraitaireController@data');

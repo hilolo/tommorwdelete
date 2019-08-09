@@ -29,7 +29,7 @@ class PropraitaireController extends Controller
     	
        
         //	dd($request->all());
-        	$file = $request->file('file');
+  
             $ar= new Locataire();
 
         
@@ -70,23 +70,12 @@ class PropraitaireController extends Controller
 
 
 
-            $art=Locataire::find($ar->id);
-
-            if($request->type == 1 ) {
-
-            if ($request->hasFile('file')){
-         
-            $art->cinpath=$file->storeAs('public/locataire/'.$ar->id,$file->getClientOriginalName()) ;
-          }
-          }
-
-
-              $art->save();
+        
 
 
 
 
-            return redirect('/proprietaire');
+            //return redirect('/proprietaire');
         
     }
 
@@ -99,9 +88,14 @@ class PropraitaireController extends Controller
     }
 
 
-     public function storeaf(Request $request)
+     public function storeaf()
     {
         return view('proprietaire.add');
+    }
+
+      public function storedocs()
+    {
+        return view('proprietaire.adddoc');
     }
 
 

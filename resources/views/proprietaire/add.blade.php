@@ -73,7 +73,7 @@
               </div>
             </div>
 
-               <div class="col-md-3">
+               <div class="col-md-6">
                 <div class="form-group">
 
                 <label>Cin 
@@ -87,16 +87,6 @@
 
                  </div>
 
-                 <div class="col-md-3">
-
-                 <div class="form-group">
-                  <label for="exampleInputFile">Image CIN </label>
-
-                  <input type="file" name="file" class="form-control"  id="exampleInputFile">
-
-                 
-                </div>
-                </div>
 
 
 
@@ -239,7 +229,7 @@
           
          <div class="box-footer">
                 <button  class="btn btn-default">Cancel</button>
-                <button type="submite" class="btn btn-info pull-right">Sign in</button>
+                <button type="submite"  onclick="ConfirmDelete()" class="btn btn-info pull-right">Enregistrer</button>
               </div>  
                 </form>
 
@@ -264,7 +254,7 @@
     $('#societe').hide(); 
             $('#prenom').prop('required',true);
             $('#nom').prop('required',true);
-            $('#societeqqa').prop('required',true);
+            $('#societeqqa').prop('required',false);
     $('#selectada').change(function(){
 
         if($('#selectada').val() == '1') {
@@ -293,7 +283,12 @@
         } 
     });
 });
+
+
+
 </script>
+
+
 
 
 

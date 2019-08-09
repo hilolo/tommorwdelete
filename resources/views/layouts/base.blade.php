@@ -459,10 +459,13 @@
   
   <!-- Select2 -->
   <script src="{{ asset('../../assets/vendor_components/select2/dist/js/select2.full.js') }}"></script>
+
   
   <!-- InputMask -->
   <script src="{{ asset('../../assets/vendor_plugins/input-mask/jquery.inputmask.js') }}"></script>
   <script src="{{ asset('../../assets/vendor_plugins/input-mask/jquery.inputmask.date.extensions.js') }}"></script>
+
+
   <script src="{{ asset('../../assets/vendor_plugins/input-mask/jquery.inputmask.extensions.js') }}"></script>
   
   <!-- date-range-picker -->
@@ -477,6 +480,8 @@
   
   <!-- bootstrap time picker -->
   <script src="{{ asset('../../assets/vendor_plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
+  
+
   
   <!-- SlimScroll -->
   <script src="{{ asset('../../assets/vendor_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>

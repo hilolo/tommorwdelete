@@ -1,35 +1,53 @@
 @extends('layouts.base')
 
 @section('content')
-<link rel='stylesheet' href='https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css'>
-<link rel='stylesheet' href='https://unpkg.com/filepond/dist/filepond.min.css'>
-
 <style type="text/css">
-.filepond--drop-label {
-  color: #4c4e53;
+.files input {
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    padding: 120px 0px 85px 35%;
+    text-align: center !important;
+    margin: 0;
+    width: 100% !important;
 }
-
-.filepond--label-action {
-  -webkit-text-decoration-color: #babdc0;
-          text-decoration-color: #babdc0;
+.files input:focus{     outline: 2px dashed #92b0b3;  outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
+ }
+.files{ position:relative}
+.files:after {  pointer-events: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 50px;
+    right: 0;
+    height: 56px;
+    content: "";
+    background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png);
+    display: block;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
-
-.filepond--panel-root {
-  border-radius: 2em;
-  background-color: #edf0f4;
-  height: 1em;
+.color input{ background-color:#f1f1f1;}
+.files:before {
+    position: absolute;
+    bottom: 10px;
+    left: 0;  pointer-events: none;
+    width: 100%;
+    right: 0;
+    height: 57px;
+    content: "ou faites-le glisser ici. ";
+    display: block;
+    margin: 0 auto;
+    color: #2ea591;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
 }
-
-.filepond--item-panel {
-  background-color: #595e68;
-}
-
-.filepond--drip-blob {
-  background-color: #7f8a9a;
-}
-
 </style>
-
 	<div class="content-header">
 		<div class="d-flex align-items-center">
 			<div class="mr-auto">
@@ -50,44 +68,54 @@
 <section class="content">
     
      <div class="row">
-              <div class="col-md-4">
-              <div class="col-md-12">
-              <div class="form-group">
-
-                <label>Nom Groupe
-                </label>
-                <input type="text" name="tele" class="form-control" >
-                </div>
-              </div>
-
-               <div class="col-md-12">
-              <div class="form-group">
-
-                <label>Type 
-                </label>
-                <input type="text" name="tele" class="form-control" >
-                </div>
-              </div>
-
-
-
-
-
-              </div>
+            
 
 
 
               <div class="col-md-8">
-     <input type="file" 
-       class="filepond"
-       name="filepond"
-       multiple
-       data-max-file-size="3MB"
-       data-max-files="3" />
+    <div class="form-group files">
+                <label>Upload Your File </label>
+                <input type="file" class="form-control" multiple="">
+              </div>
 
               </div>
 
+                <div class="col-md-4">
+             
+
+               <div class="col-md-12">
+             
+                    <div class="form-group">
+                <label>Type</label>
+                <select class="form-control" name="type" id="selectada">
+                <option >CIN</option>
+                <option >PASSPORT</option>
+                <option >COMPTE BANQAIRE</option>
+                 <option >TITRE BIENS</option>
+                  <option >ASSURANCE</option>
+                   <option >AUTRE</option>
+                </select>
+              
+              </div> 
             </div>
+
+
+
+
+
+            </div>
+              <div class="col-md-12" >
+             
+             
+               <div class="pull-right">
+    
+                <button type="submite"  onclick="ConfirmDelete()" class="btn btn-info pull-right">Enregistrer</button>
+          </div>
+
+
+
+              </div>
+
 
 
 
@@ -95,32 +123,6 @@
 
 
 
-<script>
 
- 
-
-FilePond.registerPlugin(
-  
-  // encodes the file as base64 data
-  FilePondPluginFileEncode,
-  
-  // validates the size of the file
-  FilePondPluginFileValidateSize,
-  
-  // corrects mobile image orientation
-  FilePondPluginImageExifOrientation,
-  
-  // previews dropped images
-  FilePondPluginImagePreview
-);
-
-// Select the file input and use create() to turn it into a pond
-FilePond.create(
-  document.querySelector('input')
-);
-
-
-
-</script>
 
 	@endsection

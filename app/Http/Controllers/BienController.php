@@ -20,7 +20,10 @@ class BienController extends Controller
 
 
       public function insert(Request $request)
+
     {
+
+    
             $ar= new Bien();
 
 
@@ -39,6 +42,7 @@ class BienController extends Controller
 
 
             if($request->input('prop') == 0 ) {
+              
 
             if($request->input('nvtype') == 1 ) {
               $aqs= new Locataire();
@@ -70,7 +74,7 @@ class BienController extends Controller
             $ar->locataires_id=$aqs23->id;
         }
 
-      }else     $ar->locataires_id=$request->input('prop');
+      }else     {$ar->locataires_id=$request->input('prop');}
 
 
           $ar->save();

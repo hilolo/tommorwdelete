@@ -38,7 +38,7 @@ Route::get('/Proprietaire/Add', 'PropraitaireController@storeaf');
 Route::get('/Proprietaire/Adddocs', 'PropraitaireController@storedocs');
 Route::get('/Proprietaire/{id}/ModifierClient', 'PropraitaireController@updateaf');
 Route::get('/Proprietaire/data', 'PropraitaireController@data');
-Route::get('/Proprietaire/data2', 'PropraitaireController@data');
+Route::get('/Proprietaire/data2', 'PropraitaireController@data2');
 Route::post('/insertproprietaire', 'PropraitaireController@insert');
 Route::post('/updateproprietaire/{id}', 'PropraitaireController@update');
 Route::post('/deleteproprietaire/{id}', 'PropraitaireController@destroy')->name('suppprop');

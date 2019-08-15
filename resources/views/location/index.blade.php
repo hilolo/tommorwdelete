@@ -124,7 +124,7 @@
 
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-  
+  <script type="text/javascript" src="../../assets/vendor_components/popper/dist/popper.min.js"></script>
 <script type="text/javascript">
     
 
@@ -139,14 +139,14 @@
 
             serverSide: true,
 
-            ajax: '/Locataire/data',
+            ajax: '/Location/data',
             "pageLength": 50,
              columns: [
             {data: 'Nom full'},
-            {data: 'id'},
-            {data: 'tel'},
-            {data: 'id'},
-             {data: 'id', name: 'action', orderable: false, searchable: false},
+            {data: 'biens'},
+            {data: 'loyer'},
+             {data: 'duro', name: 'duro', orderable: false, searchable: false},
+             {data: 'edit', name: 'edit', orderable: false, searchable: false},
 
        ]
         });
@@ -169,14 +169,14 @@
 
             serverSide: true,
 
-            ajax: '/Locataire/data2',
+            ajax: '/Location/data2',
             "pageLength": 50,
              columns: [
            {data: 'Nom full'},
-            {data: 'id'},
-            {data: 'id'},
-            {data: 'id'},
-             {data: 'id', name: 'action', orderable: false, searchable: false},
+            {data: 'biens'},
+            {data: 'loyer'},
+              {data: 'duro', name: 'duro', orderable: false, searchable: false},
+             {data: 'edit', name: 'edit', orderable: false, searchable: false},
 
        ]
         });

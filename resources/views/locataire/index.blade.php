@@ -143,7 +143,7 @@
             "pageLength": 50,
              columns: [
             {data: 'Nom full'},
-            {data: 'id'},
+             {data: 'bienloc', name: 'bienloc', orderable: false, searchable: false},
             {data: 'tel'},
             {data: 'id'},
              {data: 'id', name: 'action', orderable: false, searchable: false},
@@ -173,8 +173,8 @@
             "pageLength": 50,
              columns: [
            {data: 'Nom full'},
-            {data: 'id'},
-            {data: 'id'},
+              {data: 'bienloc', name: 'bienloc', orderable: false, searchable: false},
+            {data: 'tel'},
             {data: 'id'},
              {data: 'id', name: 'action', orderable: false, searchable: false},
 

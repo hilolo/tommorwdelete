@@ -126,7 +126,7 @@
           <select id="listpr" class="form-control select2" name="prop" style="width: 100%;">
             <option selected="selected" value="0">Nouveau Propriétaire</option>
             @foreach ($loc as $loca)
-            <option>{{$loca->prenom  }} {{$loca->nom   }} {{$loca->societe  }}   </option>
+            <option value="{{$loca->id}}">{{$loca->prenom}} {{$loca->nom   }} {{$loca->societe  }}   </option>
             @endforeach
 
           </select>

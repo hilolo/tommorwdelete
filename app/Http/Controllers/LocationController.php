@@ -15,7 +15,7 @@ class LocationController extends Controller
     public function index()
     {
      
-        return view('locataire.index');
+        return view('location.index');
       
     }
 
@@ -164,16 +164,49 @@ class LocationController extends Controller
 
     public function data(){
 
-        $articles =Locataire::all()->where('mode','2')->where('archive','0');
+        $articles =location::all()->where('archiveloc','0');
+      
 
           return datatables()->of( $articles)
-    ->addColumn('Nom full', function(Locataire $user) {
-      if($user->type == 1) {
-        return  $user->civilite . ' ' . $user->prenom . ' ' . $user->nom  ;
-      } else {
-          return  $user->societe ;
-      }
+    ->addColumn('Nom full', function(location $user) {  
+     
+        return  $user->locataire->civilite . ' ' . $user->locataire->prenom . ' ' . $user->locataire->nom  ; 
+        
     })
+    ->addColumn('biens', function(location $user) {  
+        return  $user->bien->Ref . ' ' . $user->bien->adresse   ; 
+        
+    })
+     ->editColumn('loyer', function(location $user) {  
+        return  $user->loyer . ' MAD'  ; 
+        
+    })
+         ->addColumn('duro', function(location $user) {
+     
+        return    '<a    class="badge badge-info text-white"   data-toggle="tooltip" >' . $user->date_debutbail . ' => ' 
+               . $user->date_debutbail .   '</a>'  ;
+    
+    })
+   ->addColumn('edit', function(location $user) {
+     
+        return    '<div class="dropdown">
+              <button class="btn btn-xs btn-outline btn-info dropdown-toggle" type="button" data-toggle="dropdown">  .....  </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item flexbox" href="#">
+                <span>Inbox</span>
+                </a>
+                <a class="dropdown-item" href="#">Sent</a>
+                <a class="dropdown-item" href="#">Spam</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item flexbox" href="#">
+                <span>Draft</span>
+                <span class="badge badge-pill badge-default">1</span>
+                </a>
+              </div>
+              </div>'  ;
+    
+    })
+           ->rawColumns(['duro' => 'duro','edit' => 'edit'])  
     ->toJson();
 
 
@@ -184,13 +217,20 @@ class LocationController extends Controller
 
         $articles =Locataire::all()->where('mode','2')->where('archive','1');
 
+      
           return datatables()->of( $articles)
-    ->addColumn('Nom full', function(Locataire $user) {
-      if($user->type == 1) {
-        return  $user->civilite . ' ' . $user->prenom . ' ' . $user->nom  ;
-      } else {
-          return  $user->societe ;
-      }
+    ->addColumn('Nomfull', function(location $user) {  
+     
+        return  $user->locataire->civilite . ' ' . $user->locataire->prenom . ' ' . $user->locataire->nom  ; 
+        
+    })
+    ->addColumn('bbi', function(location $user) {  
+        return  $user->bien->Ref . ' ' . $user->bien->adresse   ; 
+        
+    })
+     ->editColumn('loyer', function(location $user) {  
+        return  $user->loyer . ' MAD'  ; 
+        
     })
     ->toJson();
 

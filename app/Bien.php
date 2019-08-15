@@ -12,4 +12,7 @@ class Bien extends Model
     {
         return $this->belongsTo('App\Locataire');
     }
+
+
+    
 }

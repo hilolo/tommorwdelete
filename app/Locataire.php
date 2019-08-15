@@ -15,5 +15,5 @@ class Locataire extends Model
         return $this->hasMany('App\Bien');
     }
 
-
+    
 }

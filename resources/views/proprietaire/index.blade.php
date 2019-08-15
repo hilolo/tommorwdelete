@@ -68,11 +68,12 @@
 		
 
 				 <div class="table-responsive ">
-                                <table class="table table-hover alt-pagination customer-wrapper dataTable no-footer display compact" id="dataTables-example" width="100%">
+          <div class="row"><div class="col-sm-12">
+                                <table class="table table-bordered table-striped dataTable" id="dataTables-example" width="100%">
                                     <thead>
-                                        <tr>
+                                        <tr >
                                         <td>Proprietaire</td>
-                                        <td>Biens</td>
+                                        <td    >Biens</td>
                                         <td >Telephone</td>
                                         <td>Solde</td>
                                         <td  >Modéle</td>
@@ -80,7 +81,7 @@
                                     </thead>
                                   
                                 </table>
-                            </div>
+                            </div></div></div>
 
 			
 			
@@ -137,10 +138,12 @@
                             processing: false,
                             serverSide: true,
                             "pageLength": 50,
+                             
+
                             ajax: '/Proprietaire/data',
                              columns: [
-                              {data: 'Nom full'},
-                              {data: 'id'},
+                              {data: 'Nom full' },
+                              {data: 'biens', name: 'biens', orderable: false, searchable: false},
                               {data: 'tel'},
                               {data: 'id'},
                               {data: 'id'},
@@ -172,7 +175,7 @@
                             ajax: '/Proprietaire/data2',
                              columns: [
                               {data: 'Nom full'},
-                              {data: 'id'},
+                                {data: 'biens', name: 'biens', orderable: false, searchable: false},
                               {data: 'tel'},
                               {data: 'id'},
                               {data: 'id'},
@@ -192,7 +195,9 @@
 } );
         
   
+
 </script>
+
 
 
 	@endsection

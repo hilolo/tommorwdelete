@@ -132,6 +132,11 @@ class PropraitaireController extends Controller
     
     public function data(){
 
+
+          
+              
+
+
         $articles =Locataire::all()->where('mode','1')->where('archive','0');
 
           return datatables()->of( $articles)
@@ -142,7 +147,25 @@ class PropraitaireController extends Controller
           return  $user->societe ;
       }
     })
-    ->toJson();
+     ->addColumn('biens', function(Locataire $user) {
+
+        $imm =DB::table('biens')
+            ->where('locataires_id', $user->id)
+             ->get();
+
+
+
+             $allth='';
+
+                foreach($imm as $bb) {
+               $allth .=   '<a href="/bien/'. $bb->id . '"    class="badge badge-primary"   data-toggle="tooltip" title="'. $bb->adresse . '" >' . $bb->Ref .  '</a><p></p>' ;
+                      }
+      
+          return $allth ;
+      
+    })
+        ->rawColumns(['biens' => 'biens'])   
+        ->toJson();
 
 
 
@@ -150,9 +173,10 @@ class PropraitaireController extends Controller
 
      public function data2(){
 
-        $articles =Locataire::all()->where('mode','1')->where('archive','1');
+        $articles2 =Locataire::all()->where('mode','1')->where('archive','1');
 
-          return datatables()->of( $articles)
+        
+          return datatables()->of( $articles2)
     ->addColumn('Nom full', function(Locataire $user) {
       if($user->type == 1) {
         return  $user->civilite . ' ' . $user->prenom . ' ' . $user->nom  ;
@@ -160,7 +184,25 @@ class PropraitaireController extends Controller
           return  $user->societe ;
       }
     })
-    ->toJson();
+     ->addColumn('biens', function(Locataire $user) {
+
+        $imm =DB::table('biens')
+            ->where('locataires_id', $user->id)
+             ->get();
+
+
+
+             $allth='';
+
+                foreach($imm as $bb) {
+               $allth .=   '<a href="/bien/'. $bb->id . '"   data-toggle="tooltip" title="'. $bb->adresse . '" >' . $bb->Ref .  '</a><p></p>' ;
+                      }
+      
+          return $allth ;
+      
+    })
+        ->rawColumns(['biens' => 'biens'])   
+        ->toJson();
 
 
 

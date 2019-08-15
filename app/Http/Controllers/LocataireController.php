@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Locataire;
+use App\Bien;
 use DataTables;
+use DB;
 
 class LocataireController extends Controller
 {
@@ -12,7 +14,7 @@ class LocataireController extends Controller
    public function index()
     {
      
-        return view('location.index');
+        return view('locataire.index');
       
     }
 
@@ -146,6 +148,50 @@ class LocataireController extends Controller
           return  $user->societe ;
       }
     })
+    ->editColumn('tel', function(Locataire $user) {
+      if($user->tel == '' ) {
+       return  '<a     class="badge badge-info text-white"   data-toggle="tooltip"  > Aucun Location </a>' ;
+      } else {
+          return  $user->tel ;
+      }
+    })
+         ->addColumn('bienloc', function(Locataire $user) {
+     
+
+        $imm =DB::table('locations')
+            ->where('locataires_id', $user->id)
+             ->get();
+             
+            
+
+            $articles =Locataire::all()->where('mode','2')->where('archive','0');
+
+        if ($imm->isEmpty()) {
+         
+          return  '<a href="/Location/Add"    class="badge badge-info "     > Aucun Location </a>' ;
+          }
+          else  
+          { 
+
+
+             $allth='';
+             $imstupid=0;
+                foreach($imm as $bb) {
+                  $aq = Bien::find($bb->biens_id);
+
+               $allth .=   '<a href="/bien/'. $aq->id . '"    class="badge badge-primary"   data-toggle="tooltip" title="'. $aq->adresse . '" >' . $aq->Ref  . ' | ' . $bb->date_debutbail . '=>' 
+               . $bb->date_debutbail . ' | ' . $bb->loyer . ' MAD' .    '</a>' ;
+              $imstupid++;
+               if($imstupid >= 2) $allth .= '<p></p>';
+                      }
+
+      
+          return  $allth ;
+          }
+
+      
+    })
+         ->rawColumns(['bienloc' => 'bienloc','tel' => 'tel'])  
     ->toJson();
 
 
@@ -155,8 +201,7 @@ class LocataireController extends Controller
      public function data2(){
 
         $articles =Locataire::all()->where('mode','2')->where('archive','1');
-
-          return datatables()->of( $articles)
+  return datatables()->of( $articles)
     ->addColumn('Nom full', function(Locataire $user) {
       if($user->type == 1) {
         return  $user->civilite . ' ' . $user->prenom . ' ' . $user->nom  ;
@@ -164,7 +209,52 @@ class LocataireController extends Controller
           return  $user->societe ;
       }
     })
+    ->editColumn('tel', function(Locataire $user) {
+      if($user->tel == '' ) {
+       return  '<a     class="badge badge-info text-white"   data-toggle="tooltip"  > Aucun Location </a>' ;
+      } else {
+          return  $user->tel ;
+      }
+    })
+         ->addColumn('bienloc', function(Locataire $user) {
+     
+
+        $imm =DB::table('locations')
+            ->where('locataires_id', $user->id)
+             ->get();
+             
+            
+
+            $articles =Locataire::all()->where('mode','2')->where('archive','0');
+
+        if ($imm->isEmpty()) {
+         
+          return  '<a href="/Location/Add"    class="badge badge-info "     > Aucun Location </a>' ;
+          }
+          else  
+          { 
+
+
+             $allth='';
+             $imstupid=0;
+                foreach($imm as $bb) {
+                  $aq = Bien::find($bb->biens_id);
+
+               $allth .=   '<a href="/bien/'. $aq->id . '"    class="badge badge-primary"   data-toggle="tooltip" title="'. $aq->adresse . '" >' . $aq->Ref  . ' | ' . $bb->date_debutbail . '=>' 
+               . $bb->date_debutbail . ' | ' . $bb->loyer . ' MAD' .    '</a>' ;
+              $imstupid++;
+               if($imstupid >= 2) $allth .= '<p></p>';
+                      }
+
+      
+          return  $allth ;
+          }
+
+      
+    })
+         ->rawColumns(['bienloc' => 'bienloc','tel' => 'tel'])  
     ->toJson();
+
 
 
 

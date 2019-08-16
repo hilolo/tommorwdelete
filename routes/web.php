@@ -104,3 +104,5 @@ Route::post('/deletelocation/{id}', 'LocationController@destroy')->name('suppbie
 
 
 
+/////////////////////////////// Cronjob
+Route::get('/quittance', 'QuittanceController@all');

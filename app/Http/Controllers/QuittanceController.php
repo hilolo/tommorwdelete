@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DateTime;
 use App\Location;
+use App\Quittance;
 
 class QuittanceController extends Controller
 {
@@ -12,7 +13,7 @@ class QuittanceController extends Controller
 
     function all()
     {
-
+    		$co=0;
     	$dt = new DateTime();
     	$dtyear=$dt->format("Y");
     	$dtmonth=$dt->format("n");	
@@ -28,8 +29,7 @@ class QuittanceController extends Controller
 				     }
 				else  
 				{ 
-						$a=0;
-						$counti=1;
+					
 
 						$datedy = date("Y", strtotime($loc->date_debutbail));
 						$datedm = date("n", strtotime($loc->date_debutbail));
@@ -38,46 +38,29 @@ class QuittanceController extends Controller
 
 					
 					for ($i = $datedy ; $i <= $dtyear; $i++) {
-
-							  				
-  							 if ($i == $dtyear  ){
-								if($dtyear == $datefy){
-  								for ($j = 1 ; $j <= $dtmonth; $j++) 
-  								{
-  									if($j != $datefm){
-  										// if quiitance equal last year 
-  									}
+					
+							
+							  					
+  							 if (($i == $datedy  ) && ($i == $datefy)){
 
 
-  								}
-  							} 
-  							else {
+  							 	for ($j = $datedm ; $j <= $dtmonth; $j++){
 
-  								for ($j = 1 ; $j <= $dtmonth; $j++) 
-  								{
+  							 				
 
-
-  								}
-
-
-  							}
-  							  else if($i == $datedy)
-  							{
-  								//if quiittance exiiste month in this year and month if not create one (old)
-  								for ($j = $datedm ; $j <= 12; $j++) 
-  								{
-  									
-
-  								}
- 
-  							} 
-  							 else
-  							 {
-  								for ($j = 1 ; $j <= $dtmonth; $j++) 
-  								{
-
-
-  								}
+										if($j != $datefm){
+											
+												$datetaz = $i . '-'. $j .'-'.'1';
+											
+											
+  												 $qta = new Quittance([
+		            'location_id' => $loc->id ,
+		            'datequiitance' => $datetaz
+		        ]);
+		        $qta->save();}
+										        }
+										        }
+								  								}
 
 
   							}
@@ -85,17 +68,17 @@ class QuittanceController extends Controller
 
   							} 
 
+  								
 
 						}
-					dd($a);	
+						
+						
 						
 
-				}
+				
 
 
-				}
-
-    }
+	
 
 
 

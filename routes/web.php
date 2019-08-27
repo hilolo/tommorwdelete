@@ -109,3 +109,4 @@ Route::get('/quittance', 'QuittanceController@all');
 
 
 Route::get('/qtcc', 'QuittanceController@index');
+Route::get('/quittance/data', 'QuittanceController@data');

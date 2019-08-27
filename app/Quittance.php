@@ -10,7 +10,17 @@ class Quittance extends Model
 
       protected $table = 'quittance';
 
-        protected $fillable = [
+     
+
+          public function location()
+    {
+        return $this->belongsTo('App\Location','location_id');
+    }
+
+       protected $fillable = [
         'location_id', 'datequiitance',
     ];
+
+
+
 }

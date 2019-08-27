@@ -55,27 +55,31 @@
 
                 </div>
               </div>
-               <div class="col-lg-4">
+
+                 <div class="col-lg-4">
                 <div class=" box-body">
             
-          
-
-
-          <div class="box ">
+                <div class="box box-body">
             <h6 class="mb-30">
-            <span class="text-uppercase">EN ATTENTE / IMPAYÉS</span>
-          
+            <span class="text-uppercase">LOYERS ENCAISSÉS</span>
+      
             </h6>
             
             <p class="font-size-26">$845,1258</p>
 
-            
+           
             <div class="font-size-12"><i class="ion-arrow-graph-down-right text-success mr-1"></i> %18 decrease from last month</div>
           </div>
 
 
+          
+
+
                 </div>
               </div>
+
+              
+              
 
 
               <div class="col-lg-4">

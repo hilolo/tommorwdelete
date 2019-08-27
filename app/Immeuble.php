@@ -13,6 +13,6 @@ class Immeuble extends Model
 
          public function immeublebiens()
     {
-       return $this->hasMany('App\Immeublebien');
+       return $this->hasMany('App\Bien');
     }
 }

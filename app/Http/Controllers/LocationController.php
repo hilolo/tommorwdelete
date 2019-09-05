@@ -46,6 +46,7 @@ class LocationController extends Controller
          $ar->paiment_methode=$request->input('paimmeth');
          $ar->moyen_paiment=$request->input('moyenp');
          $ar->paiment_jour=$request->input('jpaiment');
+          $ar->loyer=$request->input('loyer');
 
 
          
@@ -85,7 +86,7 @@ class LocationController extends Controller
             $aqs->societe=$request->input('socite');
             $aqs->ice=$request->input('ice');
             $aqs->profession=$request->input('profession');
-            $aqs->loyer=$request->input('loyer');
+           
             $aqs->archive=0;;
             $aqs->save();
              
@@ -104,6 +105,8 @@ class LocationController extends Controller
             $art->path_contrat=$file->storeAs('public/location/'.$ar->id,$file->getClientOriginalName()) ;
           }
       $art->save();    
+
+      return redirect('/Location');
                    
 
 
@@ -135,14 +138,14 @@ class LocationController extends Controller
 
      public function updateaf($id)
     {
-    	$art=Locataire::find($id);
+    	$art=Location::find($id);
         return view('proprietaire.modifier',compact('art'));
     }
 
     
      public function View($id)
     {
-    	$art=Locataire::find($id);
+    	$art=Location::find($id);
 
       if($art->mode == 2){
       
@@ -153,11 +156,23 @@ class LocationController extends Controller
     
     }
 
-     public function destroy($id)
+
+        public function destroy($id)
     {
-      $share = Locataire::find($id);
-     $share->delete();
-      return redirect('/proprietaire');
+      $share = Location::find($id);
+        $share->delete();
+      return redirect('/Location');
+     
+    }
+
+
+
+     public function archive($id)
+    {
+      $share = Location::find($id);
+        $share->archiveloc=1;
+     $share->save();
+      return redirect('/Location');
      
     }
 
@@ -189,24 +204,33 @@ class LocationController extends Controller
     })
    ->addColumn('edit', function(location $user) {
      
+        return '
+                <a style="font-size: 20px" href=""><i class="fa fa-edit bg-success" aria-hidden="true"></i></a>
+                  <a style="font-size: 20px" href="'. route('locatiarchive', $user->id).'"><i class="fa fa-archive bg-info" aria-hidden="true"></i></a>
+               <a style="font-size: 20px" href="'. route('locatiadelete', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
+               
+ 
+                        ';
+    
+    })
+         ->addColumn('edito', function(location $user) {
+     
         return    '<div class="dropdown">
               <button class="btn btn-xs btn-outline btn-info dropdown-toggle" type="button" data-toggle="dropdown">  .....  </button>
               <div class="dropdown-menu">
-                <a class="dropdown-item flexbox" href="#">
-                <span>Inbox</span>
-                </a>
-                <a class="dropdown-item" href="#">Sent</a>
-                <a class="dropdown-item" href="#">Spam</a>
+              
+                <a class="dropdown-item" href="#">Déclaration au départ du locataire</a>
+                <a class="dropdown-item" href="#">Déclaration dentrée du locataire </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item flexbox" href="#">
-                <span>Draft</span>
-                <span class="badge badge-pill badge-default">1</span>
+                <span>Résiliation de contrat</span>
+           
                 </a>
               </div>
               </div>'  ;
     
     })
-           ->rawColumns(['duro' => 'duro','edit' => 'edit'])  
+           ->rawColumns(['duro' => 'duro','edit' => 'edit','edito' => 'edito'])  
     ->toJson();
 
 
@@ -215,16 +239,16 @@ class LocationController extends Controller
 
      public function data2(){
 
-        $articles =Locataire::all()->where('mode','2')->where('archive','1');
-
+         $articles =location::all()->where('archiveloc','1');
       
+
           return datatables()->of( $articles)
-    ->addColumn('Nomfull', function(location $user) {  
+    ->addColumn('Nom full', function(location $user) {  
      
         return  $user->locataire->civilite . ' ' . $user->locataire->prenom . ' ' . $user->locataire->nom  ; 
         
     })
-    ->addColumn('bbi', function(location $user) {  
+    ->addColumn('biens', function(location $user) {  
         return  $user->bien->Ref . ' ' . $user->bien->adresse   ; 
         
     })
@@ -232,8 +256,42 @@ class LocationController extends Controller
         return  $user->loyer . ' MAD'  ; 
         
     })
+         ->addColumn('duro', function(location $user) {
+     
+        return    '<a    class="badge badge-info text-white"   data-toggle="tooltip" >' . $user->date_debutbail . ' => ' 
+               . $user->date_debutbail .   '</a>'  ;
+    
+    })
+   ->addColumn('edit', function(location $user) {
+     
+        return '
+                <a style="font-size: 20px" href=""><i class="fa fa-edit bg-success" aria-hidden="true"></i></a>
+                  <a style="font-size: 20px" href="'. route('locatiarchive', $user->id).'"><i class="fa fa-archive bg-info" aria-hidden="true"></i></a>
+               <a style="font-size: 20px" href="'. route('locatiadelete', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
+               
+ 
+                        ';
+    
+    })
+         ->addColumn('edito', function(location $user) {
+     
+        return    '<div class="dropdown">
+              <button class="btn btn-xs btn-outline btn-info dropdown-toggle" type="button" data-toggle="dropdown">  .....  </button>
+              <div class="dropdown-menu">
+              
+                <a class="dropdown-item" href="#">Déclaration au départ du locataire</a>
+                <a class="dropdown-item" href="#">Déclaration dentrée du locataire </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item flexbox" href="#">
+                <span>Résiliation de contrat</span>
+           
+                </a>
+              </div>
+              </div>'  ;
+    
+    })
+           ->rawColumns(['duro' => 'duro','edit' => 'edit','edito' => 'edito'])  
     ->toJson();
-
 
 
     }

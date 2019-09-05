@@ -141,10 +141,23 @@ class ImmeubleController extends Controller
     
     }
 
+    public function Archive($id)
+     {
+      $art=Immeuble::find($id);
+        $art->archivei =1;
+        $art->save();
+
+
+         return redirect('/Immeuble');
+    
+    }
+
      public function destroy($id)
     {
+       $art=Immeuble::find($id);
+        $art->delete();
 
-     
+         return redirect('/Immeuble');  
     }
 
 
@@ -175,14 +188,28 @@ class ImmeubleController extends Controller
             
             $RA = '';
 
-             foreach($imm as $bb) {
-               $RA .=  $bb->Ref . '  ' ;
+                foreach($imm as $bb) {
+             
+                 $RA .=   ' <a href="" class="badge badge-primary" data-toggle="tooltip" title="'.$bb->adresse . '">'. $bb->Ref .'</a> ' ;
+     
                       }
                        
 
                       
                     return $RA;
+
                 })
+          ->addColumn('action', function ($user) {
+            
+                return '
+                  <a style="font-size: 20px" href="'. route('immeblearchive', $user->id).'"><i class="fa fa-archive bg-info" aria-hidden="true"></i></a>
+               <a style="font-size: 20px" href="'. route('immebledelete', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
+               
+ 
+                        ';
+
+            })
+         ->rawColumns(['biens' => 'biens','action' => 'action'])
 
     ->toJson();
 
@@ -200,7 +227,7 @@ class ImmeubleController extends Controller
             $imm =DB::table('immeubles')
              ->join('immeublebiens', 'immeublebiens.immeubles_id', '=','immeubles.id' )
               ->join('biens', 'biens.id', '=', 'immeublebiens.biens_id')
-            ->where('archivei', '0')
+            ->where('archivei', '1')
             ->where('immeubles.id',$user->id)
             ->select('immeubles.*', 'immeublebiens.*', 'biens.*')
              ->get();
@@ -209,13 +236,26 @@ class ImmeubleController extends Controller
             $RA = '';
 
              foreach($imm as $bb) {
-               $RA .=  $bb->Ref . '  ' ;
+             
+                 $RA .=   ' <a href="" class="badge badge-primary" data-toggle="tooltip" title="'.$bb->adresse . '">'. $bb->Ref .'</a> ' ;
+     
                       }
                        
 
                       
                     return $RA;
                 })
+          ->addColumn('action', function ($user) {
+            
+                return '
+                
+               <a style="font-size: 20px" href="'. route('immebledelete', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
+               
+ 
+                        ';
+
+            })
+               ->rawColumns(['biens' => 'biens','action' => 'action'])
 
     ->toJson();
 

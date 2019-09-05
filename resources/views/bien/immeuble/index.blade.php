@@ -42,11 +42,8 @@
 
           <div class="col-2" >
           <div class="float-right">
-            <form method="get" action="/page2">
-      <button type="button" class="btn btn-success btn-circle btn-sm"  onclick="window.location.href='/page2'" ><i class="fa fa-plus"></i>
-        <a href="a"></a>
-</button>
-</form>
+     <a type="button" class="btn btn-info btn-circle btn-sm" title="Noveau Bien"  href="/Immeuble/Add"   ><i class="fa fa-plus"></i>     
+</a>
       </div>
       </div>  
 
@@ -73,7 +70,7 @@
                                           <tr>
                                         <td>Immeuble</td>
                                         <td>Biens</td>
-                                        <td >Locataire</td>
+                                        <td >Adresse</td>
                                      <td  >Action</td>
                                         </tr>
                                     </thead>
@@ -95,7 +92,7 @@
                                          <tr>
                                         <td>Immeuble</td>
                                         <td>Biens</td>
-                                        <td >Locataire</td>
+                                        <td >Adresse</td>
                                          <td  >Action</td>
                                         </tr>
                                     </thead>
@@ -141,10 +138,10 @@
             "pageLength": 50,
              columns: [
             {data: 'nom_immeuble'},
-            {data: 'biens'},
+             {data: 'biens', name: 'biens', orderable: false, searchable: false},
             {data: 'adresseimm'},
            
-             {data: 'id', name: 'action', orderable: false, searchable: false},
+             {data: 'action', name: 'action', orderable: false, searchable: false},
 
        ]
         });
@@ -171,10 +168,10 @@
             "pageLength": 50,
              columns: [
            {data: 'nom_immeuble'},
-            {data: 'biens'},
+             {data: 'biens', name: 'biens', orderable: false, searchable: false},
             {data: 'adresseimm'},
             
-             {data: 'id', name: 'action', orderable: false, searchable: false},
+             {data: 'action', name: 'action', orderable: false, searchable: false},
 
        ]
         });

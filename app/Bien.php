@@ -10,7 +10,7 @@ class Bien extends Model
 
        public function locataire()
     {
-        return $this->belongsTo('App\Locataire');
+        return $this->belongsTo('App\Locataire','locataires_id');
     }
 
 

@@ -75,7 +75,7 @@ class PropraitaireController extends Controller
 
 
 
-            //return redirect('/proprietaire');
+            return redirect('/Proprietaire');
         
     }
 
@@ -124,8 +124,19 @@ class PropraitaireController extends Controller
      public function destroy($id)
     {
       $share = Locataire::find($id);
-     $share->delete();
-      return redirect('/proprietaire');
+        $share->delete();
+      return redirect('/Proprietaire');
+     
+    }
+
+
+
+     public function archive($id)
+    {
+      $share = Locataire::find($id);
+        $share->archive=1;
+     $share->save();
+      return redirect('/Proprietaire');
      
     }
 
@@ -164,7 +175,17 @@ class PropraitaireController extends Controller
           return $allth ;
       
     })
-        ->rawColumns(['biens' => 'biens'])   
+       ->addColumn('action', function ($user) {
+            
+                return '
+                  <a style="font-size: 20px" href="'. route('proparchive', $user->id).'"><i class="fa fa-archive bg-info" aria-hidden="true"></i></a>
+               <a style="font-size: 20px" href="'. route('propdelete', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
+               
+ 
+                        ';
+
+            })
+         ->rawColumns(['biens' => 'biens','action' => 'action']) 
         ->toJson();
 
 
@@ -201,7 +222,17 @@ class PropraitaireController extends Controller
           return $allth ;
       
     })
-        ->rawColumns(['biens' => 'biens'])   
+         ->addColumn('action', function ($user) {
+            
+                return '
+                  <a style="font-size: 20px" href="'. route('proparchive', $user->id).'"><i class="fa fa-archive bg-info" aria-hidden="true"></i></a>
+               <a style="font-size: 20px" href="'. route('propdelete', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
+               
+ 
+                        ';
+
+            })
+         ->rawColumns(['biens' => 'biens','action' => 'action'])
         ->toJson();
 
 

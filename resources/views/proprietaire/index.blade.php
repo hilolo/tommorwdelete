@@ -42,11 +42,8 @@
 
 					<div class="col-2" >
 					<div class="float-right">
-						<form method="get" action="/page2">
-			<button type="button" class="btn btn-success btn-circle btn-sm"  onclick="window.location.href='/page2'" ><i class="fa fa-plus"></i>
-				<a href="a"></a>
-</button>
-</form>
+<a type="button" class="btn btn-info btn-circle btn-sm" title="Noveau Bien"  href="/Proprietaire/Add"   ><i class="fa fa-plus"></i>      
+</a>
 			</div>
 			</div>	
 
@@ -75,7 +72,7 @@
                                         <td>Proprietaire</td>
                                         <td    >Biens</td>
                                         <td >Telephone</td>
-                                        <td>Solde</td>
+                                        <td>Email</td>
                                         <td  >Modéle</td>
                                         </tr>
                                     </thead>
@@ -98,7 +95,7 @@
                                        <td>Proprietaire</td>
                                         <td>Biens</td>
                                         <td >Telephone</td>
-                                        <td>Solde</td>
+                                        <td>Email</td>
                                         <td  >Modéle</td>
                                         </tr>
                                     </thead>
@@ -145,8 +142,8 @@
                               {data: 'Nom full' },
                               {data: 'biens', name: 'biens', orderable: false, searchable: false},
                               {data: 'tel'},
-                              {data: 'id'},
-                              {data: 'id'},
+                              {data: 'email'},
+                               {data: 'action', name: 'action', orderable: false, searchable: false},
 
                              
 
@@ -177,8 +174,8 @@
                               {data: 'Nom full'},
                                 {data: 'biens', name: 'biens', orderable: false, searchable: false},
                               {data: 'tel'},
-                              {data: 'id'},
-                              {data: 'id'},
+                              {data: 'email'},
+                               {data: 'action', name: 'action', orderable: false, searchable: false},
 
                              
 

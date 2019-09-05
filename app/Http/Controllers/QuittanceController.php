@@ -5,6 +5,8 @@ use DateTime;
 use App\Location;
 use App\Quittance;
 use Carbon\Carbon;
+use PDF;
+use NumberFormatter;
 class QuittanceController extends Controller
 {
 
@@ -14,6 +16,60 @@ class QuittanceController extends Controller
         return view('quittance.index');
       
     }
+
+
+       public function valide($id)
+    {
+     
+        	 $ar= Quittance::find($id);
+        	 $ar->Etat='Payé';
+        	  $ar->save();
+
+        	 return redirect('/quittance/recu/' . $id );
+
+
+
+        
+      
+    }
+
+      public function delete($id)
+    {
+     
+        	 $ar= Quittance::find($id);
+        	  $ar->delete();
+
+        	 return redirect('/quittance');   
+    }
+
+
+
+
+       public function recu($id)
+    {
+
+;
+
+
+     
+    	 $ar= Quittance::find($id);
+
+    	$f = new NumberFormatter("fr", NumberFormatter::SPELLOUT);
+			$loertext=$f->format($ar->loyer);
+
+
+
+			$moisy =  $this->dateToFrench($ar->datequiitance, "F Y");  
+
+$ldate = date('Y-m-d H:i:s');
+
+$pdf = PDF::loadView('quittance.model',compact('ar','loertext','moisy','ldate'));
+return $pdf->stream($ar->id .'.pdf');
+
+
+      
+    }
+    
 
     public static function dateToFrench($date, $format) 
 {
@@ -26,19 +82,25 @@ class QuittanceController extends Controller
 
 
 
-       public function data()
+       public function data($st)
     {
-     
-         $quitr =Quittance::all();
-          return datatables()->of( $quitr)
+			     	if($st == 1)	
+         $quitr =Quittance::latest('id')->get();
+     else if($st == 2) $quitr =Quittance::latest('id')->where('Etat','Payé')->get();
+          return datatables()->of($quitr)
     ->addColumn('Nom full', function(Quittance $user) {  
     	 
-        return  $user->location->locataire->civilite . ' ' . $user->location->locataire->prenom . ' ' . $user->location->locataire->nom  ; 
+        return   $user->location->locataire->prenom . ' ' . $user->location->locataire->nom  ; 
         
     })
      ->addColumn('Bien', function(Quittance $user) {  
     	 
         return  $user->location->bien->Ref ; 
+        
+    })
+      ->addColumn('Loyyer', function(Quittance $user) {  
+    	 
+        return  $user->loyer . ' MAD' ; 
         
     })
      ->addColumn('Date', function(Quittance $user) {
@@ -49,6 +111,50 @@ class QuittanceController extends Controller
 
         
     })
+       ->editColumn('descrption', function(Quittance $user) {
+
+
+
+		    return    '<a    class="badge badge-info text-white"   data-toggle="tooltip" >' .  $user->descrption .  '</a>'  ; 
+
+        
+    })
+        ->editColumn('Etat', function(Quittance $user) {
+
+
+        		if( $user->Etat == 'En retard')
+		    return    '<span class="label label-danger">En retard</span>'; 
+		else 
+			return '<span class="label label-success">Payé</span>';
+
+        
+    })
+           ->addColumn('action', function ($user) {
+           	if( $user->Etat == 'En retard'){
+                return '
+
+        
+ 
+
+               <a style="font-size: 20px"  href="'. route('recuvalide', $user->id).'"><i class="fa fa-check bg-success" aria-hidden="true"></i></a>
+               <a style="font-size: 20px" href="'. route('deletequit', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
+               
+ 
+                        ';
+
+                    } else {        return '
+                     
+                		
+             			<a style="font-size: 20px" href="'. route('recuquittance', $user->id).'"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+             	
+             			<a style="font-size: 20px" href="'. route('deletequit', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
+
+             			
+                        ';}
+            })
+
+        ->rawColumns(['descrption' => 'descrption','Etat' => 'Etat','action' => 'action'])
+       
     ->toJson();
 
         
@@ -98,10 +204,19 @@ class QuittanceController extends Controller
 								->get();
 								if ($qtce->isEmpty()) { 	$datetaz = $i . '-'. $j .'-'.'1';
 								
-								
+								$qqa=$j + 1;
+							
+								$dda= $j  .'/'. $i . ' => ' . $qqa . '/' .$i;
+
+
 								$qta = new Quittance([
 									'location_id' => $loc->id ,
-									'datequiitance' => $datetaz
+									'datequiitance' => $datetaz,
+									'loyer' => $loc->loyer,
+									'descrption' => $dda,
+									'Etat' => 'En retard'
+
+
 								]);
 								$qta->save(); };
 							}
@@ -115,11 +230,22 @@ class QuittanceController extends Controller
 							if ($qtce->isEmpty()) { 	$datetaz = $i . '-'. $j .'-'.'1';
 							
 							
-							$qta = new Quittance([
-								'location_id' => $loc->id ,
-								'datequiitance' => $datetaz
-							]);
-							$qta->save(); } 
+						
+								$qqa=$j + 1;
+							
+								$dda= $j  .'/'. $i . ' => ' . $qqa . '/' .$i;
+
+
+								$qta = new Quittance([
+									'location_id' => $loc->id ,
+									'datequiitance' => $datetaz,
+									'loyer' => $loc->loyer,
+									'descrption' => $dda,
+									'Etat' => 'En retard'
+
+
+								]);
+								$qta->save(); };
 							
 						}
 					} else if ($i == $datefy) {
@@ -131,9 +257,20 @@ class QuittanceController extends Controller
 								if ($qtce->isEmpty()) { 	$datetaz = $i . '-'. $j .'-'.'1';
 								
 								
+							
+								$qqa=$j + 1;
+							
+								$dda= $j  .'/'. $i . ' => ' . $qqa . '/' .$i;
+
+
 								$qta = new Quittance([
 									'location_id' => $loc->id ,
-									'datequiitance' => $datetaz
+									'datequiitance' => $datetaz,
+									'loyer' => $loc->loyer,
+									'descrption' => $dda,
+									'Etat' => 'En retard'
+
+
 								]);
 								$qta->save(); };
 								
@@ -149,12 +286,21 @@ class QuittanceController extends Controller
 							->get();
 							if ($qtce->isEmpty()) { 	$datetaz = $i . '-'. $j .'-'.'1';
 							
+								$qqa=$j + 1;
 							
-							$qta = new Quittance([
-								'location_id' => $loc->id ,
-								'datequiitance' => $datetaz
-							]);
-							$qta->save(); }
+								$dda= $j  .'/'. $i . ' => ' . $qqa . '/' .$i;
+
+
+								$qta = new Quittance([
+									'location_id' => $loc->id ,
+									'datequiitance' => $datetaz,
+									'loyer' => $loc->loyer,
+									'descrption' => $dda,
+									'Etat' => 'En retard'
+
+
+								]);
+								$qta->save(); };
 
 
 
@@ -169,9 +315,20 @@ class QuittanceController extends Controller
 								if ($qtce->isEmpty()) { 	$datetaz = $i . '-'. $j .'-'.'1';
 								
 								
+								
+								$qqa=$j + 1;
+							
+								$dda= $j  .'/'. $i . ' => ' . $qqa . '/' .$i;
+
+
 								$qta = new Quittance([
 									'location_id' => $loc->id ,
-									'datequiitance' => $datetaz
+									'datequiitance' => $datetaz,
+									'loyer' => $loc->loyer,
+									'descrption' => $dda,
+									'Etat' => 'En retard'
+
+
 								]);
 								$qta->save(); };
 								

@@ -115,7 +115,7 @@ class BienController extends Controller
     {
 
 
-        $art=Locataire::find($id);
+        $art=Bien::find($id);
 
       if($art->mode == 1){
       
@@ -126,11 +126,28 @@ class BienController extends Controller
         
     }
 
-     public function destroy($id)
+
+     public function archive($id)
     {
-      $share = Locataire::find($id);
+
+
+        $art=Bien::find($id);
+        $art->archiveb =1;
+        $art->save();
+
+
+         return redirect('/Biens');
+
+
+        
+    }
+
+
+     public function delebien($id)
+    {
+      $share = Bien::find($id);
      $share->delete();
-      return redirect('/proprietaire');
+      return redirect('/Biens');
      
     }
 
@@ -172,9 +189,25 @@ class BienController extends Controller
           return 'Autres biens' ;
       }
     })
+
+      ->addColumn('action', function ($user) {
+            
+                return '
+
+               <a style="font-size: 20px"  href="'. route('recuvalide', $user->id).'"><i class="fa fa-edit bg-success" aria-hidden="true"></i></a>
+                  <a style="font-size: 20px" href="'. route('bienarchive', $user->id).'"><i class="fa fa-archive bg-info" aria-hidden="true"></i></a>
+               <a style="font-size: 20px" href="'. route('deletebienn', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
+               
+ 
+                        ';
+
+            })
+
+        ->rawColumns(['action' => 'action'])
+
+
     ->toJson();
 
-    //return datatables()->of(Locataire::query())->toJson();
 
 
 
@@ -218,9 +251,23 @@ class BienController extends Controller
           return 'Autres biens' ;
       }
     })
+
+      ->addColumn('action', function ($user) {
+            
+                return '
+
+           
+               <a style="font-size: 20px" href="'. route('deletebienn', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
+               
+ 
+                        ';
+
+            })
+
+        ->rawColumns(['action' => 'action'])
     ->toJson();
 
-    //return datatables()->of(Locataire::query())->toJson();
+
 
 
 

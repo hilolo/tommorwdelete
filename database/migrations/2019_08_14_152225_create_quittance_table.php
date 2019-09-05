@@ -20,6 +20,7 @@ class CreateQuittanceTable extends Migration
             $table->date('datequiitance');
             $table->float('loyer')->nullable();
              $table->string('descrption')->nullable();
+             $table->string('Etat');
             $table->timestamps();
         });
     }

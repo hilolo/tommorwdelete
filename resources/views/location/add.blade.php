@@ -80,7 +80,7 @@
           <select id="listpr" name="prop" class="form-control select2" style="width: 100%;">
             <option selected="selected" value="0">Nouveau Locataire</option>
             @foreach ($loc2 as $loca)
-            <option>{{$loca->prenom  }} {{$loca->nom   }} {{$loca->societe  }}   </option>
+            <option  value="{{$loca->id}}" >{{$loca->prenom  }} {{$loca->nom   }} {{$loca->societe  }}   </option>
             @endforeach
           </select>
           </div>
@@ -342,10 +342,9 @@
 
               </div>
 
+              <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Contrat  
 
-<h4 class="box-title text-info"><i class="ti-save mr-15"></i> Contrat  </h4>
-              
-             <div class="row">
+ <div class="row">
               <div class="col-md-6">
             <div class="form-group ">
                     <div class="file-field">
@@ -360,6 +359,10 @@
 
 
               </div>
+
+
+              
+        
 
 
 

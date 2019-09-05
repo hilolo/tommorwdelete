@@ -209,11 +209,48 @@
           <a href="#a">
             <i class="mdi mdi-view-dashboard"></i>
 
-            <span>Réservations</span>
+            <span>Location</span>
           
           </a>
     
         </li>  
+              <li class="treeview">
+          <a href="#a">
+            <i class="mdi mdi-content-copy"></i>
+            <span>Quittance</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/layout_boxed.html"><i class="mdi mdi-toggle-switch-off"></i>List Quittance</a></li>
+            <li><a href="pages/layout_fixed.html"><i class="mdi mdi-toggle-switch-off"></i>List Des Impayés</a></li>
+          
+          </ul>
+        </li>
+
+          <li >
+          <a href="#a">
+            <i class="mdi mdi-view-dashboard"></i>
+
+            <span>Les coordonnées bancaire</span>
+          
+          </a>
+    
+        </li> 
+
+
+    <li >
+          <a href="#a">
+            <i class="mdi mdi-view-dashboard"></i>
+
+            <span>Documents</span>
+          
+          </a>
+    
+        </li>  
+
+
 
 
        <li class="header nav-small-cap"><i class="mdi mdi-drag-horizontal mr-5"></i>LE PLUS</li>

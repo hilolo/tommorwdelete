@@ -10,7 +10,7 @@
 				<div class="d-inline-block align-items-center">
 					<nav>
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+							<li class="breadcrumb-item" ><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
 							<li class="breadcrumb-item active" aria-current="page">Les Quittance </li>
 						</ol>
 					</nav>
@@ -132,8 +132,8 @@
             	<div class="col-10">
             	<!-- Nav tabs -->
 			<ul class="nav nav-pills margin-bottom">
-					<li class=" nav-item"> <a href="#navpills-1" class="nav-link active show" data-toggle="tab" aria-expanded="false">En Retard / En attent</a> </li>
-					<li class="nav-item"> <a href="#navpills-2" class="nav-link" data-toggle="tab" aria-expanded="false">  Archives</a> </li>
+					<li class=" nav-item"> <a href="#navpills-1" class="nav-link active show" data-toggle="tab" aria-expanded="false">ALL</a> </li>
+					<li class="nav-item"> <a href="#navpills-2" class="nav-link" data-toggle="tab" aria-expanded="false"> Payé</a> </li>
 					
 				
 
@@ -240,18 +240,21 @@
                         {
                              "url": "//cdn.datatables.net/plug-ins/1.10.9/i18n/French.json"
                             },
-                            processing: false,
+                            processing: true,
                             serverSide: true,
-                            "pageLength": 50,
+                           "order": [],
                              
 
-                            ajax: '/Proprietaire/data',
+                            ajax: '/quittance/data/1',
+                             "pageLength": 50,
                              columns: [
-                              {data: 'Nom full' },
-                              {data: 'biens', name: 'biens', orderable: false, searchable: false},
-                              {data: 'tel'},
-                              {data: 'id'},
-                              {data: 'id'},
+                              {data: 'Date', name: 'Date'},
+                              {data: 'Bien'},
+                              {data: 'Nom full'},
+                              {data: 'Loyyer'},
+                               {data: 'descrption', name: 'descrption', orderable: false, searchable: false},
+                                 {data: 'Etat', name: 'Etat'},
+                                 {data: 'action', name: 'action', orderable: false, searchable: false},
 
                              
 
@@ -277,19 +280,23 @@
                             processing: false,
                             serverSide: true,
                             "pageLength": 50,
-                            ajax: '/Proprietaire/data2',
-                             columns: [
+                        
+                            ajax: '/quittance/data/2',
+                                columns: [
+                              {data: 'Date', name: 'Date'},
+                              {data: 'Bien'},
                               {data: 'Nom full'},
-                                {data: 'biens', name: 'biens', orderable: false, searchable: false},
-                              {data: 'tel'},
-                              {data: 'id'},
-                              {data: 'id'},
+                              {data: 'Loyyer'},
+                               {data: 'descrption', name: 'descrption', orderable: false, searchable: false},
+                                 {data: 'Etat', name: 'Etat'},
+                                 {data: 'action', name: 'action', orderable: false, searchable: false},
 
                              
 
                      
                                
                                 ]
+
 
            
 

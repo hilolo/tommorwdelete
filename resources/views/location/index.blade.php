@@ -42,11 +42,9 @@
 
           <div class="col-2" >
           <div class="float-right">
-            <form method="get" action="/page2">
-      <button type="button" class="btn btn-success btn-circle btn-sm"  onclick="window.location.href='/page2'" ><i class="fa fa-plus"></i>
-        <a href="a"></a>
-</button>
-</form>
+
+<a type="button" class="btn btn-info btn-circle btn-sm" title="Noveau Bien" href="/Location/Add"><i class="fa fa-plus"></i>      
+</a>
       </div>
       </div>  
 
@@ -75,6 +73,7 @@
                                         <td>Bien</td>
                                         <td >Loyer</td>
                                         <td>Durée</td>
+                                        <td  >Fiche</td>
                                         <td  >Action</td>
                                         </tr>
                                     </thead>
@@ -98,7 +97,9 @@
                                         <td>Bien</td>
                                         <td >Loyer</td>
                                         <td>Durée</td>
+                                        <td  >Fiche</td>
                                         <td  >Action</td>
+
                                         </tr>
                                     </thead>
                                   
@@ -146,6 +147,7 @@
             {data: 'biens'},
             {data: 'loyer'},
              {data: 'duro', name: 'duro', orderable: false, searchable: false},
+              {data: 'edito', name: 'edito', orderable: false, searchable: false},
              {data: 'edit', name: 'edit', orderable: false, searchable: false},
 
        ]
@@ -176,6 +178,7 @@
             {data: 'biens'},
             {data: 'loyer'},
               {data: 'duro', name: 'duro', orderable: false, searchable: false},
+               {data: 'edito', name: 'edito', orderable: false, searchable: false},
              {data: 'edit', name: 'edit', orderable: false, searchable: false},
 
        ]

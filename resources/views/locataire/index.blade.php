@@ -42,11 +42,8 @@
 
           <div class="col-2" >
           <div class="float-right">
-            <form method="get" action="/page2">
-      <button type="button" class="btn btn-success btn-circle btn-sm"  onclick="window.location.href='/page2'" ><i class="fa fa-plus"></i>
-        <a href="a"></a>
-</button>
-</form>
+            <a type="button" class="btn btn-info btn-circle btn-sm" title="Noveau Bien" href="/Locataire/Add"><i class="fa fa-plus"></i>      
+</a>
       </div>
       </div>  
 
@@ -74,7 +71,7 @@
                                         <td>Nom</td>
                                         <td>Bien</td>
                                         <td >Telephone</td>
-                                        <td>Modele</td>
+                                     
                                         <td  >Action</td>
                                         </tr>
                                     </thead>
@@ -97,7 +94,7 @@
                                         <td>Nqom</td>
                                         <td>Bien</td>
                                         <td >Telephone</td>
-                                        <td>Modele</td>
+                                  
                                         <td  >Action</td>
                                         </tr>
                                     </thead>
@@ -145,8 +142,8 @@
             {data: 'Nom full'},
              {data: 'bienloc', name: 'bienloc', orderable: false, searchable: false},
             {data: 'tel'},
-            {data: 'id'},
-             {data: 'id', name: 'action', orderable: false, searchable: false},
+        
+             {data: 'action', name: 'action', orderable: false, searchable: false},
 
        ]
         });
@@ -175,8 +172,8 @@
            {data: 'Nom full'},
               {data: 'bienloc', name: 'bienloc', orderable: false, searchable: false},
             {data: 'tel'},
-            {data: 'id'},
-             {data: 'id', name: 'action', orderable: false, searchable: false},
+                 {data: 'edit', name: 'edit', orderable: false, searchable: false},
+             {data: 'action', name: 'action', orderable: false, searchable: false},
 
        ]
         });

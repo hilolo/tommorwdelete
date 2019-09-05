@@ -43,7 +43,7 @@
 					<div class="col-2" >
 					<div class="float-right">
 		
-<a type="button" class="btn btn-info btn-circle btn-sm" title="Noveau Bien"  href="/a"   ><i class="fa fa-plus"></i>			
+<a type="button" class="btn btn-info btn-circle btn-sm" title="Noveau Bien"  href="/Biens/Add"   ><i class="fa fa-plus"></i>			
 </a>
 
 			</div>
@@ -72,8 +72,7 @@
                                         <tr>
                                           <td>Bien</td>
                                          <td>Type</td>
-                                        <td >Locataire</td>
-                                        <td>Modéles</td>
+                                        <td >Propriétaire</td>
                                         <td>Action</td>
                                         </tr>
                                     </thead>
@@ -95,8 +94,7 @@
                                       <tr>
                                           <td>Bien</td>
                                          <td>Type</td>
-                                        <td >Locataire</td>
-                                        <td>Modéles</td>
+                                        <td >Propriétaire</td>
                                         <td>Action</td>
                                         </tr>
                                     </thead>
@@ -124,67 +122,7 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script type="text/javascript">
     
-/*
-   $(document).ready(function () {
-    $('#dataTables-example').DataTable({
-         "language": 
-                        {
-                             "url": "//cdn.datatables.net/plug-ins/1.10.9/i18n/French.json"
-                            }
 
-                            ,processing: false,
-
-            serverSide: true,
-
-            ajax: 'http://erp.test/Vente/Articles/Data',
-            "pageLength": 50,
-             columns: [
-              {data: 'pic', name: 'pic', orderable: false, searchable: false},
-            {data: 'name'},
-            {data: 'prix'},
-            {data: 'tva'},
-            {data: 'code_barre'},
-             {data: 'action', name: 'action', orderable: false, searchable: false},
-
-       ]
-        });
-
-
-
-  //your code here
-});
-        
-
-
-   $(document).ready(function () {
-    $('#dataTables-example2').DataTable({
-         "language": 
-                        {
-                             "url": "//cdn.datatables.net/plug-ins/1.10.9/i18n/French.json"
-                            }
-
-                            ,processing: false,
-
-            serverSide: true,
-
-            ajax: 'http://erp.test/Vente/Articles/Data',
-            "pageLength": 50,
-             columns: [
-              {data: 'pic', name: 'pic', orderable: false, searchable: false},
-            {data: 'name'},
-            {data: 'prix'},
-            {data: 'tva'},
-            {data: 'code_barre'},
-             {data: 'action', name: 'action', orderable: false, searchable: false},
-
-       ]
-        });
-
-
-
-  //your code here
-});*/
-    
            
  $(document).ready( function () {
     $('#dataTables-example').DataTable({
@@ -200,8 +138,7 @@
                               {data: 'adrs full'},
                               {data: 'Atrr'},
                               {data: 'Nom full'},
-                              {data: 'type'},
-                              {data: 'type'},
+                            {data: 'action', name: 'action', orderable: false, searchable: false},
 
                              
 
@@ -234,8 +171,7 @@
                               {data: 'adrs full'},
                               {data: 'Atrr'},
                               {data: 'Nom full'},
-                              {data: 'type'},
-                              {data: 'type'},
+                             {data: 'action', name: 'action', orderable: false, searchable: false},
 
                              
 

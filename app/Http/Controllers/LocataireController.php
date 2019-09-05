@@ -127,11 +127,23 @@ class LocataireController extends Controller
     
     }
 
-     public function destroy($id)
+
+        public function destroy($id)
     {
       $share = Locataire::find($id);
-     $share->delete();
-      return redirect('/proprietaire');
+        $share->delete();
+      return redirect('/Locataire');
+     
+    }
+
+
+
+     public function archive($id)
+    {
+      $share = Locataire::find($id);
+        $share->archive=1;
+     $share->save();
+      return redirect('/Locataire');
      
     }
 
@@ -150,7 +162,7 @@ class LocataireController extends Controller
     })
     ->editColumn('tel', function(Locataire $user) {
       if($user->tel == '' ) {
-       return  '<a     class="badge badge-info text-white"   data-toggle="tooltip"  > Aucun Location </a>' ;
+       return  '<a     class="badge badge-info text-white"   data-toggle="tooltip"  > Aucun Telephone </a>' ;
       } else {
           return  $user->tel ;
       }
@@ -191,7 +203,20 @@ class LocataireController extends Controller
 
       
     })
-         ->rawColumns(['bienloc' => 'bienloc','tel' => 'tel'])  
+    
+              ->addColumn('action', function ($user) {
+            
+                return '
+                <a style="font-size: 20px" href=""><i class="fa fa-edit bg-success" aria-hidden="true"></i></a>
+                  <a style="font-size: 20px" href="'. route('locaarchive', $user->id).'"><i class="fa fa-archive bg-info" aria-hidden="true"></i></a>
+               <a style="font-size: 20px" href="'. route('locadelete', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
+               
+ 
+                        ';
+
+            })
+
+      ->rawColumns(['bienloc' => 'bienloc','tel' => 'tel','edit' => 'edit','action' => 'action'])  
     ->toJson();
 
 
@@ -252,7 +277,20 @@ class LocataireController extends Controller
 
       
     })
-         ->rawColumns(['bienloc' => 'bienloc','tel' => 'tel'])  
+           
+                   ->addColumn('action', function ($user) {
+            
+                return '
+                <a style="font-size: 20px" href=""><i class="fa fa-edit bg-success" aria-hidden="true"></i></a>
+                  <a style="font-size: 20px" href="'. route('locaarchive', $user->id).'"><i class="fa fa-archive bg-info" aria-hidden="true"></i></a>
+               <a style="font-size: 20px" href="'. route('locadelete', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
+               
+ 
+                        ';
+
+            })
+
+      ->rawColumns(['bienloc' => 'bienloc','tel' => 'tel','edit' => 'edit','action' => 'action'])  
     ->toJson();
 
 

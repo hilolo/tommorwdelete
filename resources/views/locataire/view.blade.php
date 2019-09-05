@@ -89,7 +89,7 @@
             <p>Adresse :<span class="text-gray pl-10"> {{ $art->adresse }} </span> </p>
 
             <p>CIN :<span class="text-gray pl-10"> {{ $art->cin }}</span> </p>
-              <p>Image CIN :<span class="text-gray pl-10"> <a href="{{ $art->adresse }}"> Image</a> </span> </p>
+              
             
           </div>
               </div>
@@ -138,10 +138,10 @@
               <div class="nav-tabs-custom box-profile">
             <ul class="nav nav-tabs">
               
-              <li><a class="active" href="#usertimeline" data-toggle="tab">Timeline</a></li>
-              <li><a href="#activity" data-toggle="tab">Activity</a></li>
-              <li><a href="#settings" data-toggle="tab">Settings</a></li>
+              <li><a class="active" href="#usertimeline" data-toggle="tab">Quittance</a></li>
+              <li><a href="#activity" data-toggle="tab">Location</a></li>
               <li><a href="#settings" data-toggle="tab">Documents</a></li>
+              <li><a href="#settings" data-toggle="tab">Settings</a></li>
               <li><a href="#settings" data-toggle="tab">AMENDIS</a></li>
             </ul>
                         
@@ -151,17 +151,21 @@
    
          
         <div class="box">
-          <div class="media bb-1 border-fade">
-          
-          <div class="media-body">
-            <p>
-            <strong>Denial Webar</strong>
-            <time class="float-right text-lighter" datetime="2017">24 min ago</time>
-            </p>
-            <p><small>Designer</small></p>
-          </div>
-          </div>
-
+        <div class="row"><div class="col-sm-12">
+                                <table class="table table-sm table-bordered table-striped dataTable" id="dataTables-example" width="98%">
+                                    <thead>
+                                        <tr >
+                                        <td>Date</td>
+                                        <td    >Bien</td>
+                                        <td>Montant</td>
+                                  
+                                        <td  >Etat</td>
+                                        <td  >Action</td>
+                                        </tr>
+                                    </thead>
+                                  
+                                </table>
+                            </div></div>
     
 
 
@@ -266,5 +270,44 @@
       <!-- /.row -->
 
     </section>
+
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  
+<script type="text/javascript">
+    
+   $(document).ready( function () {
+    $('#dataTables-example').DataTable({
+         "language": 
+                        {
+                             "url": "//cdn.datatables.net/plug-ins/1.10.9/i18n/French.json"
+                            },
+                            processing: true,
+                            serverSide: true,
+                           "order": [],
+                            ajax: '/Locataire/dataquittance/'+ {{ $art->id }} ,
+                             "pageLength": 50,
+                             columns: [
+                              {data: 'Date', name: 'Date'},
+                              {data: 'Bien'},
+                              {data: 'Loyyer'},
+                               
+                                 {data: 'Etat', name: 'Etat'},
+                                 {data: 'action', name: 'action', orderable: false, searchable: false},
+                             
+                     
+                               
+                                ]
+           
+                          });
+} );
+        
+     
+  
+        
+  
+</script>
+
+
+
 
   @endsection

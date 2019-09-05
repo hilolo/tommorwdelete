@@ -7,6 +7,7 @@ use App\Locataire;
 use App\Bien;
 use DataTables;
 use DB;
+use App\Quittance;
 
 class LocataireController extends Controller
 {
@@ -297,6 +298,120 @@ class LocataireController extends Controller
 
 
     }
+
+
+
+     public function dataquit($id)
+    {
+          
+        $quitr =Quittance::
+        join('locations', 'locations.id', '=', 'quittance.location_id')
+        ->join('locataires', 'locataires.id', '=', 'locations.locataires_id')
+        ->where('locataires.id', '=', $id)
+          ->select('quittance.*')
+          ->latest('id')
+ 
+
+
+        ->get();
+
+    /* $quitr = DB::table('quittance')
+            ->join('locations', 'locations.id', '=', 'quittance.location_id')
+            ->join('locataires', 'locataires.id', '=', 'locations.locataires_id')
+              ->where('locataires.id', '=', $id);
+            ->select('quittance.*')
+            ->get();*/
+
+            
+
+
+
+          return datatables()->of($quitr)
+    ->addColumn('Nom full', function(Quittance $user) {  
+       
+        return   $user->location->locataire->prenom . ' ' . $user->location->locataire->nom  ; 
+        
+    })
+     ->addColumn('Bien', function(Quittance $user) {  
+       
+        return  $user->location->bien->Ref ; 
+        
+    })
+      ->addColumn('Loyyer', function(Quittance $user) {  
+       
+        return  $user->loyer . ' MAD' ; 
+        
+    })
+     ->addColumn('Date', function(Quittance $user) {
+
+
+
+    return $this->dateToFrench($user->datequiitance, "F Y");     
+
+        
+    })
+       ->editColumn('descrption', function(Quittance $user) {
+
+
+
+        return    '<a    class="badge badge-info text-white"   data-toggle="tooltip" >' .  $user->descrption .  '</a>'  ; 
+
+        
+    })
+        ->editColumn('Etat', function(Quittance $user) {
+
+
+            if( $user->Etat == 'En retard')
+        return    '<span class="label label-danger">En retard</span>'; 
+    else 
+      return '<span class="label label-success">Payé</span>';
+
+        
+    })
+           ->addColumn('action', function ($user) {
+            if( $user->Etat == 'En retard'){
+                return '
+
+        
+ 
+
+               <a style="font-size: 20px"  href="'. route('recuvalide', $user->id).'"><i class="fa fa-check bg-success" aria-hidden="true"></i></a>
+               <a style="font-size: 20px" href="'. route('deletequit', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
+               
+ 
+                        ';
+
+                    } else {        return '
+                     
+                    
+                  <a style="font-size: 20px" href="'. route('recuquittance', $user->id).'"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+              
+                  <a style="font-size: 20px" href="'. route('deletequit', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
+
+                  
+                        ';}
+            })
+
+        ->rawColumns(['descrption' => 'descrption','Etat' => 'Etat','action' => 'action'])
+       
+    ->toJson();
+
+        
+      
+    }
+
+
+        public static function dateToFrench($date, $format) 
+{
+    $english_days = array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');
+    $french_days = array('lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche');
+    $english_months = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+    $french_months = array('janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre');
+    return str_replace($english_months, $french_months, str_replace($english_days, $french_days, date($format, strtotime($date) ) ) );
+}
+
+
+
 
 
 

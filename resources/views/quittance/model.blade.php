@@ -36,9 +36,11 @@
         .information {
             background-color: #60A7A6;
             color: #FFF;
+
         }
         .information .logo {
             margin: 5px;
+
         }
         .information table {
             padding: 10px;
@@ -55,13 +57,13 @@
 
 <div class="information">
     <table width="100%">
-        <tr>
-            <td align="left" style="width: 40%;">
+        <tr style="margin-left: ">
+            <td align="left" >
 
                  
                 <img style="margin: 10px;" src="https://i.imgur.com/NvyRElv.png" alt="Logo" width="70" class="logo"/>
            
-                <pre>
+                <pre style="margin: 10px;">
 
 <br />
 Date: {{$ldate}} 

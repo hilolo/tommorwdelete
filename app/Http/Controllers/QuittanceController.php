@@ -18,11 +18,48 @@ class QuittanceController extends Controller
     }
 
 
+       public function index2()
+    {
+
+    	$ldate = date('Y/m/d');
+
+     		$m= date('n',strtotime($ldate));
+
+     		$y=date('Y',strtotime($ldate));
+
+
+     
+        return view('quittance.index2',compact('m','y'));
+      
+    }
+
+
+        public function search(Request $request)
+    {
+     		$date= $request->dato;
+
+
+			$m= date('n',strtotime($date));
+
+     		$y=date('Y',strtotime($date));
+
+           return view('quittance.index2',compact('m','y'));
+      
+    }
+
+
+
+
+
        public function valide($id)
     {
      
         	 $ar= Quittance::find($id);
+        	 $ldate = date('Y-m-d H:i:s');
+
         	 $ar->Etat='Payé';
+        	  $ar->descrption .=' Validé le :' .  $ldate;
+
         	  $ar->save();
 
         	 return redirect('/quittance/recu/' . $id );
@@ -161,6 +198,95 @@ return $pdf->stream($ar->id .'.pdf');
       
     }
 
+ public function dataser($month,$year)
+    {
+			     	
+$quitr =Quittance::latest('id')
+->whereYear('datequiitance', '=', $year)
+->whereMonth('datequiitance', '=', $month)
+->where('Etat', '=', 'En retard')
+ ->get();
+
+
+          return datatables()->of($quitr)
+    ->addColumn('Nom full', function(Quittance $user) {  
+    	 
+        return   $user->location->locataire->prenom . ' ' . $user->location->locataire->nom  ; 
+        
+    })
+     ->addColumn('info', function(Quittance $user) {  
+    	 
+        return   $user->location->locataire->tel . ' ' .    $user->location->locataire->email  ;   
+          ; 
+        
+    })
+     ->addColumn('Bien', function(Quittance $user) {  
+    	 
+        return  $user->location->bien->Ref  . ' ' .  $user->location->bien->adresse  ;  
+        
+    })
+      ->addColumn('Loyyer', function(Quittance $user) {  
+    	 
+        return  $user->loyer . ' MAD' ; 
+        
+    })
+     ->addColumn('Date', function(Quittance $user) {
+
+
+
+		return $this->dateToFrench($user->datequiitance, "F Y");  	 
+
+        
+    })
+       ->editColumn('descrption', function(Quittance $user) {
+
+
+
+		    return    '<a    class="badge badge-info text-white"   data-toggle="tooltip" >' .  $user->descrption .  '</a>'  ; 
+
+        
+    })
+        ->editColumn('Etat', function(Quittance $user) {
+
+
+        		if( $user->Etat == 'En retard')
+		    return    '<span class="label label-danger">En retard</span>'; 
+		else 
+			return '<span class="label label-success">Payé</span>';
+
+        
+    })
+           ->addColumn('action', function ($user) {
+           	if( $user->Etat == 'En retard'){
+                return '
+
+        
+ 
+
+               <a style="font-size: 20px"  href="'. route('recuvalide', $user->id).'"><i class="fa fa-check bg-success" aria-hidden="true"></i></a>
+               <a style="font-size: 20px" href="'. route('deletequit', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
+               
+ 
+                        ';
+
+                    } else {        return '
+                     
+                		
+             			<a style="font-size: 20px" href="'. route('recuquittance', $user->id).'"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+             	
+             			<a style="font-size: 20px" href="'. route('deletequit', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
+
+             			
+                        ';}
+            })
+
+        ->rawColumns(['descrption' => 'descrption','Etat' => 'Etat','action' => 'action'])
+       
+    ->toJson();
+
+        
+      
+    }
 
 
 

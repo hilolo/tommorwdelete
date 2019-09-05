@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Location;
 use App\Locataire;
 use App\Bien;
+use App\Quittance;
 
 class LocationController extends Controller
 {
@@ -117,6 +118,14 @@ class LocationController extends Controller
         
         
     }
+
+
+
+    
+
+
+
+
 
      public function update(Request $request,$id)
     {

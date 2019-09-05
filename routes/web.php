@@ -54,6 +54,8 @@ Route::post('/deleteproprietaire/{id}', 'PropraitaireController@destroy')->name(
 
 Route::get('/Locataire', 'LocataireController@index');
 Route::get('/Locataire/{id}/View', 'LocataireController@View');
+Route::get('/Locataire/dataquittance/{id}', 'LocataireController@dataquit');
+
 Route::get('/Locataire/Add', 'LocataireController@storeaf');
 Route::get('/Locataire/{id}/ModifierClient', 'LocataireController@updateaf');
 Route::get('/Locataire/data', 'LocataireController@data');
@@ -130,3 +132,8 @@ Route::get('/quittance/data/{id}', 'QuittanceController@data');
 Route::get('/quittance/recu/{id}', 'QuittanceController@recu')->name('recuquittance');
 Route::get('/quittance/valide/{id}', 'QuittanceController@valide')->name('recuvalide');
 Route::get('/quittance/delete/{id}', 'QuittanceController@delete')->name('deletequit');
+Route::get('/quittanceimp', 'QuittanceController@index2');
+Route::post('/Searchquitdate', 'QuittanceController@search');
+Route::get('/quittance/data/{month}/{year}', 'QuittanceController@dataser');
+
+

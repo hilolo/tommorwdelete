@@ -79,13 +79,13 @@
     <a href="index.html" class="logo">
       <!-- mini logo -->
 	  <div class="logo-mini">
-		  <span class="light-logo"><img src="../images/logo-light.png" alt="logo"></span>
-		  <span class="dark-logo"><img src="../images/logo-dark.png" alt="logo"></span>
+		  <span class="light-logo"><img src="{{ asset('../images/logo-light.png') }}" alt="logo"></span>
+		  <span class="dark-logo"><img src="{{ asset('../images/logo-dark.png') }}" alt="logo"></span>
 	  </div>
       <!-- logo-->
       <div class="logo-lg">
-		  <span class="light-logo"><img src="../images/logo-light-text.png" alt="logo"></span>
-	  	  <span class="dark-logo"><img src="../images/logo-dark-text.png" alt="logo"></span>
+		  <span class="light-logo"><img src="{{ asset('../images/logo-light-text.png') }}" alt="logo"></span>
+	  	  <span class="dark-logo"><img src="{{ asset('../images/logo-dark-text.png') }}" alt="logo"></span>
 	  </div>
     </a>
     <!-- Header Navbar -->
@@ -108,13 +108,13 @@
 		  <!-- User Account-->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../images/avatar/7.jpg" class="user-image rounded-circle" alt="User Image">
+              <img src="{{ asset('../images/avatar/7.jpg') }}" class="user-image rounded-circle" alt="User Image">
             </a>
             <ul class="dropdown-menu animated flipInY">
               <!-- User image -->
               <li class="user-header bg-img" style="background-image: url(../images/user-info.jpg)" data-overlay="3">
 				  <div class="flexbox align-self-center">					  
-				  	<img src="../images/avatar/7.jpg" class="float-left rounded-circle" alt="User Image">					  
+				  	<img src="{{ asset('../images/avatar/7.jpg') }}" class="float-left rounded-circle" alt="User Image">					  
 					<h4 class="user-name align-self-center">
 					  <span>Samuel Brus</span>
 					  <small>samuel@gmail.com</small>
@@ -149,9 +149,9 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="user-profile treeview">
           <a href="index.html">
-			<img src="../images/avatar/7.jpg" alt="user">
+			<img src="{{ asset('../images/avatar/7.jpg') }}" alt="user">
               <span>
-				<span class="d-block font-weight-600 font-size-16">Samuel Brus</span>
+				<span class="d-block font-weight-600 font-size-16">Mehdi</span>
 				<span class="email-id">0601010202</span>
 			  </span>
             <span class="pull-right-container">
@@ -185,15 +185,25 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout_boxed.html"><i class="mdi mdi-toggle-switch-off"></i>Biens</a></li>
-            <li><a href="pages/layout_fixed.html"><i class="mdi mdi-toggle-switch-off"></i>Immeubles</a></li>
+            <li><a href="/Biens"><i class="mdi mdi-toggle-switch-off"></i>Biens</a></li>
+            <li><a href="/Immeuble"><i class="mdi mdi-toggle-switch-off"></i>Immeubles</a></li>
           
           </ul>
-        </li>  
+        </li> 
+
+          <li >
+          <a href="/Proprietaire">
+            <i class="mdi mdi-view-dashboard"></i>
+
+            <span>Proprietaire</span>
+          
+          </a>
+    
+        </li> 
 		
 
     <li >
-          <a href="#a">
+          <a href="/Locataire">
             <i class="mdi mdi-view-dashboard"></i>
 
             <span>Locataires</span>
@@ -206,7 +216,7 @@
 
 
     <li >
-          <a href="#a">
+          <a href="/Location">
             <i class="mdi mdi-view-dashboard"></i>
 
             <span>Location</span>
@@ -223,8 +233,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout_boxed.html"><i class="mdi mdi-toggle-switch-off"></i>List Quittance</a></li>
-            <li><a href="pages/layout_fixed.html"><i class="mdi mdi-toggle-switch-off"></i>List Des Impayés</a></li>
+            <li><a href="/quittance"><i class="mdi mdi-toggle-switch-off"></i>List Quittance</a></li>
+            <li><a href="/quittanceimp"><i class="mdi mdi-toggle-switch-off"></i>List Des Impayés</a></li>
           
           </ul>
         </li>
@@ -547,6 +557,27 @@
   <script src=".{{ asset('./js/pages/data-table.js') }}"></script>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.repeater/1.2.1/jquery.repeater.js"></script>
+
+
+
+  <script type="text/javascript">
+    
+
+
+
+
+       $('#datepicker').datepicker({
+     Default: true,format: 'yyyy/mm/dd', autoclose: true,
+ });
+
+       
+
+        
+
+  
+  
+
+</script>
 
 
 

@@ -245,7 +245,7 @@
                             dom: 'Bfrtip',
 buttons: [
 
-  { extend: 'print', text: 'Imprimer Articles', className: 'btn btn-sm btn-danger box-shadow-1 mr-1 mb-1',  exportOptions: {
+  { extend: 'print', text: 'Imprimer List', className: 'btn btn-sm btn-danger box-shadow-1 mr-1 mb-1',  exportOptions: {
                     columns: [ 0,1,2,3,4,5 ]
                 }  }
 ],
@@ -255,7 +255,7 @@ buttons: [
                              columns: [
                               {data: 'Date', name: 'Date'},
                               {data: 'Bien'},
-                              {data: 'Nom full'},
+                              {data: 'Nom full', name: 'Nom full'},
                               {data: 'Loyyer'},
                                {data: 'descrption', name: 'descrption', orderable: false, searchable: false},
                                  {data: 'Etat', name: 'Etat'},
@@ -281,7 +281,7 @@ buttons: [
                              dom: 'Bfrtip',
 buttons: [
 
-  { extend: 'print', text: 'Imprimer Articles', className: 'btn btn-sm btn-danger box-shadow-1 mr-1 mb-1',  exportOptions: {
+  { extend: 'print', text: 'Imprimer List Payés', className: 'btn btn-sm btn-danger box-shadow-1 mr-1 mb-1',  exportOptions: {
                     columns: [ 0,1,2,3,4,5 ]
                 }  }
 ],
@@ -290,7 +290,7 @@ buttons: [
                                 columns: [
                               {data: 'Date', name: 'Date'},
                               {data: 'Bien'},
-                              {data: 'Nom full'},
+                              {data: 'Nom full', name: 'Nom full'},
                               {data: 'Loyyer'},
                                {data: 'descrption', name: 'descrption', orderable: false, searchable: false},
                                  {data: 'Etat', name: 'Etat'},

@@ -34,8 +34,7 @@
             margin-left: 15px;
         }
         .information {
-            background-color: #60A7A6;
-            color: #FFF;
+            
 
         }
         .information .logo {

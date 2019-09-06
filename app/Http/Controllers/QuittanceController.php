@@ -107,6 +107,7 @@ return $pdf->stream($ar->id .'.pdf');
       
     }
     
+    
 
     public static function dateToFrench($date, $format) 
 {
@@ -122,12 +123,12 @@ return $pdf->stream($ar->id .'.pdf');
        public function data($st)
     {
 			     	if($st == 1)	
-         $quitr =Quittance::latest('id')->get();
+         $quitr =Quittance::orderBy('datequiitance','DESC')->get();
      else if($st == 2) $quitr =Quittance::latest('id')->where('Etat','Payé')->get();
           return datatables()->of($quitr)
     ->addColumn('Nom full', function(Quittance $user) {  
     	 
-        return   $user->location->locataire->prenom . ' ' . $user->location->locataire->nom  ; 
+        return '<a   href="/Locataire/'.   $user->location->locataire->id.'/View"    >' .   $user->location->locataire->prenom . ' ' . $user->location->locataire->nom .   '</a>'  ; 
         
     })
      ->addColumn('Bien', function(Quittance $user) {  
@@ -190,7 +191,7 @@ return $pdf->stream($ar->id .'.pdf');
                         ';}
             })
 
-        ->rawColumns(['descrption' => 'descrption','Etat' => 'Etat','action' => 'action'])
+        ->rawColumns(['descrption' => 'descrption','Etat' => 'Etat','action' => 'action','Nom full' => 'Nom full'])
        
     ->toJson();
 
@@ -327,12 +328,17 @@ $quitr =Quittance::latest('id')
 								
 								$qtce = Quittance::whereYear('datequiitance', '=', $i)
 								->whereMonth('datequiitance', '=', $j)
+								->where('location_id', $loc->id )
 								->get();
 								if ($qtce->isEmpty()) { 	$datetaz = $i . '-'. $j .'-'.'1';
 								
 								$qqa=$j + 1;
+								$qqb=$i+1;
+
+								if($j != 12){
 							
 								$dda= $j  .'/'. $i . ' => ' . $qqa . '/' .$i;
+							} else $dda= $j  .'/'. $i . ' =>  1/' .$qqb;
 
 
 								$qta = new Quittance([
@@ -352,14 +358,19 @@ $quitr =Quittance::latest('id')
 							
 							$qtce = Quittance::whereYear('datequiitance', '=', $i)
 							->whereMonth('datequiitance', '=', $j)
+							->where('location_id', $loc->id )
 							->get();
 							if ($qtce->isEmpty()) { 	$datetaz = $i . '-'. $j .'-'.'1';
 							
 							
 						
-								$qqa=$j + 1;
+							$qqa=$j + 1;
+								$qqb=$i+1;
+
+								if($j != 12){
 							
 								$dda= $j  .'/'. $i . ' => ' . $qqa . '/' .$i;
+							} else $dda= $j  .'/'. $i . ' =>  1/' .$qqb;
 
 
 								$qta = new Quittance([
@@ -379,14 +390,19 @@ $quitr =Quittance::latest('id')
 							if($j != $datefm){
 								$qtce = Quittance::whereYear('datequiitance', '=', $i)
 								->whereMonth('datequiitance', '=', $j)
+								->where('location_id', $loc->id )
 								->get();
 								if ($qtce->isEmpty()) { 	$datetaz = $i . '-'. $j .'-'.'1';
 								
 								
 							
 								$qqa=$j + 1;
+								$qqb=$i+1;
+
+								if($j != 12){
 							
 								$dda= $j  .'/'. $i . ' => ' . $qqa . '/' .$i;
+							} else $dda= $j  .'/'. $i . ' =>  1/' .$qqb;
 
 
 								$qta = new Quittance([
@@ -402,6 +418,38 @@ $quitr =Quittance::latest('id')
 								
 							}
 						}
+					} else if ($i == $datedy) {
+						for ($j = $datedm ; $j <= 12; $j++){
+						
+								$qtce = Quittance::whereYear('datequiitance', '=', $i)
+								->whereMonth('datequiitance', '=', $j)
+								->where('location_id', $loc->id )
+								->get();
+								if ($qtce->isEmpty()) { 	$datetaz = $i . '-'. $j .'-'.'1';
+								
+								
+							
+						$qqa=$j + 1;
+								$qqb=$i+1;
+
+								if($j != 12){
+							
+								$dda= $j  .'/'. $i . ' => ' . $qqa . '/' .$i;
+							} else $dda= $j  .'/'. $i . ' =>  1/' .$qqb;
+
+
+								$qta = new Quittance([
+									'location_id' => $loc->id ,
+									'datequiitance' => $datetaz,
+									'loyer' => $loc->loyer,
+									'descrption' => $dda,
+									'Etat' => 'En retard'
+
+
+								]);
+								$qta->save(); };
+								
+													}
 					} else {
 							if($i != $dtyear){
 						for ($j = 1 ; $j <= 12; $j++){
@@ -409,12 +457,17 @@ $quitr =Quittance::latest('id')
 						
 							$qtce = Quittance::whereYear('datequiitance', '=', $i)
 							->whereMonth('datequiitance', '=', $j)
+							->where('location_id', $loc->id )
 							->get();
 							if ($qtce->isEmpty()) { 	$datetaz = $i . '-'. $j .'-'.'1';
 							
-								$qqa=$j + 1;
+										$qqa=$j + 1;
+								$qqb=$i+1;
+
+								if($j != 12){
 							
 								$dda= $j  .'/'. $i . ' => ' . $qqa . '/' .$i;
+							} else $dda= $j  .'/'. $i . ' =>  1/' .$qqb;
 
 
 								$qta = new Quittance([
@@ -437,15 +490,19 @@ $quitr =Quittance::latest('id')
 							
 								$qtce = Quittance::whereYear('datequiitance', '=', $i)
 								->whereMonth('datequiitance', '=', $j)
+								->where('location_id', $loc->id )
 								->get();
 								if ($qtce->isEmpty()) { 	$datetaz = $i . '-'. $j .'-'.'1';
 								
 								
 								
-								$qqa=$j + 1;
+										$qqa=$j + 1;
+								$qqb=$i+1;
+
+								if($j != 12){
 							
 								$dda= $j  .'/'. $i . ' => ' . $qqa . '/' .$i;
-
+							} else $dda= $j  .'/'. $i . ' =>  1/' .$qqb;
 
 								$qta = new Quittance([
 									'location_id' => $loc->id ,

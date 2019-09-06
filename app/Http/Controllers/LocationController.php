@@ -208,7 +208,7 @@ class LocationController extends Controller
          ->addColumn('duro', function(location $user) {
      
         return    '<a    class="badge badge-info text-white"   data-toggle="tooltip" >' . $user->date_debutbail . ' => ' 
-               . $user->date_debutbail .   '</a>'  ;
+               . $user->date_finbail .   '</a>'  ;
     
     })
    ->addColumn('edit', function(location $user) {
@@ -268,7 +268,7 @@ class LocationController extends Controller
          ->addColumn('duro', function(location $user) {
      
         return    '<a    class="badge badge-info text-white"   data-toggle="tooltip" >' . $user->date_debutbail . ' => ' 
-               . $user->date_debutbail .   '</a>'  ;
+               . $user->date_finbail .   '</a>'  ;
     
     })
    ->addColumn('edit', function(location $user) {

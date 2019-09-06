@@ -22,7 +22,7 @@
           <button class="btn btn-outline dropdown-toggle no-caret" type="button" data-toggle="dropdown"><i class="mdi mdi-dots-horizontal"></i></button>
           <div class="dropdown-menu dropdown-menu-right">
             <a class="dropdown-item" href="#"><i class="mdi mdi-share"></i>Activity</a>
-            <a class="dropdown-item" href="#"><i class="mdi mdi-email"></i>Messages</a>
+            <a class="dropdown-item" href="/a"><i class="mdi mdi-email"></i>Messages</a>
             <a class="dropdown-item" href="#"><i class="mdi mdi-help-circle-outline"></i>FAQ</a>
             <a class="dropdown-item" href="#"><i class="mdi mdi-settings"></i>Support</a>
             <div class="dropdown-divider"></div>
@@ -181,16 +181,24 @@
               
               <div class="tab-pane" id="activity">    
                   <div class="box">
+
+                    @foreach ($art->location as $loc)
+
+
           <div class="media bb-1 border-fade">
           
           <div class="media-body">
             <p>
-            <strong>Denial Webar</strong>
-            <time class="float-right text-lighter" datetime="2017">24 miqn ago</time>
+            <strong>{{$loc->bien->Ref }} {{$loc->bien->adresse }} {{$loc->bien->ville }}</strong>
+     
+            <a style="font-size: 20px" class="float-right text-lighter" href="{{ Storage::url($loc->path_contrat)}}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
             </p>
-            <p><small>Designer</small></p>
+            <p><small>{{$loc->date_debutbail }}  => {{$loc->date_finbail }}  ||  {{$loc->loyer }} MAD     </small></p>
           </div>
           </div>
+          @endforeach
+
+
 
     
 

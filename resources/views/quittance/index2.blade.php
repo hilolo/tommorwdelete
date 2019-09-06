@@ -178,7 +178,7 @@
                             dom: 'Bfrtip',
 buttons: [
 
-  { extend: 'print', text: 'Imprimer Articles', className: 'btn btn-sm btn-danger box-shadow-1 mr-1 mb-1',  exportOptions: {
+  { extend: 'print', text: 'Imprimer List', className: 'btn btn-sm btn-danger box-shadow-1 mr-1 mb-1',  exportOptions: {
                     columns: [ 0,1,2,3,4 ]
                 },title: function(){
             var printTitle = 'List Des Impayés Du  : '+{{$m}}+ ' /' + {{$y}} ;

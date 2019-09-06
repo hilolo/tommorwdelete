@@ -15,5 +15,10 @@ class Locataire extends Model
         return $this->hasMany('App\Bien');
     }
 
+        public function Location()
+    {
+        return $this->hasMany('App\Location','locataires_id');
+    }
+
     
 }

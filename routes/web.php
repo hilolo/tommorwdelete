@@ -137,3 +137,8 @@ Route::post('/Searchquitdate', 'QuittanceController@search');
 Route::get('/quittance/data/{month}/{year}', 'QuittanceController@dataser');
 
 
+/////////////////////////////// Bank
+
+
+Route::get('/Bank/{id}/Add', 'BankController@storeaf');
+Route::post('/{id}/bankinsert', 'LocationController@insert');

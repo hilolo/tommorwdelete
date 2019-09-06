@@ -14,12 +14,12 @@
 	<div class="content-header">
 		<div class="d-flex align-items-center">
 			<div class="mr-auto">
-				<h3 class="page-title">Proprietaire</h3>
+				<h3 class="page-title">Location</h3>
 				<div class="d-inline-block align-items-center">
 					<nav>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-							<li class="breadcrumb-item active" aria-current="page">Ajouté proprietaire</li>
+							<li class="breadcrumb-item active" aria-current="page">Ajouté Location</li>
 						</ol>
 					</nav>
 				</div>
@@ -256,7 +256,7 @@
 
                 <label>LOYER
                 </label>
-                <input type="text" name="loyer"  class="form-control" name="LOYER" placeholder="Montant de loyer">
+                <input type="text" name="loyer" required=""  class="form-control" name="LOYER" placeholder="Montant de loyer">
                 </div>
                 </div>
 

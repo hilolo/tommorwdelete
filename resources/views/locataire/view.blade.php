@@ -21,8 +21,8 @@
         <div class="dropdown">
           <button class="btn btn-outline dropdown-toggle no-caret" type="button" data-toggle="dropdown"><i class="mdi mdi-dots-horizontal"></i></button>
           <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="#"><i class="mdi mdi-share"></i>Activity</a>
-            <a class="dropdown-item" href="/a"><i class="mdi mdi-email"></i>Messages</a>
+            <a class="dropdown-item" href="/Bank/{{ $art->id }}/Add"><i class="mdi mdi-comment-plus-outline"></i>Bank Info</a>
+            <a class="dropdown-item" href="/a"><i class="mdi mdi-file-document"></i>Document</a>
             <a class="dropdown-item" href="#"><i class="mdi mdi-help-circle-outline"></i>FAQ</a>
             <a class="dropdown-item" href="#"><i class="mdi mdi-settings"></i>Support</a>
             <div class="dropdown-divider"></div>
@@ -111,14 +111,22 @@
             <div class="box-body box-profile">            
               <div class="row">
 
+                
+
+   
+
 
                 <div class="col-md-12 col-12">
+                   @foreach ($art->bancaire as $b)
+
                   <div class="profile-user-info">
-            <p>Banque :<span class="text-gray pl-10">David@yahoo.com</span> </p>
-            <p>RIB :<span class="text-gray pl-10">+11 123 456 7890</span></p>
-            <p>IBAN :<span class="text-gray pl-10">+11 123 456 7890</span></p>
-             <p>Swift/bic: <span class="text-gray pl-10">+11 123 456 7890</span></p>
+            <p>Banque :<span class="text-gray pl-10">{{ $b->Banque }}</span> </p>
+            <p>RIB :<span class="text-gray pl-10">{{ $b->RIB }}</span></p>
+            <p>IBAN :<span class="text-gray pl-10">{{ $b->IBAN }}</span></p>
+             <p>Swift/bic: <span class="text-gray pl-10">{{ $b->Swift }}</span></p>
           </div>
+
+          @endforeach
               </div>
 
               

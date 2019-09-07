@@ -141,4 +141,4 @@ Route::get('/quittance/data/{month}/{year}', 'QuittanceController@dataser');
 
 
 Route::get('/Bank/{id}/Add', 'BankController@storeaf');
-Route::post('/{id}/bankinsert', 'LocationController@insert');
+Route::post('bankinsert/{id}', 'BankController@insert');

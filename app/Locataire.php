@@ -20,5 +20,13 @@ class Locataire extends Model
         return $this->hasMany('App\Location','locataires_id');
     }
 
+
+         public function bancaire()
+    {
+        return $this->hasMany('App\Bancaire','locataires_id');
+    }
+
+
+
     
 }

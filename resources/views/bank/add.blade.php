@@ -27,7 +27,7 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="box">
       <div class="box-header with-border">
-        <h4 class="box-title">Formulaire d'ajout nouveau Locataire</h4>
+        <h4 class="box-title">Formulaire d'ajout Les coordonnées bancaire</h4>
         <ul class="box-controls pull-right">
          
           <li><a class="box-btn-slide" href="#"></a></li> 
@@ -36,7 +36,7 @@
 
 
 
-      <form class="form" method="POST" action="/{{$id}}/bankinsert" enctype="multipart/form-data" >
+      <form class="form" method="POST" action="/bankinsert/{{$id}}" enctype="multipart/form-data" >
         {{ csrf_field() }}
           <div class="box-body">
            

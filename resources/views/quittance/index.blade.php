@@ -20,6 +20,8 @@
     </div>
   </div>
 
+    <!-- 
+
   <section class="content">
   
   <div class="col-12">
@@ -33,7 +35,7 @@
           
           <div class="box-body">
             <div class="row">
-              <!-- column -->
+              
               <div class="col-lg-4">
                 <div class=" box-body">
             
@@ -118,7 +120,7 @@
         </div>
       </div>
 </section>
-
+-->
 
 
 <section class="content">

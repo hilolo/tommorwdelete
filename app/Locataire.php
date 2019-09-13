@@ -27,6 +27,11 @@ class Locataire extends Model
     }
 
 
+       public function document()
+    {
+        return $this->hasMany('App\Document','locataires_id');
+    }
+
 
     
 }

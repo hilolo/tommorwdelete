@@ -140,5 +140,52 @@ Route::get('/quittance/data/{month}/{year}', 'QuittanceController@dataser');
 /////////////////////////////// Bank
 
 
+Route::get('/Banks', 'BankController@index');
 Route::get('/Bank/{id}/Add', 'BankController@storeaf');
 Route::post('bankinsert/{id}', 'BankController@insert');
+Route::get('/Bank/data', 'BankController@data');
+Route::get('/banksdelete/{id}', 'BankController@destroy')->name('banksdelete');
+
+
+/////// Documents
+
+
+Route::get('/Documents', 'DocumentController@index');
+Route::get('/Document/Add', 'DocumentController@storeaf');
+Route::get('/Document/Add/{id}', 'DocumentController@storeaf2');
+Route::post('/documentinsert', 'DocumentController@insert');
+Route::post('/documentinsertq/{id}', 'DocumentController@insert2');
+Route::get('/Document/data', 'DocumentController@data');
+Route::get('/documentdelete/{id}', 'DocumentController@destroy')->name('documedelete');
+
+
+
+
+///image edit  
+
+
+Route::get('/Imagetraitment', 'ImageeditController@index');
+Route::post('/Imagetraitmentq', 'ImageeditController@Imagetraitment');
+
+
+
+
+///Caution 
+Route::get('/Caution', 'CautionController@index');
+Route::get('/Caution/Add', 'CautionController@storeaf');
+Route::post('/cautioninsert', 'CautionController@insert');
+Route::get('/Caution/data/{id}', 'CautionController@data');
+Route::get('/cautiondelete/{id}', 'CautionController@destroy')->name('cautiondelete');
+Route::get('/cautionarchive/{id}', 'CautionController@Archive')->name('cautionarchive');
+Route::get('/Caution/recu/{id}', 'CautionController@recu')->name('cautionrecu');
+
+
+
+//Frais
+Route::get('/Fraisagence', 'AgencefraiController@index');
+Route::get('/Fraisagence/Add', 'AgencefraiController@storeaf');
+Route::post('/fraisinsert', 'AgencefraiController@insert');
+Route::get('/Fraisagence/data/{id}', 'AgencefraiController@data');
+Route::get('/fraisdelete/{id}', 'AgencefraiController@destroy')->name('fraisdelete');
+Route::get('/fraisarchive/{id}', 'AgencefraiController@Archive')->name('fraisarchive');
+Route::get('/Fraisagence/recu/{id}', 'AgencefraiController@recu')->name('fraisrecu');

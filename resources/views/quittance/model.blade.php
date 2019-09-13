@@ -99,8 +99,9 @@ Status: Payé
     <table width="100%">
       
         <tbody>
-        <tr>
-            <td>Je, soussigné :<b> {{$ar->location->bien->locataire->civilite}}  {{$ar->location->bien->locataire->prenom}}  {{$ar->location->bien->locataire->nom}}  </b> 
+        <tr >
+            <td style=" text-align:justify; 
+                text-justify:auto; "    >Je, soussigné :<b> {{$ar->location->bien->locataire->civilite}}  {{$ar->location->bien->locataire->prenom}}  {{$ar->location->bien->locataire->nom}}  </b> 
        
 @if(!empty($ar->location->bien->locataire->cin))
 
@@ -146,7 +147,8 @@ Status: Payé
       
           <tbody>
         <tr>
-            <td>Je, soussigné :<b> {{$ar->location->bien->locataire->civilite}}  {{$ar->location->bien->locataire->prenom}}  {{$ar->location->bien->locataire->nom}}  </b> 
+            <td style=" text-align:justify; 
+                text-justify:auto; " >Je, soussigné :<b> {{$ar->location->bien->locataire->civilite}}  {{$ar->location->bien->locataire->prenom}}  {{$ar->location->bien->locataire->nom}}  </b> 
        
 @if(!empty($ar->location->bien->locataire->cin))
 

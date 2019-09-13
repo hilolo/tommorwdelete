@@ -239,8 +239,47 @@
           </ul>
         </li>
 
+
+
+        <li >
+          <a href="/Caution">
+            <i class="mdi mdi-view-dashboard"></i>
+
+            <span>Caution </span>
+          
+          </a>
+    
+        </li>
+      
+
+
+
+      <li >
+          <a href="/Fraisagence">
+            <i class="mdi mdi-view-dashboard"></i>
+
+            <span>Les Frais de l'agence</span>
+          
+          </a>
+    
+        </li>
+
+             <li >
+          <a href="/">
+            <i class="mdi mdi-view-dashboard"></i>
+
+            <span>Interventions</span>
+          
+          </a>
+    
+        </li>
+      
+
+
+
+
           <li >
-          <a href="#a">
+          <a href="/Banks">
             <i class="mdi mdi-view-dashboard"></i>
 
             <span>Les coordonnées bancaire</span>
@@ -251,7 +290,7 @@
 
 
     <li >
-          <a href="#a">
+          <a href="/Documents">
             <i class="mdi mdi-view-dashboard"></i>
 
             <span>Documents</span>
@@ -264,6 +303,15 @@
 
 
        <li class="header nav-small-cap"><i class="mdi mdi-drag-horizontal mr-5"></i>LE PLUS</li>
+        <li >
+          <a href="/Imagetraitment">
+            <i class="mdi mdi-view-dashboard"></i>
+
+            <span>Traitement d'images</span>
+          
+          </a>
+    
+        </li>
 		  
 		
        

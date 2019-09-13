@@ -85,7 +85,7 @@ class QuittanceController extends Controller
        public function recu($id)
     {
 
-;
+
 
 
      

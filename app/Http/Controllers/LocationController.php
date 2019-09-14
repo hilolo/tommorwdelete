@@ -40,7 +40,7 @@ class LocationController extends Controller
         $RARA2=str_replace(' ', '', $aq21);
         $datef=str_replace('/', '-', $aq21);
 
-         $ar->biens_id= 
+         $ar->biens_id= $request->input('bbl');
          $ar->type_bail=$request->input('typebb');
          $ar->date_debutbail=$dated;
          $ar->date_finbail=$datef;

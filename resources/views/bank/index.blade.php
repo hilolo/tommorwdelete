@@ -36,7 +36,7 @@
 
 					<div class="col-2" >
 					<div class="float-right">
-<a type="button" class="btn btn-info btn-circle btn-sm" title="Noveau Bien"  href="/Document/Add"   ><i class="fa fa-plus"></i>      
+<a type="button" class="btn btn-info btn-circle btn-sm" title="Noveau Bien"  href="/Bank/Add"   ><i class="fa fa-plus"></i>      
 </a>
 			</div>
 			</div>	

@@ -91,10 +91,10 @@
                                 <table class="table table-striped table-bordered dataTable " id="dataTables-example2" width="100%">
                                     <thead>
                                         <tr>
-                                        <td>Nqom</td>
+                                       <td>Nom</td>
                                         <td>Bien</td>
                                         <td >Telephone</td>
-                                  
+                                     
                                         <td  >Action</td>
                                         </tr>
                                     </thead>
@@ -139,7 +139,7 @@
             ajax: '/Locataire/data',
             "pageLength": 50,
              columns: [
-            {data: 'Nom full'},
+             {data: 'Nom full', name: 'Nom full', orderable: false, searchable: false},
              {data: 'bienloc', name: 'bienloc', orderable: false, searchable: false},
             {data: 'tel'},
         
@@ -169,10 +169,10 @@
             ajax: '/Locataire/data2',
             "pageLength": 50,
              columns: [
-           {data: 'Nom full'},
-              {data: 'bienloc', name: 'bienloc', orderable: false, searchable: false},
+             {data: 'Nom full', name: 'Nom full', orderable: false, searchable: false},
+             {data: 'bienloc', name: 'bienloc', orderable: false, searchable: false},
             {data: 'tel'},
-                 {data: 'edit', name: 'edit', orderable: false, searchable: false},
+        
              {data: 'action', name: 'action', orderable: false, searchable: false},
 
        ]

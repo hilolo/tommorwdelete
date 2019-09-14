@@ -14,5 +14,19 @@ class Bien extends Model
     }
 
 
+
+        public function Location()
+    {
+        return $this->hasMany('App\Location','biens_id');
+    }
+
+
+  
+
+   
+
+
+
+
     
 }

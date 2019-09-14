@@ -1,4 +1,4 @@
-	@extends('layouts.base')
+ 	@extends('layouts.base')
 
 @section('content')
 <style type="text/css">

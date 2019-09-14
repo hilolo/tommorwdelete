@@ -142,7 +142,9 @@ Route::get('/quittance/data/{month}/{year}', 'QuittanceController@dataser');
 
 Route::get('/Banks', 'BankController@index');
 Route::get('/Bank/{id}/Add', 'BankController@storeaf');
+Route::get('/Bank/Add', 'BankController@storeaf2');
 Route::post('bankinsert/{id}', 'BankController@insert');
+Route::post('bankinsertq', 'BankController@insert2');
 Route::get('/Bank/data', 'BankController@data');
 Route::get('/banksdelete/{id}', 'BankController@destroy')->name('banksdelete');
 

@@ -42,10 +42,6 @@ class DocumentController extends Controller
     {
 
    
-
-
-           
-
             foreach($request->file('file') as $file)
             {
 
@@ -56,11 +52,7 @@ class DocumentController extends Controller
                 $ar->locataires_id=$request->input('prop');
                 $ar->save();    
 
-            }
-
-         
-
-   
+            } 
 
 
 
@@ -98,7 +90,7 @@ class DocumentController extends Controller
 
 
 
-            return redirect('/Locataire/' . $id . '/View');
+            return redirect('/Documents');
         
     }
 

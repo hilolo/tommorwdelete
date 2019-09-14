@@ -12,7 +12,7 @@ class Locataire extends Model
 
        public function bien()
     {
-        return $this->hasMany('App\Bien');
+        return $this->hasMany('App\Bien','locataires_id');
     }
 
         public function Location()
@@ -32,6 +32,10 @@ class Locataire extends Model
         return $this->hasMany('App\Document','locataires_id');
     }
 
+
+
+
+   
 
     
 }

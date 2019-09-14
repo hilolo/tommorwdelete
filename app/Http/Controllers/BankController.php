@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Bancaire;
+use App\Locataire;
 
 class BankController extends Controller
 {
@@ -26,6 +27,15 @@ class BankController extends Controller
         return view('Bank.add',compact('id'));
     }
 
+
+
+
+     public function storeaf2()
+    {
+
+           $loc2 = Locataire::all()->where('archive', '0'); 
+        return view('Bank.add2',compact('loc2'));
+    }
 
    public function insert(Request $request,$id)
 
@@ -55,9 +65,47 @@ class BankController extends Controller
 
 
 
-            return redirect('/Locataire/' . $id . '/View');
+     return redirect('/Banks');
         
     }
+
+
+
+
+     public function insert2(Request $request)
+
+    {
+
+    
+            $ar= new Bancaire();
+
+
+
+        
+            $ar->Banque=$request->input('Banque');
+            $ar->RIB=$request->input('RIB');
+            $ar->IBAN=$request->input('IBAN');
+            $ar->Swift=$request->input('Swift');
+            $ar->locataires_id=$request->input('proqp');
+
+            $ar->save();
+
+           
+
+
+
+
+            
+
+
+
+
+     return redirect('/Banks');
+        
+    }
+
+
+
 
 
             public function destroy($id)

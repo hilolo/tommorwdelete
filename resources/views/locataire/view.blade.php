@@ -149,15 +149,18 @@
               <li><a class="active" href="#usertimeline" data-toggle="tab">Quittance</a></li>
               <li><a href="#activity" data-toggle="tab">Location</a></li>
               <li><a href="#settings" data-toggle="tab">Documents</a></li>
-              <li><a href="#settings" data-toggle="tab">Charge</a></li>
+          
             </ul>
                         
             <div class="tab-content">
              
              <div class="active tab-pane" id="usertimeline">
+
    
          
         <div class="box">
+
+          <br>
         <div class="row"><div class="col-sm-12">
                                 <table class="table table-sm table-bordered table-striped dataTable" id="dataTables-example" width="98%">
                                     <thead>
@@ -192,7 +195,7 @@
                     @foreach ($art->location as $loc)
 
 
-          <div class="media bb-1 border-fade">
+          <div class="media bb-5 border-fade">
           
           <div class="media-body">
             <p>
@@ -229,7 +232,7 @@
                     @foreach ($art->document as $doc)
 
 
-          <div class="media bb-1 border-fade">
+          <div class="media bb-5 border-fade">
           
           <div class="media-body">
             <p>

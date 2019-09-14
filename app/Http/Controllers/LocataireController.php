@@ -9,6 +9,7 @@ use DataTables;
 use DB;
 use App\Quittance;
 
+
 class LocataireController extends Controller
 {
  
@@ -156,9 +157,9 @@ class LocataireController extends Controller
           return datatables()->of( $articles)
     ->addColumn('Nom full', function(Locataire $user) {
       if($user->type == 1) {
-        return  $user->civilite . ' ' . $user->prenom . ' ' . $user->nom  ;
+        return '<a   href="/Locataire/'.   $user->id.'/View"    >' .   $user->civilite . ' ' . $user->prenom . ' ' . $user->nom . '</a>'  ;
       } else {
-          return  $user->societe ;
+         return '<a   href="/Locataire/'.   $user->id.'/View"    >' .  $user->societe . '</a>'  ;
       }
     })
     ->editColumn('tel', function(Locataire $user) {
@@ -217,7 +218,7 @@ class LocataireController extends Controller
 
             })
 
-      ->rawColumns(['bienloc' => 'bienloc','tel' => 'tel','edit' => 'edit','action' => 'action'])  
+      ->rawColumns(['bienloc' => 'bienloc','Nom full' => 'Nom full','tel' => 'tel','edit' => 'edit','action' => 'action'])  
     ->toJson();
 
 

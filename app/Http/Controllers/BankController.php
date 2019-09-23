@@ -140,11 +140,18 @@ class BankController extends Controller
 
             })
 
-          ->addColumn('Nom', function(Bancaire $user) {  
-         
+          ->addColumn('Nom', function(Bancaire $user) { 
+
+         if($user->locataire->mode =='2') {
         return '<a   href="/Locataire/'.   $user->locataire->id.'/View"    >' .   $user->locataire->prenom . ' ' . $user->locataire->nom .   '</a>'  ; 
         
-             })
+             }else {
+                 return '<a   href="/Proprietaire/'.   $user->locataire->id.'/View"    >' .   $user->locataire->prenom . ' ' . $user->locataire->nom .   '</a>'  ; 
+
+
+             }
+
+         })
          ->rawColumns(['Nom' => 'Nom','action' => 'action'])
 
     ->toJson();

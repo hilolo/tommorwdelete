@@ -165,14 +165,10 @@ class BienController extends Controller
        ->addColumn('adrs full', function( $user) {
         return  $user->Ref . ' ' . $user->adresse  ;
     })
-    ->addColumn('Nom full', function( $user) {
-      if($user->tqttype == 1) {
-        return  $user->civilite . ' ' . $user->prenom . ' ' . $user->nom  ;
-      } else {
-          return  $user->societe ;
-      }
-    })
-     ->addColumn('Atrr', function( $user) {
+   ->addColumn('Nom full', function( $user) {
+     return '<a   href="/Proprietaire/'.   $user->id.'/View"    >' .   $user->prenom . ' ' . $user->nom .  ' ' . $user->societe . '</a>'  ;     
+   })
+          ->addColumn('Atrr', function( $user) {
       if($user->tttype == 1) {
         return  'Appartements'  ;
       } else  if($user->tttype == 2) {
@@ -203,7 +199,7 @@ class BienController extends Controller
 
             })
 
-        ->rawColumns(['action' => 'action'])
+        ->rawColumns(['action' => 'action','Nom full' => 'Nom full'])
 
 
     ->toJson();
@@ -228,12 +224,7 @@ class BienController extends Controller
         return  $user->Ref . ' ' . $user->adresse  ;
     })
     ->addColumn('Nom full', function( $user) {
-      if($user->tqttype == 1) {
-        return  $user->civilite . ' ' . $user->prenom . ' ' . $user->nom  ;
-      } else {
-          return  $user->societe ;
-      }
-    })
+     return '<a   href="/Proprietaire/'.   $user->id.'/View"    >' .   $user->prenom . ' ' . $user->nom .  ' ' . $user->societe . '</a>'  ;     })
      ->addColumn('Atrr', function( $user) {
       if($user->tttype == 1) {
         return  'Appartements'  ;
@@ -264,7 +255,8 @@ class BienController extends Controller
 
             })
 
-        ->rawColumns(['action' => 'action'])
+      
+        ->rawColumns(['action' => 'action','Nom full' => 'Nom full'])
     ->toJson();
 
 

@@ -21,6 +21,8 @@ class CreateQuittanceTable extends Migration
             $table->float('loyer')->nullable();
              $table->string('descrption')->nullable();
              $table->string('Etat');
+             $table->integer('duplica')->nullable();
+
             $table->timestamps();
         });
     }

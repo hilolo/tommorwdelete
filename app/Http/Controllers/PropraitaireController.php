@@ -151,13 +151,9 @@ class PropraitaireController extends Controller
         $articles =Locataire::all()->where('mode','1')->where('archive','0');
 
           return datatables()->of( $articles)
-    ->addColumn('Nom full', function(Locataire $user) {
-      if($user->type == 1) {
-        return  $user->civilite . ' ' . $user->prenom . ' ' . $user->nom  ;
-      } else {
-          return  $user->societe ;
-      }
-    })
+      ->addColumn('Nom full', function( $user) {
+     return '<a   href="/Proprietaire/'.   $user->id.'/View"    >' .   $user->prenom . ' ' . $user->nom .  ' ' . $user->societe . '</a>'  ;   
+       })  
      ->addColumn('biens', function(Locataire $user) {
 
         $imm =DB::table('biens')
@@ -185,7 +181,7 @@ class PropraitaireController extends Controller
                         ';
 
             })
-         ->rawColumns(['biens' => 'biens','action' => 'action']) 
+         ->rawColumns(['biens' => 'biens','action' => 'action','Nom full' => 'Nom full']) 
         ->toJson();
 
 
@@ -198,13 +194,9 @@ class PropraitaireController extends Controller
 
         
           return datatables()->of( $articles2)
-    ->addColumn('Nom full', function(Locataire $user) {
-      if($user->type == 1) {
-        return  $user->civilite . ' ' . $user->prenom . ' ' . $user->nom  ;
-      } else {
-          return  $user->societe ;
-      }
-    })
+    ->addColumn('Nom full', function( $user) {
+     return '<a   href="/Proprietaire/'.   $user->id.'/View"    >' .   $user->prenom . ' ' . $user->nom .  ' ' . $user->societe . '</a>'  ;   
+       })  
      ->addColumn('biens', function(Locataire $user) {
 
         $imm =DB::table('biens')
@@ -232,7 +224,7 @@ class PropraitaireController extends Controller
                         ';
 
             })
-         ->rawColumns(['biens' => 'biens','action' => 'action'])
+         ->rawColumns(['biens' => 'biens','action' => 'action','Nom full' => 'Nom full'])
         ->toJson();
 
 

@@ -10236,14 +10236,14 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 }
 
 .btn-success {
-  background-color: #36bea6;
-  border-color: #36bea6;
+  background-color: #2962FF;
+    border-color: #ffffff;
   color: #fff;
 }
 
 .btn-success:hover {
-  background-color: #2ea08c;
-  border-color: #2ea08c;
+ background-color: #2962FF;
+    border-color: #ffffff;
   color: #fff;
 }
 

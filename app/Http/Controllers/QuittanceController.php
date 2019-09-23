@@ -58,11 +58,14 @@ class QuittanceController extends Controller
         	 $ldate = date('Y-m-d H:i:s');
 
         	 $ar->Etat='Payé';
-        	  $ar->descrption .=' Validé le :' .  $ldate;
+        	 $ar->descrption .=' Validé le :' .  $ldate;
+        	 $ar->save();
 
-        	  $ar->save();
 
         	 return redirect('/quittance/recu/' . $id );
+
+
+        	
 
 
 
@@ -91,8 +94,16 @@ class QuittanceController extends Controller
      
     	 $ar= Quittance::find($id);
 
+    	 $q= ++$ar->duplica;
+    	   $ar->duplica=$q ;
+    	  
+
+        	  $ar->save();
+
+
     	$f = new NumberFormatter("fr", NumberFormatter::SPELLOUT);
 			$loertext=$f->format($ar->loyer);
+
 
 
 
@@ -100,8 +111,10 @@ class QuittanceController extends Controller
 
 $ldate = date('Y-m-d H:i:s');
 
+
 $pdf = PDF::loadView('quittance.model',compact('ar','loertext','moisy','ldate'));
 return $pdf->stream($ar->id .'.pdf');
+ 	
 
 
       
@@ -346,7 +359,8 @@ $quitr =Quittance::latest('id')
 									'datequiitance' => $datetaz,
 									'loyer' => $loc->loyer,
 									'descrption' => $dda,
-									'Etat' => 'En retard'
+									'Etat' => 'En retard',
+									'duplica'=> '0'
 
 
 								]);
@@ -378,7 +392,8 @@ $quitr =Quittance::latest('id')
 									'datequiitance' => $datetaz,
 									'loyer' => $loc->loyer,
 									'descrption' => $dda,
-									'Etat' => 'En retard'
+									'Etat' => 'En retard',
+									'duplica'=> '0'
 
 
 								]);
@@ -410,7 +425,8 @@ $quitr =Quittance::latest('id')
 									'datequiitance' => $datetaz,
 									'loyer' => $loc->loyer,
 									'descrption' => $dda,
-									'Etat' => 'En retard'
+									'Etat' => 'En retard',
+									'duplica'=> '0'
 
 
 								]);
@@ -443,7 +459,8 @@ $quitr =Quittance::latest('id')
 									'datequiitance' => $datetaz,
 									'loyer' => $loc->loyer,
 									'descrption' => $dda,
-									'Etat' => 'En retard'
+									'Etat' => 'En retard',
+									'duplica'=> '0'
 
 
 								]);
@@ -475,7 +492,9 @@ $quitr =Quittance::latest('id')
 									'datequiitance' => $datetaz,
 									'loyer' => $loc->loyer,
 									'descrption' => $dda,
-									'Etat' => 'En retard'
+									'Etat' => 'En retard',
+									'duplica'=> '0'
+
 
 
 								]);
@@ -509,7 +528,8 @@ $quitr =Quittance::latest('id')
 									'datequiitance' => $datetaz,
 									'loyer' => $loc->loyer,
 									'descrption' => $dda,
-									'Etat' => 'En retard'
+									'Etat' => 'En retard',
+									'duplica'=> '0'
 
 
 								]);

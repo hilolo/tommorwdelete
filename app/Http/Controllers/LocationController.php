@@ -38,7 +38,7 @@ class LocationController extends Controller
         $user2 = strstr($request->datetimes, '-', false);
         $aq21=str_replace('-', '', $user2);
         $RARA2=str_replace(' ', '', $aq21);
-        $datef=str_replace('/', '-', $aq21);
+        $datef=str_replace('/', '-', $RARA2);
 
          $ar->biens_id= $request->input('bbl');
          $ar->type_bail=$request->input('typebb');
@@ -125,33 +125,67 @@ class LocationController extends Controller
 
 
 
-
-
-     public function update(Request $request,$id)
+     public function storeaf()
     {
-       
-       
-        
-        
+
+          $loc = Bien::all()->where('archiveb', '0');
+      $loc2 = Locataire::all()->where('mode', '2')->where('archive', '0');
+      return view('location.add',compact('loc','loc2'));
     }
 
 
-     public function storeaf(Request $request)
-    {
-
-      $loc = Bien::all()->where('archiveb', '0');
-    	$loc2 = Locataire::all()->where('mode', '2')->where('archive', '0');
-    	return view('location.add',compact('loc','loc2'));
-    }
 
 
      public function updateaf($id)
     {
-    	$art=Location::find($id);
-        return view('proprietaire.modifier',compact('art'));
+    	
+          $art=Location::find($id);
+      return view('location.edit',compact('art'));
     }
 
+
+
+    public function update($id,Request $request)
+    {
+
+
+          $art=Location::find($id);
+            $user = strstr($request->datetimes, '-', true); 
+        $RARA=str_replace(' ', '', $user);
+        $dated=str_replace('/', '-', $RARA);
+
+        $user2 = strstr($request->datetimes, '-', false);
+        $aq21=str_replace('-', '', $user2);
+        $RARA2=str_replace(' ', '', $aq21);
+        $datef=str_replace('/', '-', $RARA2);
+
+
+
+                $art->paiment_methode=$request->input('paimmeth');
+         $art->moyen_paiment=$request->input('moyenp');
+         $art->paiment_jour=$request->input('jpaiment');
+          $art->loyer=$request->input('loyer');
+               $art->date_debutbail=$dated;
+         $art->date_finbail=$datef;
+
+
+$file = $request->file('file');
+
+
+        
+
+       if ($request->hasFile('file')){
+            $art->path_contrat=$file->storeAs('public/location/'.$art->id,$file->getClientOriginalName()) ;
+          }
+           $art->save();
+           return redirect('/Location');
+
     
+    }
+
+
+
+   
      public function View($id)
     {
     	$art=Location::find($id);
@@ -192,11 +226,14 @@ class LocationController extends Controller
       
 
           return datatables()->of( $articles)
-    ->addColumn('Nom full', function(location $user) {  
-     
-        return  $user->locataire->civilite . ' ' . $user->locataire->prenom . ' ' . $user->locataire->nom  ; 
+
+      ->addColumn('Nom full', function(location $user) { 
+
         
-    })
+        return '<a   href="/Locataire/'.   $user->locataire->id.'/View"    >' .   $user->locataire->prenom . ' ' . $user->locataire->nom . ' ' . $user->locataire->societe .   '</a>'  ; 
+        
+          
+         })
     ->addColumn('biens', function(location $user) {  
         return  $user->bien->Ref . ' ' . $user->bien->adresse   ; 
         
@@ -214,7 +251,7 @@ class LocationController extends Controller
    ->addColumn('edit', function(location $user) {
      
         return '
-                <a style="font-size: 20px" href=""><i class="fa fa-edit bg-success" aria-hidden="true"></i></a>
+                <a style="font-size: 20px" href="'. route('editlocat', $user->id).'"><i class="fa fa-edit bg-success" aria-hidden="true"></i></a>
                   <a style="font-size: 20px" href="'. route('locatiarchive', $user->id).'"><i class="fa fa-archive bg-info" aria-hidden="true"></i></a>
                <a style="font-size: 20px" href="'. route('locatiadelete', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
                
@@ -239,7 +276,7 @@ class LocationController extends Controller
               </div>'  ;
     
     })
-           ->rawColumns(['duro' => 'duro','edit' => 'edit','edito' => 'edito'])  
+           ->rawColumns(['duro' => 'duro','edit' => 'edit','edito' => 'edito','Nom full' => 'Nom full'])  
     ->toJson();
 
 
@@ -252,11 +289,13 @@ class LocationController extends Controller
       
 
           return datatables()->of( $articles)
-    ->addColumn('Nom full', function(location $user) {  
-     
-        return  $user->locataire->civilite . ' ' . $user->locataire->prenom . ' ' . $user->locataire->nom  ; 
+       ->addColumn('Nom full', function(location $user) { 
+
         
-    })
+        return '<a   href="/Locataire/'.   $user->locataire->id.'/View"    >' .   $user->locataire->prenom . ' ' . $user->locataire->nom . ' ' . $user->locataire->societe .   '</a>'  ; 
+        
+          
+         })
     ->addColumn('biens', function(location $user) {  
         return  $user->bien->Ref . ' ' . $user->bien->adresse   ; 
         
@@ -299,7 +338,7 @@ class LocationController extends Controller
               </div>'  ;
     
     })
-           ->rawColumns(['duro' => 'duro','edit' => 'edit','edito' => 'edito'])  
+           ->rawColumns(['duro' => 'duro','edit' => 'edit','edito' => 'edito','Nom full' => 'Nom full'])  
     ->toJson();
 
 

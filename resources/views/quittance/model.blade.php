@@ -49,10 +49,37 @@
     /*Rest of stuff here*/
 }
 
+
+
+.rotingtxt{
+    -webkit-transform: rotate(331deg);
+    -moz-transform: rotate(331deg);
+    -o-transform: rotate(331deg);
+    transform: rotate(331deg);
+    font-size: 10em;
+    text-align: center;
+    color: rgba(255, 5, 5, 0.17);
+    position: absolute;
+    font-family: 'Denk One', sans-serif;
+    text-transform:uppercase;
+    padding-left: 10%;
+    display:block;  
+        position:absolute;
+
+}
+
+
+
     </style>
 
 </head>
 <body>
+
+
+    
+ 
+
+      
 
 <div class="information">
     <table width="100%">
@@ -67,6 +94,9 @@
 <br />
 Date: {{$ldate}} 
 Status: Payé
+@if($ar->duplica > '2')
+[ duplicata :{{$ar->duplica}} ]
+ @endif
 </pre>
 
 
@@ -93,6 +123,11 @@ Status: Payé
 
 <br/>
 
+       
+@if($ar->duplica > '1')
+    <p class="rotingtxt">DUPLICATA</p>
+    @endif
+
 <div class="invoice">
     <h2 align="center">RECU DE PAIMENT</h2>
     <br>
@@ -101,7 +136,10 @@ Status: Payé
         <tbody>
         <tr >
             <td style=" text-align:justify; 
-                text-justify:auto; "    >Je, soussigné :<b> {{$ar->location->bien->locataire->civilite}}  {{$ar->location->bien->locataire->prenom}}  {{$ar->location->bien->locataire->nom}}  </b> 
+                text-justify:auto; "    >Je, soussigné :
+
+
+                <b> {{$ar->location->bien->locataire->civilite}}  {{$ar->location->bien->locataire->prenom}}  {{$ar->location->bien->locataire->nom}}  </b> 
        
 @if(!empty($ar->location->bien->locataire->cin))
 
@@ -109,18 +147,26 @@ Status: Payé
 @endif
 
 
+@if(!empty($ar->location->bien->locataire->adresse))
+
+ demeurant a {{$ar->location->bien->locataire->adresse}}
+@endif
 
 
-                  demeurant a {{$ar->location->bien->locataire->adresse}} représenté par Monsieur Brahim Lachaibi CIN N T405871, domicilité a AV. Mohammed VI, Complexe Alia C,rdc n7. Tanger Atteste Avoi recu, de la part de:</td>
+
+
+
+
+                  représenté par Monsieur Brahim Lachaibi CIN N K304670, domicilité a AV. Mohammed VI, Complexe Alia C , rdc n7  Tanger Atteste Avoi recu, de la part de:</td>
 
         </tr>
            <tr>
-            <td align="center" > <br><b style=" text-decoration: underline;"> {{strtoupper($ar->location->locataire->prenom)}}  {{strtoupper($ar->location->locataire->nom)}}   </b> </td>
+            <td align="center" > <br><b style=" text-decoration: underline;"> {{strtoupper($ar->location->locataire->prenom)}}  {{strtoupper($ar->location->locataire->nom)}}  {{strtoupper($ar->location->locataire->societe)}}    </b> </td>
            
         </tr>
         
          <tr>
-            <td><br> La somme de : <b> {{$ar->loyer}} MAD </b> {{$loertext}} Dirhams concernant le loyer du mois de <b> {{$moisy}} </b> pour la location de lappartment sis a :  {{$ar->location->bien->adresse}}  {{$ar->location->bien->ville}}</td>
+            <td><br> La somme de : <b> {{$ar->loyer}} MAD </b> {{$loertext}} Dirhams concernant le loyer du mois de <b> {{$moisy}} </b> pour la location de lappartment sis a :  {{$ar->location->bien->adresse}}  {{$ar->location->bien->ville}} .</td>
 
         </tr>
          <tr>
@@ -157,17 +203,20 @@ Status: Payé
 
 
 
+@if(!empty($ar->location->bien->locataire->adresse))
 
-                  demeurant a {{$ar->location->bien->locataire->adresse}} représenté par Monsieur Brahim Lachaibi CIN N T405871, domicilité a AV. Mohammed VI, Complexe Alia C,rdc n7. Tanger Atteste Avoi recu, de la part de:</td>
+ demeurant a {{$ar->location->bien->locataire->adresse}}
+@endif
+ représenté par Monsieur Brahim Lachaibi CIN N T405871, domicilité a AV. Mohammed VI, Complexe Alia C,rdc n7. Tanger Atteste Avoi recu, de la part de:</td>
 
         </tr>
            <tr>
-            <td align="center" > <br><b style=" text-decoration: underline;"> {{strtoupper($ar->location->locataire->prenom)}}  {{strtoupper($ar->location->locataire->nom)}}   </b> </td>
+            <td align="center" > <br><b style=" text-decoration: underline;"> {{strtoupper($ar->location->locataire->prenom)}}  {{strtoupper($ar->location->locataire->nom)}}  {{strtoupper($ar->location->locataire->societe)}}    </b> </td>
            
         </tr>
         
          <tr>
-            <td><br> La somme de : <b> {{$ar->loyer}} MAD </b> {{$loertext}} Dirhams concernant le loyer du mois de <b> {{$moisy}} </b> pour la location de lappartment sis a :  {{$ar->location->bien->adresse}}  {{$ar->location->bien->ville}}</td>
+            <td><br> La somme de : <b> {{$ar->loyer}} MAD </b> {{$loertext}} Dirhams concernant le loyer du mois de <b> {{$moisy}} </b> pour la location de lappartment sis a :  {{$ar->location->bien->adresse}}  {{$ar->location->bien->ville}} .</td>
 
         </tr>
          <tr>

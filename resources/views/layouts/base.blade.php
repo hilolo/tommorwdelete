@@ -76,7 +76,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="index.html" class="logo">
+    <a href="/home" class="logo">
       <!-- mini logo -->
 	  <div class="logo-mini">
 		  <span class="light-logo"><img src="{{ asset('../images/logo-light.png') }}" alt="logo"></span>
@@ -85,7 +85,7 @@
       <!-- logo-->
       <div class="logo-lg">
 		  <span class="light-logo"><img src="{{ asset('../images/logo-light-text.png') }}" alt="logo"></span>
-	  	  <span class="dark-logo"><img src="{{ asset('../images/logo-dark-text.png') }}" alt="logo"></span>
+	  	    <p class="text-dark">  <b>ACCES</b>GESTION</p>
 	  </div>
     </a>
     <!-- Header Navbar -->
@@ -102,22 +102,22 @@
 		  <li class="search-box">
             <a class="nav-link hidden-sm-down" href="javascript:void(0)"><i class="mdi mdi-magnify"></i></a>
             <form class="app-search" style="display: none;">
-                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a>
+                <input type="text" class="form-control" placeholder="Search Client"> <a class="srh-btn"><i class="ti-close"></i></a>
 			</form>
           </li>	
 		  <!-- User Account-->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{ asset('../images/avatar/7.jpg') }}" class="user-image rounded-circle" alt="User Image">
+              <img src="{{  asset(Auth::user()->photo)  }}" class="user-image rounded-circle" alt="User Image">
             </a>
             <ul class="dropdown-menu animated flipInY">
               <!-- User image -->
               <li class="user-header bg-img" style="background-image: url(../images/user-info.jpg)" data-overlay="3">
 				  <div class="flexbox align-self-center">					  
-				  	<img src="{{ asset('../images/avatar/7.jpg') }}" class="float-left rounded-circle" alt="User Image">					  
+				  	<img src="{{  asset(Auth::user()->photo)  }}" class="float-left rounded-circle" alt="User Image">					  
 					<h4 class="user-name align-self-center">
-					  <span>Samuel Brus</span>
-					  <small>samuel@gmail.com</small>
+					  <span>{{Auth::user()->name}}</span>
+					  <small>{{Auth::user()->email}}</small>
 					</h4>
 				  </div>
               </li>
@@ -126,9 +126,22 @@
 				    <a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-person"></i> My Profile</a>
 					 
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="javascript:void(0)"><i class="ion-log-out"></i> Logout</a>
+					
+
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="ion-log-out"></i>
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                             
+
 					<div class="dropdown-divider"></div>
-					<div class="p-10"><a href="javascript:void(0)" class="btn btn-sm btn-rounded btn-success">View Profile</a></div>
+          <!-- Menu Body 
+					<div class="p-10"><a href="javascript:void(0)" class="btn btn-sm btn-rounded btn-success">View Profile</a></div>-->
               </li>
             </ul>
           </li>		
@@ -149,10 +162,10 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="user-profile treeview">
           <a href="index.html">
-			<img src="{{ asset('../images/avatar/7.jpg') }}" alt="user">
+			<img src="{{  asset(Auth::user()->photo)  }}" alt="user">
               <span>
-				<span class="d-block font-weight-600 font-size-16">Mehdi</span>
-				<span class="email-id">0601010202</span>
+				<span class="d-block font-weight-600 font-size-16">{{Auth::user()->name}}</span>
+				<span class="email-id">{{Auth::user()->numero}}</span>
 			  </span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -161,13 +174,23 @@
 		  <ul class="treeview-menu">
      
 		
-			<li><a href="javascript:void()"><i class="fa fa-power-off mr-5"></i>Logout</a></li>
+			<li> <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="ion-log-out"></i>
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form></li>
           </ul>
+
+
         </li>
         <li class="header nav-small-cap"><i class="mdi mdi-drag-horizontal mr-5"></i>L'essentiel</li>
 		
 		<li >
-          <a href="#a">
+          <a href="/home">
             <i class="mdi mdi-view-dashboard"></i>
 
             <span>Bureau</span>
@@ -312,7 +335,19 @@
           </a>
     
         </li>
+
+       <br><br>
+
+
+   
+        <iframe style="margin-left: 15px; text-align: center;" width="219" height="302" src="http://calculator-1.com/outdoor/?f=ffffff&r=666666" scrolling="no" frameborder="0"></iframe><br />
+
+
+         <div id='gcw_mainFfXjh2Rq4' class='gcw_mainFfXjh2Rq4'></div>
+<script>function reloadFfXjh2Rq4(){ var sc = document.getElementById('scFfXjh2Rq4');if (sc) sc.parentNode.removeChild(sc);sc = document.createElement('script');sc.type = 'text/javascript';sc.charset = 'UTF-8';sc.async = true;sc.id='scFfXjh2Rq4';sc.src = 'https://freecurrencyrates.com/fr/widget-vertical?iso=USDEURGBPJPYCNYXUL&df=2&p=FfXjh2Rq4&v=fits&source=fcr&width=245&width_title=0&firstrowvalue=1&thm=A6C9E2,FCFDFD,4297D7,5C9CCC,FFFFFF,C5DBEC,FCFDFD,2E6E9E,000000&title=Convertisseur%20de%20devises&tzo=-60';var div = document.getElementById('gcw_mainFfXjh2Rq4');div.parentNode.insertBefore(sc, div);} reloadFfXjh2Rq4(); </script>
 		  
+
+      
 		
        
 		  

@@ -18,7 +18,7 @@ class Quittance extends Model
     }
 
        protected $fillable = [
-        'location_id', 'datequiitance','loyer','descrption','Etat'
+        'location_id', 'datequiitance','loyer','descrption','Etat','duplica'
     ];
 
 

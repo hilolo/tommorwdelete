@@ -12,11 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.first');
 });
 
 Route::get('/qa', function () {
-    return view('location.add');
+    return view('layouts.login');
 }) ;
 
 Route::get('/qaa', function () {
@@ -31,7 +31,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 /////////////////////////////// Propraitaire
 
-
+Route::middleware('auth')->group(function () {
 Route::get('/Proprietaire', 'PropraitaireController@index');
 Route::get('/Proprietaire/{id}/View', 'PropraitaireController@View');
 Route::get('/Proprietaire/Add', 'PropraitaireController@storeaf');
@@ -39,6 +39,8 @@ Route::get('/Proprietaire/Adddocs', 'PropraitaireController@storedocs');
 Route::get('/Proprietaire/{id}/ModifierClient', 'PropraitaireController@updateaf');
 Route::get('/Proprietaire/data', 'PropraitaireController@data');
 Route::get('/Proprietaire/data2', 'PropraitaireController@data2');
+
+
 
 Route::get('/proparchive/{id}', 'PropraitaireController@archive')->name('proparchive');
 Route::get('/propdlete/{id}', 'PropraitaireController@destroy')->name('propdelete');
@@ -111,7 +113,7 @@ Route::post('/updateimmeuble/{id}', 'ImmeubleController@update');
 
 Route::get('/Location', 'LocationController@index');
 Route::get('/Location/Add', 'LocationController@storeaf');
-Route::get('/Location/{id}/ModifierClient', 'LocationController@updateaf');
+Route::get('/Location/Edit/{id}', 'LocationController@updateaf')->name('editlocat');;
 Route::get('/Location/data', 'LocationController@data');
 Route::get('/Location/data2', 'LocationController@data2');
 
@@ -191,3 +193,6 @@ Route::get('/Fraisagence/data/{id}', 'AgencefraiController@data');
 Route::get('/fraisdelete/{id}', 'AgencefraiController@destroy')->name('fraisdelete');
 Route::get('/fraisarchive/{id}', 'AgencefraiController@Archive')->name('fraisarchive');
 Route::get('/Fraisagence/recu/{id}', 'AgencefraiController@recu')->name('fraisrecu');
+
+
+});

@@ -139,7 +139,7 @@
 
                             ajax: '/Proprietaire/data',
                              columns: [
-                              {data: 'Nom full' },
+                                {data: 'Nom full', name: 'Nom full', orderable: false, searchable: false},
                               {data: 'biens', name: 'biens', orderable: false, searchable: false},
                               {data: 'tel'},
                               {data: 'email'},
@@ -171,7 +171,7 @@
                             "pageLength": 50,
                             ajax: '/Proprietaire/data2',
                              columns: [
-                              {data: 'Nom full'},
+                              {data: 'Nom full', name: 'Nom full', orderable: false, searchable: false},
                                 {data: 'biens', name: 'biens', orderable: false, searchable: false},
                               {data: 'tel'},
                               {data: 'email'},

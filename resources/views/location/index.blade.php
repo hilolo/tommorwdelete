@@ -143,7 +143,7 @@
             ajax: '/Location/data',
             "pageLength": 50,
              columns: [
-            {data: 'Nom full'},
+               {data: 'Nom full', name: 'Nom full', orderable: false, searchable: false},
             {data: 'biens'},
             {data: 'loyer'},
              {data: 'duro', name: 'duro', orderable: false, searchable: false},
@@ -174,7 +174,7 @@
             ajax: '/Location/data2',
             "pageLength": 50,
              columns: [
-           {data: 'Nom full'},
+             {data: 'Nom full', name: 'Nom full', orderable: false, searchable: false},
             {data: 'biens'},
             {data: 'loyer'},
               {data: 'duro', name: 'duro', orderable: false, searchable: false},

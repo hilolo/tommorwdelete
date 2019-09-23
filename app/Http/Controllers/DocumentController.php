@@ -115,11 +115,18 @@ class DocumentController extends Controller
 
             })
 
-          ->addColumn('Nom', function(Document $user) {  
-         
-        return '<a   href="/Locataire/'.   $user->locataire->id.'/View"    >' .   $user->locataire->prenom . ' ' . $user->locataire->nom .  ' ' . $user->locataire->societe . '</a>'  ; 
+              ->addColumn('Nom', function( $user) { 
+
+         if($user->locataire->mode =='2') {
+        return '<a   href="/Locataire/'.   $user->locataire->id.'/View"    >' .   $user->locataire->prenom . ' ' . $user->locataire->nom .   '</a>'  ; 
         
-             })
+             }else {
+                 return '<a   href="/Proprietaire/'.   $user->locataire->id.'/View"    >' .   $user->locataire->prenom . ' ' . $user->locataire->nom .   '</a>'  ; 
+
+
+             }
+
+         })
          ->rawColumns(['Nom' => 'Nom','action' => 'action'])
 
     ->toJson();

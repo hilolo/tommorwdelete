@@ -63,7 +63,7 @@
 
                 <label>IDENTIFIANT  
                 </label>
-                <input name="ref"  type="text" class="form-control" placeholder="Identifiant, référence ou numéro unique" >
+                <input name="ref"  type="text" class="form-control" required="" placeholder="Identifiant, référence ou numéro unique" >
                 </div>
                  </div>
             

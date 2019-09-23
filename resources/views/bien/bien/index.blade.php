@@ -19,6 +19,7 @@
 		
 		</div>
 	</div>
+  
 
 <section class="content">
 	
@@ -137,7 +138,7 @@
                              columns: [
                               {data: 'adrs full'},
                               {data: 'Atrr'},
-                              {data: 'Nom full'},
+                                 {data: 'Nom full', name: 'Nom full', orderable: false, searchable: false},
                             {data: 'action', name: 'action', orderable: false, searchable: false},
 
                              
@@ -170,7 +171,7 @@
                              columns: [
                               {data: 'adrs full'},
                               {data: 'Atrr'},
-                              {data: 'Nom full'},
+                            {data: 'Nom full', name: 'Nom full', orderable: false, searchable: false},
                              {data: 'action', name: 'action', orderable: false, searchable: false},
 
                              

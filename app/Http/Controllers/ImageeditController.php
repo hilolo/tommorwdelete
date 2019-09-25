@@ -41,16 +41,16 @@ $path=public_path('/uplouad/'. $request->input('name'));
             $imagick = $img->getCore();
 
 		        $img->resize(800, 500);
-			      $img->insert(public_path('images/logo.png'), 'bottom-right', 20, 20);
+			     // $img->insert(public_path('images/logo.png'), 'bottom-right', 20, 20);
 
-            $img->text('wwww.accesimmotanger.com ', 400, 250, function($font) {  
+        /*    //$img->text('wwww.accesimmotanger.com ', 400, 250, function($font) {  
           $font->file(public_path('/fonts/Calibri.ttf'));  
           $font->size(40);  
           $font->color('#706a6a');  
 
                 $font->align('center');
           
-         });  
+         });  */
 			   $img->save(public_path('/uplouad/'. $request->input('name'). '/' .$file->getClientOriginalName()),100);
 
 

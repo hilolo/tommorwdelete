@@ -161,7 +161,7 @@
       <!-- sidebar menu-->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="user-profile treeview">
-          <a href="index.html">
+          <a href="">
 			<img src="{{  asset(Auth::user()->photo)  }}" alt="user">
               <span>
 				<span class="d-block font-weight-600 font-size-16">{{Auth::user()->name}}</span>
@@ -201,7 +201,7 @@
 		
         <li class="treeview">
           <a href="#a">
-            <i class="mdi mdi-content-copy"></i>
+            <i class="fa fa-home "></i>
             <span>Biens</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -216,7 +216,7 @@
 
           <li >
           <a href="/Proprietaire">
-            <i class="mdi mdi-view-dashboard"></i>
+            <i class="fa  fa-user-circle-o"></i>
 
             <span>Proprietaire</span>
           
@@ -227,7 +227,7 @@
 
     <li >
           <a href="/Locataire">
-            <i class="mdi mdi-view-dashboard"></i>
+            <i class="fa fa-user "></i>
 
             <span>Locataires</span>
           
@@ -240,7 +240,7 @@
 
     <li >
           <a href="/Location">
-            <i class="mdi mdi-view-dashboard"></i>
+            <i class="fa fa-calendar"></i>
 
             <span>Location</span>
           
@@ -249,7 +249,7 @@
         </li>  
               <li class="treeview">
           <a href="#a">
-            <i class="mdi mdi-content-copy"></i>
+            <i class="fa fa-file-archive-o"></i>
             <span>Quittance</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -266,7 +266,7 @@
 
         <li >
           <a href="/Caution">
-            <i class="mdi mdi-view-dashboard"></i>
+            <i class="fa  fa-money"></i>
 
             <span>Caution </span>
           
@@ -279,7 +279,7 @@
 
       <li >
           <a href="/Fraisagence">
-            <i class="mdi mdi-view-dashboard"></i>
+            <i class="fa  fa-money "></i>
 
             <span>Les Frais de l'agence</span>
           
@@ -289,7 +289,7 @@
 
              <li >
           <a href="/">
-            <i class="mdi mdi-view-dashboard"></i>
+            <i class=" fa fa-cog"></i>
 
             <span>Interventions</span>
           
@@ -303,7 +303,7 @@
 
           <li >
           <a href="/Banks">
-            <i class="mdi mdi-view-dashboard"></i>
+            <i class="fa fa-credit-card"></i>
 
             <span>Les coordonnées bancaire</span>
           
@@ -314,7 +314,7 @@
 
     <li >
           <a href="/Documents">
-            <i class="mdi mdi-view-dashboard"></i>
+            <i class="fa fa-file-image-o"></i>
 
             <span>Documents</span>
           

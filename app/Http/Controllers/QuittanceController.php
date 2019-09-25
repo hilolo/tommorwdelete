@@ -65,13 +65,9 @@ class QuittanceController extends Controller
         	 return redirect('/quittance/recu/' . $id );
 
 
-        	
-
-
-
-        
       
     }
+
 
       public function delete($id)
     {
@@ -141,7 +137,7 @@ return $pdf->stream($ar->id .'.pdf');
           return datatables()->of($quitr)
     ->addColumn('Nom full', function(Quittance $user) {  
     	 
-        return '<a   href="/Locataire/'.   $user->location->locataire->id.'/View"    >' .   $user->location->locataire->prenom . ' ' . $user->location->locataire->nom .   '</a>'  ; 
+        return '<a   href="/Locataire/'.   $user->location->locataire->id.'/View"    >' .   $user->location->locataire->prenom . ' ' . $user->location->locataire->nom . ' ' . $user->location->locataire->societe .   '</a>'  ; 
         
     })
      ->addColumn('Bien', function(Quittance $user) {  
@@ -215,7 +211,7 @@ return $pdf->stream($ar->id .'.pdf');
  public function dataser($month,$year)
     {
 			     	
-$quitr =Quittance::latest('id')
+$quitr =Quittance::orderBy('datequiitance','DESC')
 ->whereYear('datequiitance', '=', $year)
 ->whereMonth('datequiitance', '=', $month)
 ->where('Etat', '=', 'En retard')
@@ -225,7 +221,7 @@ $quitr =Quittance::latest('id')
           return datatables()->of($quitr)
     ->addColumn('Nom full', function(Quittance $user) {  
     	 
-        return   $user->location->locataire->prenom . ' ' . $user->location->locataire->nom  ; 
+        return   $user->location->locataire->prenom . ' ' . $user->location->locataire->nom . ' ' . $user->location->locataire->societe   ; 
         
     })
      ->addColumn('info', function(Quittance $user) {  

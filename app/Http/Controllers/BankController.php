@@ -10,10 +10,9 @@ class BankController extends Controller
 {
 
 
-
-
       public function index()
     {
+
 
         return view('Bank.index');
       
@@ -56,10 +55,6 @@ class BankController extends Controller
           	$ar->save();
 
            
-
-
-
-
             
 
 

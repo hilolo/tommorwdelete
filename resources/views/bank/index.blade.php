@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 	<div class="content-header">
 		<div class="d-flex align-items-center">
 			<div class="mr-auto">
@@ -25,11 +24,11 @@
 	<div class="col-12">
           <div class="box box-default">
         
-            <!-- /.box-header -->
+           
             <div class="box-header with-border">
             	<div class="row"> 
             	<div class="col-10">
-            	<!-- Nav tabs -->
+           
 		
 
 				</div>

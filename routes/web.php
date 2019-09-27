@@ -19,6 +19,8 @@ Route::get('/qa', function () {
     return view('layouts.login');
 }) ;
 
+
+
 Route::get('/qaa', function () {
     return view('reservation.add');
 }) ;

@@ -143,10 +143,10 @@
             ajax: '/Location/data',
             "pageLength": 50,
              columns: [
-               {data: 'Nom full', name: 'Nom full', orderable: false, searchable: false},
+               {data: 'Nom full', name: 'Nom full'},
             {data: 'biens'},
             {data: 'loyer'},
-             {data: 'duro', name: 'duro', orderable: false, searchable: false},
+             {data: 'duro', name: 'duro'},
               {data: 'edito', name: 'edito', orderable: false, searchable: false},
              {data: 'edit', name: 'edit', orderable: false, searchable: false},
 
@@ -174,10 +174,10 @@
             ajax: '/Location/data2',
             "pageLength": 50,
              columns: [
-             {data: 'Nom full', name: 'Nom full', orderable: false, searchable: false},
+             {data: 'Nom full'},
             {data: 'biens'},
             {data: 'loyer'},
-              {data: 'duro', name: 'duro', orderable: false, searchable: false},
+              {data: 'duro'},
                {data: 'edito', name: 'edito', orderable: false, searchable: false},
              {data: 'edit', name: 'edit', orderable: false, searchable: false},
 

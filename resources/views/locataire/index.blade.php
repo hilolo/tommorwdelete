@@ -139,8 +139,8 @@
             ajax: '/Locataire/data',
             "pageLength": 50,
              columns: [
-             {data: 'Nom full', name: 'Nom full', orderable: false, searchable: false},
-             {data: 'bienloc', name: 'bienloc', orderable: false, searchable: false},
+             {data: 'Nom full', name: 'Nom full'},
+             {data: 'bienloc', name: 'bienloc'},
             {data: 'tel'},
         
              {data: 'action', name: 'action', orderable: false, searchable: false},
@@ -169,8 +169,8 @@
             ajax: '/Locataire/data2',
             "pageLength": 50,
              columns: [
-             {data: 'Nom full', name: 'Nom full', orderable: false, searchable: false},
-             {data: 'bienloc', name: 'bienloc', orderable: false, searchable: false},
+             {data: 'Nom full', name: 'Nom full'},
+             {data: 'bienloc', name: 'bienloc'},
             {data: 'tel'},
         
              {data: 'action', name: 'action', orderable: false, searchable: false},

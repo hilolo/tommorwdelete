@@ -230,7 +230,7 @@ $file = $request->file('file');
       ->addColumn('Nom full', function(location $user) { 
 
         
-        return '<a   href="/Locataire/'.   $user->locataire->id.'/View"    >' .   $user->locataire->prenom . ' ' . $user->locataire->nom . ' ' . $user->locataire->societe .   '</a>'  ; 
+        return '<a   href="/Locataire/'.   $user->locataire->id.'/View"    >' .   $user->locataire->prenom . ' ' . $user->locataire->nom . '' . $user->locataire->societe .   '</a>'  ; 
         
           
          })

@@ -305,7 +305,7 @@ class LocataireController extends Controller
      public function dataquit($id)
     {
           
-        $quitr =Quittance::
+        $quitr =Quittance::orderBy('datequiitance','DESC')->
         join('locations', 'locations.id', '=', 'quittance.location_id')
         ->join('locataires', 'locataires.id', '=', 'locations.locataires_id')
         ->where('locataires.id', '=', $id)

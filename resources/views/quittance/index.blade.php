@@ -278,7 +278,7 @@ buttons: [
                              "url": "//cdn.datatables.net/plug-ins/1.10.9/i18n/French.json"
                             },
                             processing: false,
-                            serverSide: true,
+                            serverSide: false,
                             "pageLength": 50,
                              dom: 'Bfrtip',
 buttons: [

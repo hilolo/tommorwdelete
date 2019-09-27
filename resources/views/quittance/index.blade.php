@@ -242,7 +242,7 @@
                              "url": "//cdn.datatables.net/plug-ins/1.10.9/i18n/French.json"
                             },
                             processing: true,
-                            serverSide: true,
+                            serverSide: false,
                            "order": [],
                             dom: 'Bfrtip',
 buttons: [

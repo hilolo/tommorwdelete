@@ -14,7 +14,7 @@ class BankController extends Controller
     {
 
 
-        return view('Bank.index');
+        return view('bank.index');
       
     }
 
@@ -23,7 +23,7 @@ class BankController extends Controller
 
     public function storeaf($id)
     {
-        return view('Bank.add',compact('id'));
+        return view('bank.add',compact('id'));
     }
 
 
@@ -33,7 +33,7 @@ class BankController extends Controller
     {
 
            $loc2 = Locataire::all()->where('archive', '0'); 
-        return view('Bank.add2',compact('loc2'));
+        return view('bank.add2',compact('loc2'));
     }
 
    public function insert(Request $request,$id)

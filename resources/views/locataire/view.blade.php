@@ -59,7 +59,7 @@
                 <a href="#">
                   <img class="avatar avatar-xxl avatar-bordered" src="../../images/avatar/5.jpg" alt="">
                 </a>
-                <h4 class="mt-2 mb-0"><a class="hover-primary text-white" href="#">{{ $art->prenom }} {{ $art->nom }}</a></h4>
+                <h4 class="mt-2 mb-0"><a class="hover-primary text-white" href="#">{{ $art->prenom }} {{ $art->nom }} {{ $art->societe }} </a></h4>
                 <span><i class="fa fa-map-marker w-20"></i> {{ $art->ville }} {{ $art->pays }}  </span>
               </div>
 

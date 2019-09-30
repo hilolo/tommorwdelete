@@ -35,11 +35,10 @@
         }
         .information {
             
-
+            color: black;
         }
         .information .logo {
             margin: 5px;
-
         }
         .information table {
             padding: 10px;
@@ -48,48 +47,20 @@
     border-top:9px dotted #000;
     /*Rest of stuff here*/
 }
-
-
-
-.rotingtxt{
-    -webkit-transform: rotate(331deg);
-    -moz-transform: rotate(331deg);
-    -o-transform: rotate(331deg);
-    transform: rotate(331deg);
-    font-size: 10em;
-    text-align: center;
-    color: rgba(255, 5, 5, 0.17);
-    position: absolute;
-    font-family: 'Denk One', sans-serif;
-    text-transform:uppercase;
-    padding-left: 10%;
-    display:block;  
-        position:absolute;
-
-}
-
-
-
     </style>
 
 </head>
 <body>
 
-
-    
- 
-
-      
-
 <div class="information">
     <table width="100%">
-        <tr style="margin-left: ">
-            <td align="left" >
+        <tr>
+            <td align="left" style="width: 40%;">
 
                  
                 <img style="margin: 10px;" src="https://i.imgur.com/NvyRElv.png" alt="Logo" width="70" class="logo"/>
            
-                <pre style="margin: 10px;">
+                <pre>
 
 <br />
 Date: {{$ldate}} 
@@ -123,23 +94,15 @@ Status: Payé
 
 <br/>
 
-       
-@if($ar->duplica > '1')
-    <p class="rotingtxt">DUPLICATA</p>
-    @endif
-
 <div class="invoice">
     <h2 align="center">RECU DE PAIMENT</h2>
     <br>
     <table width="100%">
       
         <tbody>
-        <tr >
-            <td style=" text-align:justify; 
-                text-justify:auto; "    >Je, soussigné :
-
-
-                <b> {{$ar->location->bien->locataire->civilite}}  {{$ar->location->bien->locataire->prenom}}  {{$ar->location->bien->locataire->nom}}  </b> 
+        <tr>
+            <td>Je, soussigné :<b> {{$ar->location->bien->locataire->civilite}}  {{$ar->location->bien->locataire->prenom}}  {{$ar->location->bien->locataire->nom}}  </b> 
+       
        
 @if(!empty($ar->location->bien->locataire->cin))
 
@@ -155,9 +118,7 @@ Status: Payé
 
 
 
-
-
-                  représenté par Monsieur Brahim Lachaibi CIN N K304670, domicilité a AV. Mohammed VI, Complexe Alia C , rdc n7  Tanger Atteste Avoi recu, de la part de:</td>
+                  demeurant a {{$ar->location->bien->locataire->adresse}} représenté par Monsieur Brahim Lachaibi CIN N T405871, domicilité a AV. Mohammed VI, Complexe Alia C,rdc n7. Tanger Atteste Avoi recu, de la part de:</td>
 
         </tr>
            <tr>
@@ -166,7 +127,7 @@ Status: Payé
         </tr>
         
          <tr>
-            <td><br> La somme de : <b> {{$ar->loyer}} MAD </b> {{$loertext}} Dirhams concernant le loyer du mois de <b> {{$moisy}} </b> pour la location de lappartment sis a :  {{$ar->location->bien->adresse}}  {{$ar->location->bien->ville}} .</td>
+            <td><br> La somme de : <b> {{$ar->loyer}} MAD </b> {{$loertext}} Dirhams concernant le loyer du mois de <b> {{$moisy}} </b> pour la location de lappartment sis a :  {{$ar->location->bien->adresse}}  {{$ar->location->bien->ville}}</td>
 
         </tr>
          <tr>
@@ -193,8 +154,8 @@ Status: Payé
       
           <tbody>
         <tr>
-            <td style=" text-align:justify; 
-                text-justify:auto; " >Je, soussigné :<b> {{$ar->location->bien->locataire->civilite}}  {{$ar->location->bien->locataire->prenom}}  {{$ar->location->bien->locataire->nom}}  </b> 
+            <td>Je, soussigné :<b> {{$ar->location->bien->locataire->civilite}}  {{$ar->location->bien->locataire->prenom}}  {{$ar->location->bien->locataire->nom}}  </b> 
+       
        
 @if(!empty($ar->location->bien->locataire->cin))
 
@@ -202,12 +163,14 @@ Status: Payé
 @endif
 
 
-
 @if(!empty($ar->location->bien->locataire->adresse))
 
  demeurant a {{$ar->location->bien->locataire->adresse}}
 @endif
- représenté par Monsieur Brahim Lachaibi CIN N T405871, domicilité a AV. Mohammed VI, Complexe Alia C,rdc n7. Tanger Atteste Avoi recu, de la part de:</td>
+
+
+
+                  demeurant a {{$ar->location->bien->locataire->adresse}} représenté par Monsieur Brahim Lachaibi CIN N T405871, domicilité a AV. Mohammed VI, Complexe Alia C,rdc n7. Tanger Atteste Avoi recu, de la part de:</td>
 
         </tr>
            <tr>
@@ -216,7 +179,7 @@ Status: Payé
         </tr>
         
          <tr>
-            <td><br> La somme de : <b> {{$ar->loyer}} MAD </b> {{$loertext}} Dirhams concernant le loyer du mois de <b> {{$moisy}} </b> pour la location de lappartment sis a :  {{$ar->location->bien->adresse}}  {{$ar->location->bien->ville}} .</td>
+            <td><br> La somme de : <b> {{$ar->loyer}} MAD </b> {{$loertext}} Dirhams concernant le loyer du mois de <b> {{$moisy}} </b> pour la location de lappartment sis a :  {{$ar->location->bien->adresse}}  {{$ar->location->bien->ville}}</td>
 
         </tr>
          <tr>
@@ -251,3 +214,4 @@ Status: Payé
 </div>
 </body>
 </html>
+

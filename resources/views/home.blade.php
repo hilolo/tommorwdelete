@@ -223,7 +223,7 @@
        <div class="col-md-6 col-lg-6">
             <div class="box">
                 <div class="box-header with-border">
-                    <h5 class="box-title">Download Files</h5>
+                    <h5 class="box-title">Fichier important </h5>
                    
                 </div>
                 <div class="box-body p-0">

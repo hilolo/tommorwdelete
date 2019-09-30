@@ -138,33 +138,25 @@ Status: Payé
 <div class="invoice">
     <h2 align="center">RECU DE PAIMENT</h2>
     <br>
-    <table width="100%">
+       <table width="100%" > 
       
-        <tbody>
-        <tr >
+          <tbody>
+        <tr>
             <td style=" text-align:justify; 
-                text-justify:auto; "    > <b>Je, soussigné :</b>
-
-
-                <b> {{$ar->location->bien->locataire->civilite}}  {{$ar->location->bien->locataire->prenom}}  {{$ar->location->bien->locataire->nom}}  </b> 
-        <b>
+                text-justify:auto; " ><b>Je, soussigné : {{$ar->location->bien->locataire->civilite}}  {{$ar->location->bien->locataire->prenom}}  {{$ar->location->bien->locataire->nom}}  </b> 
+       <b>
 @if(!empty($ar->location->bien->locataire->cin))
 
  titulaire de la CIN n {{$ar->location->bien->locataire->cin}}
 @endif
 
 
+
 @if(!empty($ar->location->bien->locataire->adresse))
 
  demeurant a {{$ar->location->bien->locataire->adresse}}
 @endif
-
-
-
-</b> 
-
-<b>
-                  représenté par Monsieur Brahim Lachaibi CIN N K304670, domicilité a AV. Mohammed VI, Complexe Alia C , rdc n7  Tanger Atteste Avoi recu, de la part de:</b> </td>
+ représenté par Monsieur Brahim Lachaibi CIN N T405871, domicilité a AV. Mohammed VI, Complexe Alia C,rdc n7. Tanger Atteste Avoi recu, de la part de:</b></td>
 
         </tr>
            <tr>
@@ -173,23 +165,26 @@ Status: Payé
         </tr>
         
          <tr>
-            <td><br></b> La somme de : <b> {{$ar->loyer}} MAD </b> {{$loertext}} Dirhams concernant le loyer du mois de <b> {{$moisy}} </b> pour la location de lappartment sis a :  {{$ar->location->bien->adresse}}  {{$ar->location->bien->ville}} .</b> </td>
+            <td><br> <b>La somme de : <b> {{$ar->loyer}} MAD </b> {{$loertext}} Dirhams concernant le loyer du mois de <b> {{$moisy}} </b> pour la location de lappartment sis a :  {{$ar->location->bien->adresse}}  {{$ar->location->bien->ville}} .</b> </td>
 
         </tr>
          <tr>
-            <td> <b>Le présent recu est établi pour pour servivre et valoir ce que de droit .</b> </td>
+            <td><b>Le présent recu est établi pour pour servivre et valoir ce que de droit .</b></td>
 
         </tr>
          <tr>
             <td align="right"> <br> Signature</td>
 
         </tr>
+      
      
 
         </tbody>
 
     
     </table>
+        
+  
     <br><br><br><br><br><br>
     <hr>
 

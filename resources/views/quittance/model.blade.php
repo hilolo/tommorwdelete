@@ -113,13 +113,12 @@ Status: Payé
 
                 <h3>ACCESIMMOTANGER</h3>
                 <pre>
-                     <b>
+                    
                     www.accesimmotanger.ma
-
                     Route de Malabata 
                     Complexe Alia C 
                     RDC n°7 Tangier
-                    </b> 
+                     
                 </pre>
             </td>
         </tr>

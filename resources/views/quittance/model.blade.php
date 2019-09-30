@@ -10,12 +10,13 @@
         }
         body {
             margin: 0px;
+             color: black;
         }
         * {
             font-family: Verdana, Arial, sans-serif;
         }
         a {
-            color: #fff;
+            color: black;
             text-decoration: none;
         }
         table {
@@ -29,9 +30,11 @@
             margin: 15px;
             margin-left: 40px;
             margin-right: 40px;
+             color: black;
         }
         .invoice h3 {
             margin-left: 15px;
+             color: black;
         }
         .information {
             
@@ -43,6 +46,7 @@
         }
         .information table {
             padding: 10px;
+             color: black;
         }
         hr {
     border-top:9px dotted #000;

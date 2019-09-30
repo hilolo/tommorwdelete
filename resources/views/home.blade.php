@@ -228,35 +228,43 @@
                 </div>
                 <div class="box-body p-0">
                   <div class="media-list media-list-divided">
-                    <div class="media media-single">
-                      <span class="font-size-24 text-success"><i class="fa fa-file-pdf-o"></i></span>
-                      <span class="title">Deeveloper Manual</span>
-                      <a class="font-size-18 text-gray hover-info" href="#"><i class="fa fa-download"></i></a>
-                    </div>
-
-                    <div class="media media-single">
-                      <span class="font-size-24 text-primary"><i class="fa fa-file-text"></i></span>
-                      <span class="title">Documentation</span>
-                      <a class="font-size-18 text-gray hover-info" href="#"><i class="fa fa-download"></i></a>
-                    </div>
-
-                    <div class="media media-single">
-                      <span class="font-size-24 text-warning"><i class="fa fa-file-excel-o"></i></span>
-                      <span class="title">Download Excel version</span>
-                      <a class="font-size-18 text-gray hover-info" href="#"><i class="fa fa-download"></i></a>
-                    </div>
-
-                    <div class="media media-single">
-                      <span class="font-size-24 text-danger"><i class="fa fa-file-zip-o"></i></span>
-                      <span class="title">Download Ziped version</span>
-                      <a class="font-size-18 text-gray hover-info" href="#"><i class="fa fa-download"></i></a>
-                    </div>
+                  
 
                     <div class="media media-single">
                       <span class="font-size-24 text-info"><i class="fa fa-file-word-o"></i></span>
-                      <span class="title">Download Word version</span>
-                      <a class="font-size-18 text-gray hover-info" href="#"><i class="fa fa-download"></i></a>
+                      <span class="title">CONTRAT DE COURTAGE SANS EXCLUSIVITE Location</span>
+                      <a class="font-size-18 text-gray hover-info" href="/docs/location.doc"><i class="fa fa-download"></i></a>
                     </div>
+
+                      <div class="media media-single">
+                      <span class="font-size-24 text-info"><i class="fa fa-file-word-o"></i></span>
+                      <span class="title">CONTRAT DE COURTAGE SANS EXCLUSIVITE Vente</span>
+                      <a class="font-size-18 text-gray hover-info" href="/docs/vente.doc"><i class="fa fa-download"></i></a>
+                    </div>
+
+
+
+                    <div class="media media-single">
+                      <span class="font-size-24 text-primary"><i class="fa fa-file-text"></i></span>
+                      <span class="title">RIB ACCES</span>
+                      <a class="font-size-18 text-gray hover-info" href="/docs/rib acces.jpg"><i class="fa fa-download"></i></a>
+                    </div>
+                     <div class="media media-single">
+                      <span class="font-size-24 text-primary"><i class="fa fa-file-text"></i></span>
+                      <span class="title">RIB BRAHIM BMCE</span>
+                      <a class="font-size-18 text-gray hover-info" href="/docs/ribbrahimlachaibibmce.jpg"><i class="fa fa-download"></i></a>
+                    </div>
+                     <div class="media media-single">
+                      <span class="font-size-24 text-primary"><i class="fa fa-file-text"></i></span>
+                      <span class="title">RIB BRAHIM Attijari</span>
+                      <a class="font-size-18 text-gray hover-info" href="/docs/ribbrahimlachaibialtijari.jpg"><i class="fa fa-download"></i></a>
+                    </div>
+
+                   
+
+                  
+
+                    
                   </div>
               </div>
             </div>

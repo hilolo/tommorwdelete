@@ -54,7 +54,7 @@
 }
 
 
-
+/*
 .rotingtxt{
     -webkit-transform: rotate(331deg);
     -moz-transform: rotate(331deg);
@@ -70,7 +70,7 @@
     display:block;  
         position:absolute;
 
-}
+}*/
 
 
 
@@ -98,9 +98,10 @@
 <br />
 Date: {{$ldate}} 
 Status: Payé
+<!--
 @if($ar->duplica > '2')
 [ duplicata :{{$ar->duplica}} ]
- @endif
+ @endif--> 
 </pre>
 
 
@@ -127,10 +128,10 @@ Status: Payé
 
 <br/>
 
-       
+  <!--     
 @if($ar->duplica > '1')
     <p class="rotingtxt">DUPLICATA</p>
-    @endif
+    @endif-->
 
 <div class="invoice">
     <h2 align="center">RECU DE PAIMENT</h2>

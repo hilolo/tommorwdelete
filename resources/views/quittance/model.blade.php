@@ -140,7 +140,7 @@ Status: Payé
         <tbody>
         <tr >
             <td style=" text-align:justify; 
-                text-justify:auto; "    >Je, soussigné :
+                text-justify:auto; "    > <b>Je, soussigné :</b>
 
 
                 <b> {{$ar->location->bien->locataire->civilite}}  {{$ar->location->bien->locataire->prenom}}  {{$ar->location->bien->locataire->nom}}  </b> 

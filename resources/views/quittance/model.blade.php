@@ -140,7 +140,7 @@ Status: Payé
                 text-justify:auto; "    >Je, soussigné :
 
 
-                <b> {{$ar->location->bien->locataire->civilite}}  {{$ar->location->bien->locataire->prenom}}  {{$ar->location->bien->locataire->nom}}  </b> 
+                <b> {{$ar->location->bien->locataire->civilite}}  {{$ar->location->bien->locataire->prenom}}  {{$ar->location->bien->locataire->nom}} {{$ar->location->bien->locataire->societe}}  </b> 
        
 @if(!empty($ar->location->bien->locataire->cin))
 

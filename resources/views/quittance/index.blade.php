@@ -145,8 +145,8 @@
 
           <div class="col-2" >
           <div class="float-right">
-            <form method="get" action="/page2">
-      <button type="button" class="btn btn-success btn-circle btn-sm"  onclick="window.location.href='/page2'" ><i class="fa fa-plus"></i>
+            <form method="get" action="/quittance/add">
+      <button type="button" class="btn btn-success btn-circle btn-sm"  onclick="window.location.href='/quittance/add'" ><i class="fa fa-plus"></i>
         <a href="a"></a>
 </button>
 </form>

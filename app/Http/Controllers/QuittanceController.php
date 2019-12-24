@@ -18,6 +18,50 @@ class QuittanceController extends Controller
     }
 
 
+		
+	public function add41()
+    {
+
+		
+		$loc2 = Location::all()->where('archiveloc', '0');
+		return view('quittance.add',compact('loc2'));
+      
+	}
+	
+
+	public function ar21(Request $request){
+
+	
+		$loc= Location::find($request->loca);
+		$date= $request->dates;
+	
+
+		$d=1;
+		$m= date('n',strtotime($date));
+
+		 $y=date('Y',strtotime($date));
+
+		 $datein = $y . '-'. $m .'-'.'1';
+		 
+		 $qta = new Quittance([
+			'location_id' => $loc->id ,
+			'datequiitance' => $datein,
+			'loyer' => $loc->loyer,
+			'descrption' => 'Quittance manuelle',
+			'Etat' => 'En retard',
+			'duplica'=> '0'
+
+
+		]);
+		$qta->save(); 
+	
+		return redirect('/quittance/recu/' . $qta->id );
+
+	
+
+
+	}
+
        public function index2()
     {
 
@@ -132,7 +176,7 @@ return $pdf->stream($ar->id .'.pdf');
        public function data($st)
     {
 			     	if($st == 1)	
-         $quitr =Quittance::orderBy('datequiitance','DESC')->get();
+         $quitr =Quittance::orderBy('datequiitance','DESC')->whereYear('datequiitance', '>', 2018)->get();
      else if($st == 2) $quitr =Quittance::latest('id')->where('Etat','Payé')->get();
           return datatables()->of($quitr)
     ->addColumn('Nom full', function(Quittance $user) {  

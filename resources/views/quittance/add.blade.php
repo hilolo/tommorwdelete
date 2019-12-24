@@ -11,7 +11,7 @@
 					<nav>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-							<li class="breadcrumb-item active" aria-current="page">Ajouté proprietaire</li>
+							<li class="breadcrumb-item active" aria-current="page">Ajouté Quittance manuelle</li>
 						</ol>
 					</nav>
 				</div>
@@ -28,7 +28,7 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="box">
       <div class="box-header with-border">
-        <h4 class="box-title">Formulaire d'ajout nouveau proprietaire</h4>
+        <h4 class="box-title">Formulaire d'ajout nouveau Quittance</h4>
         <ul class="box-controls pull-right">
          
           <li><a class="box-btn-slide" href="#"></a></li> 
@@ -37,19 +37,22 @@
 
 
 
-      <form class="form" method="POST" action="/insertproprietaire" enctype="multipart/form-data" >
+      <form class="form" method="POST" action="/quittance/add/qtc" enctype="multipart/form-data" >
         {{ csrf_field() }}
           <div class="box-body">
-            <h4 class="box-title text-info"><i class="ti-user mr-15"></i> Type de proprietaire</h4>
+            <h4 class="box-title text-info"><i class="ti-user mr-15"></i> Location</h4>
             <hr class="my-15">
             <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-12">
                     <div class="form-group">
                 <label>Type</label>
-                <select class="form-control" name="type" id="selectada">
-                <option value="1">Particulier</option>
-                <option  value="2">Société / Autre</option>
-                </select>
+                <select id="listpr" name="loca" class="form-control select2" style="width: 100%;">
+            @foreach ($loc2 as $loca)
+            <option  value="{{$loca->id}}" >{{$loca->locataire->prenom  }} {{$loca->locataire->nom   }} {{$loca->locataire->societe  }} ||   {{$loca->bien->Ref   }} {{$loca->bien->adresse   }} ||  {{$loca->date_debutbail    }} =>  {{$loca->date_finbail    }}
+              ||  {{$loca->loyer   }} MAD   ||  {{$loca->bien->locataire->prenom    }} {{$loca->bien->locataire->nom      }}  {{$loca->bien->locataire->societe    }}
+             </option>
+            @endforeach
+          </select>
               </div>
               </div>
             
@@ -59,167 +62,34 @@
          
      <div id="particulier"  >
 
-            <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Informations personnelles</h4>
+            <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Informations </h4>
             <hr class="my-15">
 
               <div class="row">
               <div class="col-md-6">
               <div class="form-group">
-                <label>Civilité</label>
-                <select class="form-control" name="civilite">
-                <option value="Monsieur">Monsieur</option>
-                <option value="Madame">Madame</option>
-                </select>
+                <label>Date (Mois Jour Années)</label>
+                <div class="input-group date">
+
+
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                <input type="text" name="dates" value="01/01/2020" />
+
+                  
+
+                </div> 
+
               </div>
             </div>
 
-               <div class="col-md-6">
-                <div class="form-group">
-
-                <label>Cin 
-                </label>
-                <input type="text"  name="cin" class="form-control" placeholder="CIN">
-                </div>
+              
 
 
-                
-
-
-                 </div>
-
-
-
-
-          </div>
-
-
-            <div class="row">
-              <div class="col-md-6">
-              <div class="form-group">
-
-                <label>Prenom 
-                </label>
-                <input type="text" name="prenom" id="prenom"   class="form-control" >
-                </div>
-              </div>
-              <div class="col-md-6">
-            <div class="form-group">
-
-                <label>Nom 
-                </label>
-                <input type="text" name="nom" id="nom"  class="form-control" >
-                </div>
-              </div>
-
-            </div>
-             </div>
-
-
-              <div id="societe" >
-                <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Information société</h4>
-                <hr class="my-15">
-
-                <div class="form-group">
-
-                <label>SOCIÉTÉ *
-                </label>
-                <input type="text" name="societe" id="societeqqa" class="form-control" placeholder="Company Nom">
-                </div>
-
-                <div class="row">
-                <div class="col-md-6">
-
-                <div class="form-group">
-
-                <label>ICE
-                </label>
-                <input type="text" name="ice" class="form-control" placeholder="Numero ICE">
-                </div>
-                </div>
-                <div class="col-md-6">
-
-                <div class="form-group">
-
-                <label>PROFESSION
-                </label>
-                <input type="text" name="profession" class="form-control" placeholder="Ex : Dentiste">
-                </div>
-                </div>
-
-                </div>
-                </div>
-
-
-
-            <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Information de contact</h4>
-            <hr class="my-15">
-                <div class="row">
-              <div class="col-md-6">
-
-                <div class="form-group">
-
-                <label>Email
-                </label>
-                <input type="text" name="email" class="form-control" >
-                </div>
-                </div>
-
-                </div>
-
-            <div class="row">
-              <div class="col-md-6">
-              <div class="form-group">
-
-                <label>Telephone 
-                </label>
-                <input type="text" name="tele" class="form-control" >
-                </div>
-              </div>
-              <div class="col-md-6">
-            <div class="form-group">
-
-                <label>Fax 
-                </label>
-                <input type="text" name="fax" class="form-control" >
-                </div>
-              </div>
-
-            </div>
-
-              <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Adresse </h4>
-            <hr class="my-15">
-
-                    <div class="row">
-              <div class="col-md-12">
-              <div class="form-group">
-
-                <label>Adresse 
-                </label>
-                <input type="text" name="adrs" class="form-control" >
-                </div>
-              </div>
-           
-            </div>
-
-                    <div class="row">
-              <div class="col-md-6">
-              <div class="form-group">
-
-                <label>Ville 
-                </label>
-                <input type="text" name="ville" class="form-control" value="Tanger" >
-                </div>
-              </div>
-              <div class="col-md-6">
-            <div class="form-group">
-
-                <label>Pays 
-                </label>
-                <input type="text" name="pays"  class="form-control" value="Maroc" >
-                </div>
-              </div>
-
-            </div>
+        
+          
+            
 
 
 
@@ -250,7 +120,19 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 
 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script>
+$(function() {
+  $('input[name="dates"]').daterangepicker({
+    singleDatePicker: true,
 
+    minYear: 2010,
+    maxYear: parseInt(moment().format('YYYY'),10),
+    
+
+  });
+});
+</script>
 
 
 	@endsection

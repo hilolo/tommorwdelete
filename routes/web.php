@@ -140,7 +140,8 @@ Route::get('/quittanceimp', 'QuittanceController@index2');
 Route::post('/Searchquitdate', 'QuittanceController@search');
 Route::get('/quittance/data/{month}/{year}', 'QuittanceController@dataser');
 
-
+Route::get('/quittance/add', 'QuittanceController@add41');
+Route::post('/quittance/add/qtc', 'QuittanceController@ar21');
 /////////////////////////////// Bank
 
 

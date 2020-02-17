@@ -20,108 +20,6 @@
     </div>
   </div>
 
-    <!-- 
-
-  <section class="content">
-  
-  <div class="col-12">
-        <div class="box pull-up">
-          <div class="box-header with-border">
-            <h4 class="box-title">Détails</h4>
-            <div class="box-controls pull-right">
-           
-            </div>
-          </div>
-          
-          <div class="box-body">
-            <div class="row">
-              
-              <div class="col-lg-4">
-                <div class=" box-body">
-            
-                <div class="box box-body">
-            <h6 class="mb-30">
-            <span class="text-uppercase">LOYERS ENCAISSÉS</span>
-      
-            </h6>
-            
-            <p class="font-size-26">$845,1258</p>
-
-           
-            <div class="font-size-12"><i class="ion-arrow-graph-down-right text-success mr-1"></i> %18 decrease from last month</div>
-          </div>
-
-
-          
-
-
-                </div>
-              </div>
-
-                 <div class="col-lg-4">
-                <div class=" box-body">
-            
-                <div class="box box-body">
-            <h6 class="mb-30">
-            <span class="text-uppercase">LOYERS ENCAISSÉS</span>
-      
-            </h6>
-            
-            <p class="font-size-26">$845,1258</p>
-
-           
-            <div class="font-size-12"><i class="ion-arrow-graph-down-right text-success mr-1"></i> %18 decrease from last month</div>
-          </div>
-
-
-          
-
-
-                </div>
-              </div>
-
-              
-              
-
-
-              <div class="col-lg-4">
-
-                <div class="box-body">
-          <div class="text-center py-10 bb-1 bb-dashed">
-             <h4>This Month</h4>
-             <ul class="flexbox flex-justified text-center my-20">
-            <li class="px-10">
-              <h6 class="mb-0 text-bold">8952</h6>
-              <small>Abu Dhabi</small>
-            </li>
-
-            <li class="br-1 bl-1 px-10">
-              <h6 class="mb-0 text-bold">7458</h6>
-              <small>Miami</small>
-            </li>
-
-            <li class="px-10">
-              <h6 class="mb-0 text-bold">3254</h6>
-              <small>London</small>
-            </li>
-            </ul>           
-          </div>
-      
-        </div>
-
-
-
-
-            
-              </div>
-            </div>
-          </div>
-        
-        </div>
-      </div>
-</section>
--->
-
 
 <section class="content">
   
@@ -146,6 +44,7 @@
           <div class="col-2" >
           <div class="float-right">
             <form method="get" action="/quittance/add">
+            <a style="margin-right: 20px;" href="/qtcc" ><i class="fa fa-refresh"></i> </a>
       <button type="button" class="btn btn-success btn-circle btn-sm"  onclick="window.location.href='/quittance/add'" ><i class="fa fa-plus"></i>
         <a href="a"></a>
 </button>

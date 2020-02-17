@@ -586,6 +586,8 @@ $quitr =Quittance::orderBy('datequiitance','DESC')
 				}
 			}
 		} 
+
+		return redirect('/quittance' );
 		
 	}
 	

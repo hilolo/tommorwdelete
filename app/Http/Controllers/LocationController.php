@@ -220,6 +220,17 @@ $file = $request->file('file');
     }
 
 
+
+    public function deachive($id)
+    {
+      $share = Location::find($id);
+        $share->archiveloc=0;
+     $share->save();
+      return redirect('/Location');
+     
+    }
+
+
     public function data(){
 
         $articles =location::all()->where('archiveloc','0');
@@ -314,7 +325,7 @@ $file = $request->file('file');
      
         return '
                 <a style="font-size: 20px" href=""><i class="fa fa-edit bg-success" aria-hidden="true"></i></a>
-                  <a style="font-size: 20px" href="'. route('locatiarchive', $user->id).'"><i class="fa fa-archive bg-info" aria-hidden="true"></i></a>
+                  <a style="font-size: 20px" href="'. route('locationdearchive', $user->id).'"><i class="fa fa-archive bg-info" aria-hidden="true"></i></a>
                <a style="font-size: 20px" href="'. route('locatiadelete', $user->id).'"><i class="fa fa-trash bg-danger" aria-hidden="true"></i></a>
                
  

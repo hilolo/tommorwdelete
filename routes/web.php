@@ -120,6 +120,9 @@ Route::get('/Location/data', 'LocationController@data');
 Route::get('/Location/data2', 'LocationController@data2');
 
 Route::get('/locatiarchive/{id}', 'LocationController@archive')->name('locatiarchive');
+
+Route::get('/locationdarchive/{id}', 'LocationController@deachive')->name('locationdearchive');
+
 Route::get('/locatidlete/{id}', 'LocationController@destroy')->name('locatiadelete');
 
 
